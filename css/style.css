@@ -5,7 +5,25 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 75%;
 }
+
+:root{
+    --torrent_btn: #5ecb66;
+    --torrent_font: #314e55;
+    --torrent_btn_active: #8fd494;
+    --torrent_font_active: #547881;
+    --mega_btn: #d90007;
+    --white: #ffffff;
+    --mega_btn_active: #ff0008;
+    --mega_font_active: #a7a7a7;
+    --extra_btn: #a52a2a;
+    --extra_btn_active: #ac4545;
+    --extra_font_active: #a7a7a7;
+}
+  
+  
 
 /*-------------Unificações-------------*/
 div,
@@ -45,13 +63,11 @@ main {
 }
 
 h1 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.3rem;
     text-align: center;
 }
 
 .description {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 0.7rem;
     display: flex;
     justify-content: left;
@@ -67,10 +83,12 @@ h1 {
 
 h3{
     font-size: 1rem;
+    font-weight: bolder;
 }
 
 p{
     font-size: 0.9rem;
+    font-weight: 500;
 }
 
 /*-------------Capa do Jogo-------------*/
@@ -93,27 +111,27 @@ button {
     height: 2.313rem;
     border: none;
     border-radius: 0.313rem;
-    background-color: #5ecb66;
-    color: #314e55;
+    background-color: var(--torrent_btn);
+    color: var(--torrent_font);
     font-size: large;
 }
 
 button:hover {
-    background-color: #8fd494;
-    color: #547881;
+    background-color: var(--torrent_btn_active);
+    color: var(--torrent_font_active);
     cursor: pointer;
     transform: scale(1.1);
     transition: 0.5s;
 }
 
 button.mega{
-    background-color: #d90007;
-    color: white;
+    background-color: var(--mega_btn);
+    color: var(--white);
 }
 
 button.mega:hover{
-    background-color: #ff0008;
-    color: rgb(167, 167, 167);
+    background-color: var(--mega_btn_active);
+    color: var(--mega_font_active);
 }
 
 /*-------------Ícone do Botão-------------*/
@@ -127,14 +145,14 @@ button>img {
 
 .extra {
     font-size: 1rem;
-    background-color: brown;
-    color: white;
+    background-color: var(--extra_btn);
+    color:var(--white);
     height: 1.5rem;
 }
 
 .extra:hover {
-    background-color: rgb(172, 69, 69);
-    color: rgb(167, 167, 167);
+    background-color: var(--extra_btn_active);
+    color: var(--extra_font_active);
 }
 
 div.extra_double{
