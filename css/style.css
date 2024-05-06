@@ -1,0 +1,146 @@
+/*-------------Regras Gerais-------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/*-------------Unificações-------------*/
+div,
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*-------------Main-------------*/
+
+main {
+    display: inline-flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1.875rem;
+    padding-top: 1.525rem;
+    padding-bottom: 1.525rem;
+}
+
+/*-------------Card do Jogo-------------*/
+
+.card {
+    
+    padding: 10px;
+    border-radius: 5px;
+    flex-direction: column;
+    gap: 0.625rem;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.39);
+}
+
+.card:hover{
+    transform: scale(1.05);
+    transition: 1s;
+}
+
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.description {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: left;
+    align-items: baseline;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.description_item {
+    flex-direction: row;
+    gap: 0.313rem;
+}
+
+h3{
+    font-size: 1rem;
+}
+
+p{
+    font-size: 0.9rem;
+}
+
+/*-------------Capa do Jogo-------------*/
+
+.game_cover {
+    width: 17.125rem;
+    height: 24.188rem;
+    border-radius: 5px;
+}
+
+.game_cover:hover{
+    cursor: pointer;
+}
+
+/*-------------Botão de Download Principal-------------*/
+
+button {
+    gap: 0.625rem;
+    width: 12.5rem;
+    height: 2.313rem;
+    border: none;
+    border-radius: 0.313rem;
+    background-color: #5ecb66;
+    color: #314e55;
+    font-size: large;
+}
+
+button:hover {
+    background-color: #8fd494;
+    color: #547881;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+button.mega{
+    background-color: #d90007;
+    color: white;
+}
+
+button.mega:hover{
+    background-color: #ff0008;
+    color: rgb(167, 167, 167);
+}
+
+/*-------------Ícone do Botão-------------*/
+
+button>img {
+    width: 2rem;
+    margin: 0;
+}
+
+/*-------------Botão Adicional-------------*/
+
+.extra {
+    font-size: 1rem;
+    background-color: brown;
+    color: white;
+    height: 1.5rem;
+}
+
+.extra:hover {
+    background-color: rgb(172, 69, 69);
+    color: rgb(167, 167, 167);
+}
+
+div.extra_double{
+    gap: 0.625rem;
+}
+
+.extra_double>a>.extra{
+    width: 5.938rem;
+}
