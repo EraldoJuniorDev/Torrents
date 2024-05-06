@@ -48,13 +48,13 @@ main {
 
 .card {
     
-    padding: 10px;
-    border-radius: 5px;
+    padding: 0.625rem;
+    border-radius: 0.313rem;
     flex-direction: column;
     gap: 0.625rem;
     width: fit-content;
     height: fit-content;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.39);
+    box-shadow: 0 0 0.313rem rgba(0, 0, 0, 0.39);
 }
 
 .card:hover{
@@ -96,7 +96,7 @@ p{
 .game_cover {
     width: 17.125rem;
     height: 24.188rem;
-    border-radius: 5px;
+    border-radius: 0.313rem;
 }
 
 .game_cover:hover{
