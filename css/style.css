@@ -21,7 +21,7 @@ main {
     display: inline-flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 1.875rem;
+    row-gap: 2.5rem;
     padding-top: 1.525rem;
     padding-bottom: 1.525rem;
 }
