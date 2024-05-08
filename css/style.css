@@ -8,19 +8,19 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-:root {
-    --torrent_btn: #5ecb66;
-    --torrent_font: #314e55;
-    --torrent_btn_active: #8fd494;
-    --torrent_font_active: #547881;
-    --mega_btn: #d90007;
-    --white: #ffffff;
-    --mega_btn_active: #ff0008;
-    --mega_font_active: #a7a7a7;
-    --extra_btn: #a52a2a;
-    --extra_btn_active: #ac4545;
-    --extra_font_active: #a7a7a7;
-}
+    :root {
+        --torrent_btn: #5ecb66;
+        --torrent_font: #314e55;
+        --torrent_btn_active: #8fd494;
+        --torrent_font_active: #547881;
+        --mega_btn: #d90007;
+        --white: #ffffff;
+        --mega_btn_active: #ff0008;
+        --mega_font_active: #a7a7a7;
+        --extra_btn: #a52a2a;
+        --extra_btn_active: #ac4545;
+        --extra_font_active: #a7a7a7;
+    }
 
 /*-------------Keyframes-------------*/
 
@@ -42,6 +42,15 @@ button {
     justify-content: center;
 }
 
+body{
+    display: flex;
+}
+
+aside{
+    background-color: darkred;
+    width: 300px;
+}
+
 /*-------------Main-------------*/
 
 main {
@@ -51,12 +60,18 @@ main {
     row-gap: 2.5rem;
     padding-top: 1.525rem;
     padding-bottom: 1.525rem;
+    background-color: rgba(0, 0, 0, 0.91);
+}
+
+.post{
+    display: flex;
+    flex-direction: row;
 }
 
 /*-------------Card do Jogo-------------*/
 
 .card {
-
+    background-color: var(--white);
     padding: 0.625rem;
     border-radius: 0.313rem;
     flex-direction: column;
@@ -77,7 +92,7 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 1.5rem;
     text-align: center;
 }
 
@@ -106,6 +121,10 @@ p {
 
 .game_cover:hover {
     cursor: pointer;
+}
+
+.game_cover_post{
+    width: 60rem;
 }
 
 /*-------------Botão de Download Principal-------------*/
@@ -166,4 +185,63 @@ div.extra_double {
 
 .extra_double>a>.extra {
     width: 5.938rem;
+}
+
+/*=======================================*/
+
+.maincontainer {
+    position: static;
+    width: 17.125rem;
+    height: 24.188rem;
+    background: none;
+    top: 50%;
+    left: 50%;
+
+}
+
+/* THE CARD HOLDS THE FRONT AND BACK FACES */
+.thecard {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 17.125rem;
+    height: 24.188rem;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
+}
+
+/* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
+.thecard:hover {
+    cursor: pointer;
+}
+
+/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
+.thefront {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 17.125rem;
+    height: 24.188rem;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #ffc728;
+    color: #000;
+}
+
+/* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
+.theback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #fafafa;
+    color: #333;
+    text-align: center;
+    transform: rotateY(180deg);
 }
