@@ -1,0 +1,82 @@
+@media (min-width: 320px) {
+
+    main {
+        justify-content: left;
+        row-gap: 0.5rem;
+    }
+
+    .card {
+        width: 320px;
+        flex-direction: row;
+    }
+
+
+    .game_cover {
+        width: 6.125rem;
+        height: 9.188rem;
+    }
+}
+
+@media (min-width: 375px) {
+
+    main {
+        justify-content: left;
+        row-gap: 0.5rem;
+    }
+
+    .card {
+        width: 375px;
+        flex-direction: row;
+    }
+
+    .game_cover {
+        width: 6.125rem;
+        height: 9.188rem;
+    }
+}
+
+@media (min-width: 425px) {
+    .card {
+        width: 425px;
+    }
+
+    .game_cover {
+        width: 8.125rem;
+        height: 12.188rem;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .card {
+        width: 372px;
+    }
+
+    main {
+        justify-content: space-evenly;
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .card {
+        width: 290px;
+        flex-direction: column;
+    }
+
+    .card:hover {
+        cursor: pointer;
+    }
+
+    main {}
+
+    .game_cover {
+        width: 17.125rem;
+        height: 24.188rem;
+    }
+
+    .game_cover:hover{
+        animation: spin 2s linear forwards;
+    }
+}
