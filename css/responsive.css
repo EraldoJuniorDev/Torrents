@@ -58,6 +58,7 @@
 
 @media (min-width: 1024px) {
 
+
     .card {
         width: 290px;
         flex-direction: column;
