@@ -53,6 +53,10 @@ aside {
     width: 300px;
 }
 
+aside>ul{
+    list-style-type: none;
+}
+
 /*-------------Main-------------*/
 
 main {

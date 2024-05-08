@@ -4,15 +4,68 @@
         row-gap: 0.5rem;
     }
 
-    .card {
-        width: 320px;
-        flex-direction: row;
+    .maincontainer {
+        width: 137px;
+        height: 193.5px;
     }
 
+    .thecard {
+        width: 100%;
+        height: 100%;
+    }
+
+    .thefront {
+        width: 100%;
+        height: 100%;
+    }
+
+    .theback {
+        width: 100%;
+        height: 100%;
+    }
 
     .game_cover {
-        width: 6.125rem;
-        height: 9.188rem;
+        width: 100%;
+        height: 100%;
+    }
+
+    .description {
+        flex-direction: column;
+        gap: 1px;
+    }
+
+    .description_item {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    h1 {
+        font-size: 14px;
+    }
+
+    h3 {
+        font-size: 11px;
+    }
+
+    p {
+        font-size: 11px;
+    }
+
+    button,
+    .extra {
+        width: 100%;
+        height: 16px;
+        font-size: 13px;
+        gap: 5px;
+        padding: 4px;
+    }
+
+    button>img {
+        width: 12px;
+    }
+
+    .extra_double>a>.extra {
+        width: 60px;
     }
 }
 
@@ -21,59 +74,60 @@
     main {
         row-gap: 0.5rem;
     }
-
-    .card {
-        width: 375px;
-        flex-direction: row;
-    }
-
-    .game_cover {
-        width: 6.125rem;
-        height: 9.188rem;
-    }
 }
 
-@media (min-width: 425px) {
-    .card {
-        width: 425px;
-    }
-
-    .game_cover {
-        width: 8.125rem;
-        height: 12.188rem;
+@media (min-width: 425px){
+    .maincontainer {
+        width: 135px;
+        height: 189px;
     }
 }
 
 @media (min-width: 768px) {
 
-    .card {
-        width: 372px;
-    }
-
     main {
         justify-content: space-evenly;
         flex-direction: row;
     }
+
+    .maincontainer {
+        width: 228px;
+        height: 310px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    button,
+    .extra {
+        width: 100%;
+        height: 25px;
+        font-size: 20px;
+        gap: 5px;
+        padding: 4px;
+    }
+
+    .extra{
+        font-size: 18px;
+    }
+
+    button>img {
+        width: 16px;
+    }
+
+    .extra_double>a>.extra {
+        width: 60px;
+        font-size: 13px;
+    }
 }
 
-@media (min-width: 1024px) {
-
-
-    .card {
-        width: 290px;
-        flex-direction: column;
-    }
-
-    .card:hover {
-        cursor: pointer;
-    }
-
-    .game_cover {
-        width: 17.125rem;
-        height: 24.188rem;
-    }
-
-    .game_cover:hover{
-        animation: spin 2s linear forwards;
-    }
-}
+@media (min-width: 1024px) {}
