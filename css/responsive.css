@@ -76,7 +76,7 @@
     }
 }
 
-@media (min-width: 425px){
+@media (min-width: 425px) {
     .maincontainer {
         width: 8.438rem;
         height: 11.813rem;
@@ -88,6 +88,8 @@
     main {
         justify-content: space-evenly;
         flex-direction: row;
+        row-gap: 1.563rem;
+        column-gap: 0.625rem;
     }
 
     .maincontainer {
@@ -95,7 +97,7 @@
         height: 19.375rem;
     }
 
-    .description{
+    .description {
         gap: 0.75rem;
     }
 
@@ -120,7 +122,7 @@
         padding: 0.25rem;
     }
 
-    .extra{
+    .extra {
         font-size: 1.125rem;
     }
 
@@ -161,7 +163,7 @@
         padding: 0.625rem;
     }
 
-    .extra{
+    .extra {
         font-size: 1.25rem;
     }
 
