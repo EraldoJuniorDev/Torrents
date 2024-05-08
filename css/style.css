@@ -65,23 +65,62 @@ main {
     background-color: rgba(0, 0, 0, 0.91);
 }
 
-.post {
-    display: flex;
-    flex-direction: row;
-}
-
 /*-------------Card do Jogo-------------*/
 
-.card {
-    background-color: var(--white);
-    padding: 0.625rem;
-    border-radius: 0.313rem;
-    flex-direction: column;
-    gap: 0.625rem;
-    width: fit-content;
-    height: fit-content;
-    box-shadow: 0 0 0.313rem rgba(0, 0, 0, 0.39);
+.maincontainer {
+    position: static;
+    width: 17.125rem;
+    height: 24.188rem;
+    background: none;
+    top: 50%;
+    left: 50%;
+
 }
+
+.thecard {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 17.125rem;
+    height: 24.188rem;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
+}
+
+.thecard:hover {
+    cursor: pointer;
+}
+
+.thefront {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 17.125rem;
+    height: 24.188rem;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #ffc728;
+    color: #000;
+}
+
+.theback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #fafafa;
+    color: #333;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+
+/*-------------Descrição-------------*/
 
 h1 {
     font-size: 1.3rem;
@@ -119,14 +158,6 @@ p {
     width: 17.125rem;
     height: 24.188rem;
     border-radius: 0.313rem;
-}
-
-.game_cover:hover {
-    cursor: pointer;
-}
-
-.game_cover_post {
-    width: 60rem;
 }
 
 /*-------------Botão de Download Principal-------------*/
@@ -191,59 +222,3 @@ div.extra_double {
 
 /*=======================================*/
 
-.maincontainer {
-    position: static;
-    width: 17.125rem;
-    height: 24.188rem;
-    background: none;
-    top: 50%;
-    left: 50%;
-
-}
-
-/* THE CARD HOLDS THE FRONT AND BACK FACES */
-.thecard {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 17.125rem;
-    height: 24.188rem;
-    border-radius: 10px;
-    transform-style: preserve-3d;
-    transition: all 0.8s ease;
-}
-
-/* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
-.thecard:hover {
-    cursor: pointer;
-}
-
-/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
-.thefront {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 17.125rem;
-    height: 24.188rem;
-    border-radius: 10px;
-    backface-visibility: hidden;
-    overflow: hidden;
-    background: #ffc728;
-    color: #000;
-}
-
-/* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
-.theback {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    backface-visibility: hidden;
-    overflow: hidden;
-    background: #fafafa;
-    color: #333;
-    text-align: center;
-    transform: rotateY(180deg);
-}
