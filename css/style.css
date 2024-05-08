@@ -8,19 +8,19 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-    :root {
-        --torrent_btn: #5ecb66;
-        --torrent_font: #314e55;
-        --torrent_btn_active: #8fd494;
-        --torrent_font_active: #547881;
-        --mega_btn: #d90007;
-        --white: #ffffff;
-        --mega_btn_active: #ff0008;
-        --mega_font_active: #a7a7a7;
-        --extra_btn: #a52a2a;
-        --extra_btn_active: #ac4545;
-        --extra_font_active: #a7a7a7;
-    }
+:root {
+    --torrent_btn: #5ecb66;
+    --torrent_font: #314e55;
+    --torrent_btn_active: #8fd494;
+    --torrent_font_active: #547881;
+    --mega_btn: #d90007;
+    --white: #ffffff;
+    --mega_btn_active: #ff0008;
+    --mega_font_active: #a7a7a7;
+    --extra_btn: #a52a2a;
+    --extra_btn_active: #ac4545;
+    --extra_font_active: #a7a7a7;
+}
 
 /*-------------Keyframes-------------*/
 
@@ -35,6 +35,7 @@
 }
 
 /*-------------Unificações-------------*/
+main,
 div,
 button {
     display: flex;
@@ -42,11 +43,11 @@ button {
     justify-content: center;
 }
 
-body{
+body {
     display: flex;
 }
 
-aside{
+aside {
     background-color: darkred;
     width: 300px;
 }
@@ -54,6 +55,7 @@ aside{
 /*-------------Main-------------*/
 
 main {
+    height: 100vh;
     display: inline-flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -63,7 +65,7 @@ main {
     background-color: rgba(0, 0, 0, 0.91);
 }
 
-.post{
+.post {
     display: flex;
     flex-direction: row;
 }
@@ -123,7 +125,7 @@ p {
     cursor: pointer;
 }
 
-.game_cover_post{
+.game_cover_post {
     width: 60rem;
 }
 
