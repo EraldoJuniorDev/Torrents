@@ -157,7 +157,6 @@ nav {
 
 .dropdown:hover {
     cursor: pointer;
-    color: rebeccapurple;
 }
 
 .dropdown_items {
@@ -318,8 +317,9 @@ body {
     justify-content: space-evenly;
     flex-wrap: wrap;
     row-gap: 2.5rem;
+    column-gap: 5rem;
     background-color: rgba(17, 17, 17, 0.91);
-    padding: 1.25rem 4rem 1.25rem 4rem;
+    padding: 1.25rem 5rem 1.25rem 5rem;
 }
 
 /*-------------Card do Jogo-------------*/
