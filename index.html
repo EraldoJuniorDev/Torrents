@@ -14,395 +14,129 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+<header>
+    <!-- <div>
+        <input type="text" name="" id="">
+    </div> -->
+    <nav>
+        <section>
+            <div onclick="openAddMenu()" id="addmenu">
+                <i class="bi bi-plus-circle" id="addbtn"></i>
+                <i class="bi bi-x-circle" id="closebtn"></i>
+            </div>
+            <div class="sectionbtn" id="sectionbtn">
+                <button id="descriptionbtn" onclick="sectionBtn()">Descrição</button>
+                <button id="requirementsbtn" onclick="requirementsBtn()">Requisitos</button>
+            </div>
+            <form id="form">
+                <fieldset id="formdescription" class="formitem">
+                    <label for="frontimage">
+                        Imagem:
+                    </label>
+                    <input type="text" name="frontimage" id="frontimage">
+                    <label for="gametitle">
+                        Título:
+                    </label>
+                    <input type="text" name="gametitle" id="gametitle">
+                    <label for="gamerelease">
+                        Data de Lançamento:
+                    </label>
+                    <input type="text" name="gamerelease" id="gamerelease">
+                    <label for="gamedeveloper">
+                        Desenvolvedora:
+                    </label>
+                    <input type="text" name="gamedeveloper" id="gamedeveloper">
+                    <label for="gamegenre">
+                        Gênero:
+                    </label>
+                    <input type="text" name="gamegenre" id="gamegenre">
+                    <label for="gamesize">
+                        Tamanho:
+                    </label>
+                    <input type="text" name="gamesize" id="gamesize">
+                </fieldset>
+
+                <fieldset id="formrequirements" class="formitem">
+                    <label for="requiredram">
+                        Memória RAM:
+                    </label>
+                    <input type="text" name="requiredram" id="requiredram">
+                    <label for="requiredgraphicscard">
+                        Placa de Vídeo:
+                    </label>
+                    <input type="text" name="requiredgraphicscard" id="requiredgraphicscard">
+                    <label for="requiredcpu">
+                        Processador:
+                    </label>
+                    <input type="text" name="requiredcpu" id="requiredcpu">
+                    <label for="requiredso">
+                        Sistema Operacional:
+                    </label>
+                    <input type="text" name="requiredos" id="requiredos">
+                    <label for="gamelink">
+                        Link do Download:
+                    </label>
+                    <input type="text" name="gamelink" id="gamelink">
+                    <fieldset>
+                        <legend>Adicionar Download Extra?</legend>
+                        <input type="radio" name="buttonextra" id="yesbtn" value="yesbtn">Sim
+                        <input type="radio" name="buttonextra" id="nobtn" value="nobtn">Não
+                    </fieldset>
+                    <label for="gamelinkextra">
+                        Link do Download Extra:
+                    </label>
+                    <input type="text" name="gamelinkextra" id="gamelinkextra">
+                </fieldset>
+
+                <input type="submit" value="Cadastrar">
+                <input type="reset" value="Limpar">
+            </form>
+            </div>
+            </div>
+        </section>
+        <div class="main_menu">
+            <li class="main_menu_item">
+                <a href="#" class="link">
+                    <i class="bi bi-bar-chart"></i>
+                </a>
+            </li>
+            <li class="main_menu_item">
+                <a href="#" class="link">
+                    <i class="bi bi-star-fill"></i>
+                </a>
+            </li>
+            <li class="main_menu_item">
+                <a href="#" class="link">
+                    <i class="bi bi-house"></i>
+                </a>
+            </li>
+            <li class="main_menu_item">
+                <a href="#" class="link">
+                    <i class="bi bi-bookmark"></i>
+                </a>
+            </li>
+            <li class="main_menu_item dropdown">
+                <i class="bi bi-controller" onclick="menuDropdown()"></i>
+                <ol class="dropdown_items" id="dropdown_items">
+                    <li class="dropdown_item"><a href="#">Ação</a></li>
+                    <li class="dropdown_item"><a href="#">Aventura</a></li>
+                    <li class="dropdown_item"><a href="#">Mundo Aberto</a></li>
+                    <li class="dropdown_item"><a href="#">Furtivo</a></li>
+                    <li class="dropdown_item"><a href="#">Survival</a></li>
+                    <li class="dropdown_item"><a href="#">Terror</a></li>
+                    <li class="dropdown_item"><a href="#">Survival Horror</a></li>
+                    <li class="dropdown_item"><a href="#">Terror Psicológico</a></li>
+                </ol>
+            </li>
+        </div>
+    </nav>
+</header>
 
 <body>
-    <aside>
-        <nav class="aside_menu">
-            <ul>
-                <li><i class="bi bi-house"></i> Início</li>
-                <li><i class="bi bi-controller"></i> Gêneros
-                    <ul>
-                        <li>Ação</li>
-                        <li>Aventura</li>
-                        <li>Mundo Aberto</li>
-                        <li>Furtivo</li>
-                        <li>Survival Herror</li>
-                        <li>Terror Psicológico</li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </aside>
-    <main>
-        <div class="maincontainer">
-            <div class="thecard" onclick="flipCard()" id="card">
-                <div class="thefront"><img src="img/assassins_creed.png" alt="" class="game_cover">
-                </div>
-                <div class="theback">
-                    <div class="description">
-                        <h1>Assassin's Creed</h1>
-                        <div class="description_item">
-                            <h3>Lançamento:</h3>
-                            <p>13 de novembro de 2007</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Desenvolvedora:</h3>
-                            <p>Ubisoft Montreal</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Gênero:</h3>
-                            <p>Ação / Aventura / Furtivo</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Tamanho:</h3>
-                            <p>6.42 GB / 35 MB</p>
-                        </div>
-                        <a
-                            href="magnet:?xt=urn:btih:8e58277f39a679a6997d9898130093ccff5f6c81&dn=Assassin%5C%27s+Creed-reloaded&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.ccc.de%3A80"><button><img
-                                    src="img/torrent.ico" alt="">Download</button></a>
-                        <a
-                            href="https://metrocf.gry-online.pl/a/assassins_creed_1.02.zip?st=7951492df9e5fedd4a500c68ebd7e71a9b1c5bd06f670782aba3fc83a3e7b1a0"><button
-                                class="extra">Updater</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="maincontainer">
-            <div class="thecard" onclick="flipCard1()" id="card1">
-                <div class="thefront"><img src="img/batman_arkham_city.png" alt="" class="game_cover">
-                </div>
-                <div class="theback">
-                    <div class="description">
-                        <h1>Batman: Arkham City</h1>
-                        <div class="description_item">
-                            <h3>Lançamento:</h3>
-                            <p>7 de setembro de2012</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Desenvolvedora:</h3>
-                            <p>Rocksteady Studios</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Gênero:</h3>
-                            <p>Ação / Aventura</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Tamanho:</h3>
-                            <p>12.5 GB</p>
-                        </div>
-                        <a href="magnet:?xt=urn:btih:747B90959C23820B3AA271CFDC4C367BDFBD2BF5"><button><img
-                                    src="img/torrent.ico" alt="">Download</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="maincontainer">
-            <div class="thecard" onclick="flipCard2()" id="card2">
-                <div class="thefront"><img src="img/sleeping_dogs.jpg" alt="" class="game_cover"></div>
-                <div class="theback">
-                    <div class="description">
-                        <h1>Sleeping Dogs</h1>
-                        <div class="description_item">
-                            <h3>Lançamento:</h3>
-                            <p>14 de agosto de 2012</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Desenvolvedora:</h3>
-                            <p>Square Enix London</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Gênero:</h3>
-                            <p>Ação / Mundo Aberto</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Tamanho:</h3>
-                            <p>9.15 GB</p>
-                        </div><a
-                            href="magnet:?xt=urn:btih:012175312ab9d2911c5ced16e731a520f8be1ae0&dn=Sleeping+Dogs-SKIDROW&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80"><button><img
-                                    src="img/torrent.ico" alt="">Download</button></a>
-                        <div class="extra_double">
-                            <a
-                                href="https://download1327.mediafire.com/bnz8sdefjw1gg__lL18DK8od1VuP9ZEj5glrGGO81h83d93Rn62CicgeVgO9c_du2U7DuDt1DxXTBwF6qvy6kUB1ZcsxiZIKAOOG-LLfg-Nhbl5tvF7lQDyTgAxE8aXnDxCEhIlcHBIoZNNUhOTIHI3JNmiYK12WJ8tobY1-rjL8/ozbl7xix9kyd2fy/Fix+Sleeping+Dogs.rar"><button
-                                    class="extra">Crack</button></a>
-                            <a
-                                href="https://download843.mediafire.com/12929np7hydgMfKetaxdVyLbyANcjPXaMa9eNC-8rwo4eu9ZwGRJLCOTpHfWIOgj1rhvp0GxrLTR37IbdIAPKqmb8JZTxg5iR_Y2slh2n7NXGXjyXJjf47JbB_PLT73kSuIedTOyE6GPn7J2ApEbQNvEDwTx3e5Ninpz9CgFTwpt/h8cwd1rip6357xh/S.D+Fix+%2Bpatch+1.4.rar"><button
-                                    class="extra">Patch</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="maincontainer">
-            <div class="thecard" onclick="flipCard3()" id="card3">
-                <div class="thefront"><img src="img/dead_space_2.png" alt="" class="game_cover"></div>
-                <div class="theback">
-                    <div class="description">
-                        <h1>Dead Space 2</h1>
-                        <div class="description_item">
-                            <h3>Lançamento:</h3>
-                            <p>25 de Janeiro de 2011</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Desenvolvedora:</h3>
-                            <p>Visceral Games</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Gênero:</h3>
-                            <p>Ação / Aventura / Survival Horror</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Tamanho:</h3>
-                            <p>5.97 GB</p>
-                        </div>
-                        <a href="magnet:?xt=urn:btih:1536974946452d0c49e093d3aebfc6b71d47aff0&dn=Dead+Space+2"><button><img
-                                    src="img/torrent.ico" alt="">Download</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="maincontainer">
-            <div class="thecard" onclick="flipCard4()" id="card4">
-                <div class="thefront"><img src="img/Far_cry_3.jpg" alt="" class="game_cover"></div>
-                <div class="theback">
-                    <div class="description">
-                        <h1>Far Cry 3</h1>
-                        <div class="description_item">
-                            <h3>Lançamento:</h3>
-                            <p>4 de Dezembro de 2012</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Desenvolvedora:</h3>
-                            <p>Ubisoft Montreal</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Gênero:</h3>
-                            <p>Ação / Mundo Aberto</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Tamanho:</h3>
-                            <p>4.89 GB</p>
-                        </div>
-                        <a
-                            href="magnet:?xt=urn:btih:a09fb0185a4e5cb702938b0d3c7c34fd0ee769fe&dn=Far+Cry+3+%28Eng%2FRus%29+RePack+by+R.G+Mechanics&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fpublic.popcorn-tracker.org%3A6969"><button><img
-                                    src="img/torrent.ico" alt="">Download</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="maincontainer">
-            <div class="thecard" onclick="flipCard5()" id="card5">
-                <div class="thefront"><img src="img/the_godfather.png" alt="" class="game_cover">
-                </div>
-                <div class="theback">
-                    <div class="description">
-                        <h1>The Godfather</h1>
-                        <div class="description_item">
-                            <h3>Lançamento:</h3>
-                            <p>05 de março de 2013</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Desenvolvedora:</h3>
-                            <p>EA Redwood Shores</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Gênero:</h3>
-                            <p>Ação / Aventura</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Tamanho:</h3>
-                            <p>487,8 MB</p>
-                        </div>
-                        <a href="https://mega.nz/file/YickyIJK#WWSfq3TS2AyXXVfBR3cybGUTHXHp0rlUAPNpFJWNqUs"><button
-                                class="mega"><img src="img/mega.png" alt="">Download</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="maincontainer">
-            <div class="thecard" onclick="flipCard6()" id="card6">
-                <div class="thefront"><img src="img/tomb_raider.jpg" alt="" class="game_cover">
-                </div>
-                <div class="theback">
-                    <div class="description">
-                        <h1>Tomb Raider</h1>
-                        <div class="description_item">
-                            <h3>Lançamento:</h3>
-                            <p>05 de março de 2013</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Desenvolvedora:</h3>
-                            <p>Crystal Dynamics</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Gênero:</h3>
-                            <p>Ação / Aventura</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Tamanho:</h3>
-                            <p>9.24 GB</p>
-                        </div>
-                        <a
-                            href="magnet:?xt=urn:btih:f45df73fe220fc666c89532de3921f6900d58bde&dn=Tomb+Raider+2013+PC+full+game+%2B+DLC+%5E%5EnosTEAM%5E%5E&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80&tr=udp%3A%2F%2Fopen.demonii.com%3A1337"><button><img
-                                    src="img/torrent.ico" alt="">Download</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="maincontainer">
-            <div class="thecard" onclick="flipCard7()" id="card7">
-                <div class="thefront"><img src="img/hitman_absolution.png" alt="" class="game_cover">
-                </div>
-                <div class="theback">
-                    <div class="description">
-                        <h1>Hitman: Absolution</h1>
-                        <div class="description_item">
-                            <h3>Lançamento:</h3>
-                            <p>20 de novembro de 2012</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Desenvolvedora:</h3>
-                            <p>IO Interactive</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Gênero:</h3>
-                            <p>Furtivo</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Tamanho:</h3>
-                            <p>9.94 GB</p>
-                        </div>
-                        <a
-                            href="magnet:?xt=urn:btih:aa2356acf68f0c9267b76406d8e2a0be2fa68c1d&dn=Hitman+Absolution+Version+1.0.447.0+++All+DLCs+Repack+Mr+DJ&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451&tr=udp%3A%2F%2Fopen.stealth.si%3A80&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969&tr=udp%3A%2F%2Fopen.tracker.cl%3A1337"><button><img
-                                    src="img/torrent.ico" alt="">Download</button></a>
-                        <a href="https://nanoxcloud.xyz/Download/Games/Hitman%205%20Absolution%20Launch%20fix.ZIP"><button
-                                class="extra">Fixer</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="maincontainer">
-            <div class="thecard" onclick="flipCard8()" id="card8">
-                <div class="thefront"><img src="img/gta_iv.png" alt="" class="game_cover">
-                </div>
-                <div class="theback">
-                    <div class="description">
-                        <h1>Grand Theft Auto IV</h1>
-                        <div class="description_item">
-                            <h3>Lançamento:</h3>
-                            <p>29 de abril de 2008</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Desenvolvedora:</h3>
-                            <p>Rockstar North</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Gênero:</h3>
-                            <p>Ação / Aventura</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Tamanho:</h3>
-                            <p>13.9 GB</p>
-                        </div>
-                        <a
-                            href="magnet:?xt=urn:btih:facc7d12c07e48c5e94b6e081f5bcf07389f7aea&dn=GTA+IV+PC+Version&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80"><button><img
-                                    src="img/torrent.ico" alt="">Download</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="maincontainer">
-            <div class="thecard" onclick="flipCard9()" id="card9">
-                <div class="thefront"><img src="img/outlast.jpg" alt="" class="game_cover">
-                </div>
-                <div class="theback">
-                    <div class="description">
-                        <h1>Outlast</h1>
-                        <div class="description_item">
-                            <h3>Lançamento:</h3>
-                            <p>4 de setembro de 2013</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Desenvolvedora:</h3>
-                            <p>Red Barrels</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Gênero:</h3>
-                            <p>Survival Horror
-                                <br>
-                                Terror Psicológico
-                            </p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Tamanho:</h3>
-                            <p>1.97 GB</p>
-                        </div>
-                        <a href="https://repack-mechanics.com/engine/download.php?id=4921"><button><img
-                                    src="img/torrent.ico" alt="">Download</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="maincontainer">
-            <div class="thecard" onclick="flipCard10()" id="card10">
-                <div class="thefront"><img src="img/bully.jpg" alt="" class="game_cover">
-                </div>
-                <div class="theback">
-                    <div class="description">
-                        <h1>Bully Scholarship Edition</h1>
-                        <div class="description_item">
-                            <h3>Lançamento:</h3>
-                            <p>17 de outubro de 2006</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Desenvolvedora:</h3>
-                            <p>Rockstar Vancouver</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Gênero:</h3>
-                            <p>Ação / Aventura</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Tamanho:</h3>
-                            <p>3.31 GB</p>
-                        </div>
-                        <a
-                            href="magnet:?xt=urn:btih:95b7300eb0f433390c79d6d277ce2bed2d7abe52&dn=Bully_Scholarship_Edition-PROCYON&tr=http%3A%2F%2Ftracker.trackerfix.com%3A80%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2710&tr=udp%3A%2F%2F9.rarbg.to%3A2710magnet:?xt=urn:btih:95b7300eb0f433390c79d6d277ce2bed2d7abe52&dn=Bully_Scholarship_Edition-PROCYON&tr=http%3A%2F%2Ftracker.trackerfix.com%3A80%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2710&tr=udp%3A%2F%2F9.rarbg.to%3A2710"><button><img
-                                    src="img/torrent.ico" alt="">Download</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="maincontainer">
-            <div class="thecard" onclick="flipCard11()" id="card11">
-                <div class="thefront"><img src="img/modern_warfare_3.jpg" alt="" class="game_cover">
-                </div>
-                <div class="theback">
-                    <div class="description">
-                        <h1>Call of Duty: <br> Modern Warfare 3</h1>
-                        <div class="description_item">
-                            <h3>Lançamento:</h3>
-                            <p>05 de março de 2013</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Desenvolvedora:</h3>
-                            <p>Infinity Ward</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Gênero:</h3>
-                            <p>Ação</p>
-                        </div>
-                        <div class="description_item">
-                            <h3>Tamanho:</h3>
-                            <p>15.4 GB</p>
-                        </div>
-                        <a href="magnet:?xt=urn:btih:16781424696B405FC93941B1E95479AEE0C1DF19"><button><img
-                                    src="img/torrent.ico" alt="">Download</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    <main id="mainContent">
     </main>
 </body>
-<script src="js/index.js"></script>
+<script src="js/index.js" defer></script>
 
 </html>

@@ -5,33 +5,24 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    list-style-type: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 :root {
-    --torrent_btn: #5ecb66;
-    --torrent_font: #314e55;
-    --torrent_btn_active: #8fd494;
-    --torrent_font_active: #547881;
+    --torrent_btn: #008609;
+    --torrent_font: #ffffff;
+    --torrent_btn_active: #00a00b;
+    --torrent_font_active: #ffffff;
     --mega_btn: #d90007;
     --white: #ffffff;
     --mega_btn_active: #ff0008;
     --mega_font_active: #a7a7a7;
-    --extra_btn: #a52a2a;
-    --extra_btn_active: #ac4545;
-    --extra_font_active: #a7a7a7;
+    --extra_btn: #000000;
+    --extra_btn_active: #242424;
 }
 
 /*-------------Keyframes-------------*/
-
-@keyframes spin {
-    0% {
-        transform: rotateY(0deg);
-    }
-
-    100% {
-        transform: rotateY(360deg);
-    }
-}
 
 @font-face {
     font-family: 'Font';
@@ -39,8 +30,11 @@
 }
 
 /*-------------Unificações-------------*/
-main,
+
 div,
+.dropdown,
+.dropdown_item>a,
+fieldset,
 button {
     display: flex;
     align-items: center;
@@ -49,7 +43,15 @@ button {
 
 body,
 main,
-.description {
+.main_menu_item,
+.dropdown_items,
+i,
+#form,
+#formback,
+fieldset,
+.description,
+.minimumrequirements,
+#mainContent {
     display: flex;
 }
 
@@ -69,6 +71,7 @@ aside>ul {
 
 body {
     width: 100vw;
+    flex-direction: column;
 }
 
 main {
@@ -76,6 +79,202 @@ main {
     flex-wrap: wrap;
     row-gap: 2.5rem;
     background-color: rgba(0, 0, 0, 0.91);
+    padding: 1.25rem;
+}
+
+/*-------------Menu Principal-------------*/
+
+header {
+    height: 55px;
+    color: red;
+    text-align: center;
+    background-color: rgb(5, 5, 5);
+    border-bottom: 2px solid red;
+}
+
+nav {
+    width: 100%;
+    /* background-color: #000000; */
+}
+
+.main_menu {
+    align-items: normal;
+    gap: 50px;
+}
+
+.main_menu_item {
+    width: 127px;
+    height: 55px;
+    justify-content: center;
+}
+
+.main_menu_item>a>i:hover,
+.main_menu_item.dropdown>i:hover {
+    color: red;
+    transition: 0.5s;
+}
+
+.dropdown {
+    height: fit-content;
+    z-index: 1;
+    gap: 5px;
+    flex-direction: column;
+    position: relative;
+}
+
+.dropdown_items {
+    display: none;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.dropdown_item {
+    background-color: rgba(0, 0, 0, 0.945);
+    border-radius: 10px;
+    width: 160px;
+    height: 25px;
+}
+
+.dropdown_item>a{
+    color: white;
+    font-weight: bolder;
+    width: 100%;
+    height: 100%;
+}
+
+.dropdown_item>a:hover{
+    color: red;
+}
+
+/*-------------Section-------------*/
+
+section {
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom, rgb(129, 0, 0), rgb(153, 0, 0), red);
+    width: 22rem;
+    z-index: 1;
+    position: absolute;
+}
+
+section>div {
+    display: block;
+}
+
+section>div>i:active {
+    font-size: 27px;
+}
+
+i {
+    z-index: 1;
+    width: fit-content;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    margin: 15px 15px;
+}
+
+#closebtn {
+    display: none;
+}
+
+.bi::after {
+    transform: rotate(45deg);
+}
+
+.bi:hover {
+    cursor: pointer;
+}
+
+/*-------------#form-------------*/
+
+#form {
+    background-color: #000000;
+    display: none;
+    margin: 5px;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#formback {
+    background-color: #303030;
+    display: flex;
+    margin: 5px;
+    padding: 20px;
+    width: 300px;
+    border-radius: 5px;
+    text-align: center;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+input {
+    color: #fff;
+    font-size: 1rem;
+    border-style: none;
+    border-color: white;
+    width: 100%;
+    border-radius: 4px;
+    padding-left: 0.5rem;
+}
+
+label {
+    color: white;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+fieldset {
+    color: white;
+    width: 210px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+#form input[type=text],
+#formback input[type=text] {
+    color: black;
+    height: 25px;
+    border-radius: 20px;
+}
+
+#form input[type=submit],
+#form input[type=reset],
+#formback input[type=submit],
+#formback input[type=reset] {
+    background-image: linear-gradient(to left, rgb(129, 0, 0), rgb(153, 0, 0), red);
+    height: 25px;
+}
+
+#form input[type=submit]:hover,
+#form input[type=reset]:hover,
+#formback input[type=submit]:hover,
+#formback input[type=reset]:hover {
+    cursor: pointer;
+    height: 30px;
+    font-size: 20px;
+    transition: 0.4s;
+    background-image: linear-gradient(to right, rgb(129, 0, 0), rgb(153, 0, 0), red);
+}
+
+/*-------------Main-------------*/
+
+body {
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.91);
+}
+
+#mainContent {
+    width: 100vw;
+    height: 100vh;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap: 2.5rem;
+    background-color: rgba(17, 17, 17, 0.91);
     padding: 1.25rem;
 }
 
@@ -90,11 +289,7 @@ main {
     left: 50%;
 }
 
-.maincontainer:hover {
-    transform: scale(1.01);
-}
-
-.thecard {
+.card {
     position: relative;
     top: 0;
     left: 0;
@@ -105,11 +300,11 @@ main {
     transition: all 0.8s ease;
 }
 
-.thecard:hover {
+.card:hover {
     cursor: pointer;
 }
 
-.thefront {
+.card_front {
     position: absolute;
     top: 0;
     left: 0;
@@ -121,7 +316,25 @@ main {
     color: #000;
 }
 
-.theback {
+.card_overlay {
+    flex-direction: column;
+    gap: 30px;
+    z-index: 1;
+    border-radius: 0.625rem;
+    width: 100%;
+    height: 100%;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.733);
+    opacity: 0;
+}
+
+.card_overlay:hover {
+    transition: 1s;
+    opacity: 1;
+}
+
+.card_back {
+    z-index: 2;
     position: absolute;
     top: 0;
     left: 0;
@@ -131,25 +344,76 @@ main {
     backface-visibility: hidden;
     overflow: hidden;
     background: #fafafa;
-    color: #333;
+    color: #ffffff;
     text-align: center;
     transform: rotateY(180deg);
+}
+
+.sectionbtn {
+    display: none;
+    padding: 5px;
+    width: 100%;
+    gap: 10px;
+}
+
+.sectionbtn>button {
+    background-color: rgb(0, 0, 0);
+    border: 1px solid red;
+    color: white;
+    font-size: medium;
+    width: 120px;
+}
+
+.sectionbtn>button:hover {
+    background-color: black;
+    border: 1px solid white;
+    color: red;
+    font-size: medium;
+}
+
+#form>fieldset,
+#formback>fieldset {
+    gap: 0.5rem;
+    border: none;
+    flex-direction: column;
+    width: 100%;
+}
+
+#formrequirements {
+    display: none;
+}
+
+#descriptionbtn {
+    border-bottom-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+#requirementsbtn {
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+#yesbtn,
+#nobtn {
+    width: 50px;
 }
 
 /*-------------Descrição-------------*/
 
 h1 {
+    background-color: red;
+    padding: 5px;
+    border-radius: 10px;
     font-size: 1.3rem;
     text-align: center;
 }
 
-.description {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.description,
+.minimumrequirements {
     font-size: 0.7rem;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 1.5rem;
     text-align: center;
 }
 
@@ -159,19 +423,19 @@ h1 {
 }
 
 h3 {
+    background-color: black;
+    border-radius: 10px;
+    padding: 5px;
     font-size: 1rem;
     font-weight: bolder;
 }
 
 p {
+    background-color: #d90007;
+    border-radius: 10px;
     font-size: 0.9rem;
     font-weight: 500;
-}
-
-h1,
-h3,
-p {
-    color: black;
+    padding: 5px;
 }
 
 /*-------------Capa do Jogo-------------*/
@@ -185,6 +449,7 @@ p {
 /*-------------Botão de Download Principal-------------*/
 
 button {
+    box-shadow: 0 15px 22px #0000002a;
     gap: 0.625rem;
     width: 12.5rem;
     height: 2.313rem;
@@ -199,7 +464,7 @@ button:hover {
     background-color: var(--torrent_btn_active);
     color: var(--torrent_font_active);
     cursor: pointer;
-    transform: scale(1.1);
+    transform: scale(1.02);
     transition: 0.5s;
 }
 
@@ -231,7 +496,6 @@ button>img {
 
 .extra:hover {
     background-color: var(--extra_btn_active);
-    color: var(--extra_font_active);
 }
 
 div.extra_double {
