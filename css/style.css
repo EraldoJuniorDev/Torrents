@@ -50,6 +50,7 @@
 /*-------------Unificações-------------*/
 
 div,
+.link,
 .dropdown,
 .dropdown_item>a,
 fieldset,
@@ -107,7 +108,7 @@ header {
     color: red;
     text-align: center;
     background-color: rgb(5, 5, 5);
-    border-bottom: 2px solid red;
+    /* border-bottom: 2px solid red; */
 }
 
 nav {
@@ -127,20 +128,40 @@ nav {
 }
 
 .main_menu_item>a>i:hover,
+.dropdown>i:hover {
+    padding: 5px;
+    border-bottom: 2px solid red;
+}
+
+.main_menu_item>a>i:hover,
 .main_menu_item.dropdown>i:hover {
     color: red;
     transform: scale(1.2);
 }
 
+.main_menu_item>a>i::after,
+.main_menu_item.dropdown>i::after {
+    color: red;
+}
+
+.link {
+    width: 127px;
+}
+
 .dropdown {
-    height: fit-content;
     z-index: 1;
     gap: 5px;
     flex-direction: column;
     position: relative;
 }
 
+.dropdown:hover {
+    cursor: pointer;
+    color: rebeccapurple;
+}
+
 .dropdown_items {
+    padding-top: 385px;
     display: none;
     gap: 10px;
     flex-direction: column;
@@ -193,6 +214,7 @@ i {
     font-size: 25px;
     color: rgb(255, 255, 255);
     margin: 15px 15px;
+    position: absolute;
 }
 
 #closebtn {
@@ -293,12 +315,11 @@ body {
 
 #mainContent {
     width: 100vw;
-    height: 100vh;
     justify-content: space-evenly;
     flex-wrap: wrap;
     row-gap: 2.5rem;
     background-color: rgba(17, 17, 17, 0.91);
-    padding: 1.25rem;
+    padding: 1.25rem 4rem 1.25rem 4rem;
 }
 
 /*-------------Card do Jogo-------------*/
