@@ -117,7 +117,9 @@ nav {
 }
 
 .main_menu {
-    align-items: normal;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     gap: 50px;
 }
 
@@ -197,6 +199,23 @@ section {
 
 section>div {
     display: block;
+}
+
+.add_game{
+    font-weight: bolder;
+    font-size: 1rem;
+    width: 150px;
+    height: 30px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.add_game:hover{
+    color: red;
+    background-color: black;
+    border-color: red;
 }
 
 #addmenu {
