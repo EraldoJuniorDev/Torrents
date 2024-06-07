@@ -32,11 +32,11 @@
 ::-webkit-scrollbar-thumb {
     border-radius: 3.125rem;
     background-color: red;
-    border: 2px solid grey;
+    border: 2px solid rgb(73, 73, 73);
 }
 
 ::-webkit-scrollbar-track {
-    background: grey;
+    background: rgb(73, 73, 73);
     border-radius: 10px;
 }
 
