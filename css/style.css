@@ -22,6 +22,24 @@
     --extra_btn_active: #242424;
 }
 
+/*===========Configs da Scrollbar===========*/
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 3.125rem;
+    background-color: red;
+    border: 2px solid grey;
+}
+
+::-webkit-scrollbar-track {
+    background: grey;
+    border-radius: 10px;
+}
+
 /*-------------Keyframes-------------*/
 
 @font-face {
@@ -111,7 +129,7 @@ nav {
 .main_menu_item>a>i:hover,
 .main_menu_item.dropdown>i:hover {
     color: red;
-    transition: 0.5s;
+    transform: scale(1.2);
 }
 
 .dropdown {
@@ -132,18 +150,19 @@ nav {
     background-color: rgba(0, 0, 0, 0.945);
     border-radius: 10px;
     width: 160px;
-    height: 25px;
+    height: 30px;
 }
 
-.dropdown_item>a{
+.dropdown_item>a {
     color: white;
     font-weight: bolder;
     width: 100%;
     height: 100%;
 }
 
-.dropdown_item>a:hover{
+.dropdown_item>a:hover {
     color: red;
+    transform: scale(1.1);
 }
 
 /*-------------Section-------------*/
@@ -158,6 +177,10 @@ section {
 
 section>div {
     display: block;
+}
+
+#addmenu {
+    position: absolute;
 }
 
 section>div>i:active {
