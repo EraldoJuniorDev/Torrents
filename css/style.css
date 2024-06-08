@@ -51,6 +51,8 @@
 
 div,
 .link,
+span,
+abbr,
 .dropdown,
 .dropdown_item>a,
 fieldset,
@@ -62,6 +64,7 @@ button {
 
 body,
 main,
+.mode_label,
 .main_menu_item,
 .dropdown_items,
 i,
@@ -86,12 +89,19 @@ aside>ul {
     list-style-type: none;
 }
 
-/*-------------Main-------------*/
+/*-------------Body-------------*/
 
 body {
-    width: 100vw;
+    width: 100vh;
     flex-direction: column;
+    transition: background 0.2s linear;
 }
+
+body .dark {
+    background-color: #000;
+}
+
+/*-------------Main-------------*/
 
 main {
     justify-content: space-evenly;
@@ -107,8 +117,8 @@ header {
     height: 55px;
     color: red;
     text-align: center;
+    border-bottom: 2px solid white;
     background-color: rgb(5, 5, 5);
-    /* border-bottom: 2px solid red; */
 }
 
 nav {
@@ -187,7 +197,7 @@ nav {
     transform: scale(1.1);
 }
 
-/*-------------Section-------------*/
+/*-------------Botão de Adicionar Jogo-------------*/
 
 section {
     border-radius: 10px;
@@ -201,7 +211,7 @@ section>div {
     display: block;
 }
 
-.add_game{
+.add_game {
     font-weight: bolder;
     font-size: 1rem;
     width: 150px;
@@ -212,7 +222,8 @@ section>div {
     border-radius: 10px;
 }
 
-.add_game:hover{
+.add_game:hover {
+    cursor: pointer;
     color: red;
     background-color: black;
     border-color: red;
@@ -247,7 +258,53 @@ i {
     cursor: pointer;
 }
 
-/*-------------#form-------------*/
+/*-------------Botão de Escolha de Modo-------------*/
+
+.mode_btn {}
+
+.mode_label>i {
+    margin: 0;
+    color: black;
+    font-size: 16px;
+    position: relative;
+}
+
+.mode_label {
+    width: 55px;
+    height: 26px;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    margin: 5px;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.mode_label .ball {
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 22px;
+    width: 22px;
+    transform: translateX(0px);
+    transition: transform 0.2s linear;
+}
+
+.checkbox {
+    cursor: pointer;
+    width: 55px;
+    height: 26px;
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox:checked+.mode_label .ball {
+    transform: translateX(24px);
+}
+
+/*-------------Form-------------*/
 
 #form {
     background-color: #000000;
