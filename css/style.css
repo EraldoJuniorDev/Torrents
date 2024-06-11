@@ -227,6 +227,28 @@ dialog[open] {
     border-radius: 10px;
 }
 
+.navigation{
+    margin-bottom: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bar{
+    width: 15px;
+    height: 15px;
+    border: 2px solid white;
+    margin: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: all;
+    transform: .5s ease;
+}
+
+.bar:hover{
+    background-color: white;
+}
+
 /*-------------Botão de Adicionar Jogo-------------*/
 
 .add_game {
@@ -346,7 +368,6 @@ i {
     border-radius: 5px;
     text-align: center;
     flex-direction: column;
-    gap: 0.5rem;
 }
 
 .slide_options {
@@ -433,11 +454,11 @@ fieldset {
 
 #gameminimumrequirements,
 #gamerecommendedrequirements {
-    gap: 20px;
+    gap: 17px;
 }
 
 .select_slides>input {
-    width: 50px;
+    display: none;
 }
 
 .input_btns {
