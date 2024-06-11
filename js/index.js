@@ -2,8 +2,10 @@ const key = 'eraldo';
 const games = [];
 const form = document.getElementById('form');
 form.addEventListener("submit", handleSubmit);
-const formBack = document.getElementById('formrequirements');
-formBack.addEventListener("submit", handleSubmit);
+const gameMinimumRequirements = document.getElementById('gameminimumrequirements');
+gameMinimumRequirements.addEventListener("submit", handleSubmit);
+const gameRecommendedRequirements = document.getElementById('gamerecommendedrequirements');
+gameRecommendedRequirements.addEventListener("submit", handleSubmit);
 listAllGames();
 
 function handleSubmit(ev) {
@@ -22,12 +24,12 @@ function handleSubmit(ev) {
     const typeRequiredCPU = document.getElementById('requiredcpu').value;
     const typeRequiredOS = document.getElementById('requiredos').value;
 
-    // const typeRecommendedRamMemory = document.getElementById('recommendedram').value;
-    // const typeRecommendedGraphicsCard = document.getElementById('recommendedgraphicscard').value;
-    // const typeRecommendedCPU = document.getElementById('recommendedcpu').value;
-    // const typeRecommendedOS = document.getElementById('recommendedos').value;
+    const typeRecommendedRamMemory = document.getElementById('recommendedram').value;
+    const typeRecommendedGraphicsCard = document.getElementById('recommendedgraphicscard').value;
+    const typeRecommendedCPU = document.getElementById('recommendedcpu').value;
+    const typeRecommendedOS = document.getElementById('recommendedos').value;
 
-    const game = { frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink: false };
+    const game = { frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink: false, typeRecommendedRamMemory, typeRecommendedGraphicsCard, typeRecommendedCPU, typeRecommendedOS };
     games.push(game);
     saveGameData(game);
     addCard(game);
@@ -54,7 +56,7 @@ function listAllGames() {
     return listGames.map((game) => addCard(game));
 }
 
-function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink = false }) {
+function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink = false, typeRecommendedRamMemory, typeRecommendedGraphicsCard, typeRecommendedCPU, typeRecommendedOS }) {
     const mainContent = document.getElementById('mainContent');
     const divMain = document.createElement('div');
 
@@ -65,10 +67,13 @@ function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize,
     const divCardFront = document.createElement('div');
     const divCardFrontImg = document.createElement('img');
 
-    //Card Back Requisítos Mínimos
+    //Card Back
 
     const divCardBack = document.createElement('div');
-    const divCardBackContent = document.createElement('div');
+
+    //Card Back Requisítos Mínimos
+
+    const divCardBackRequiredContent = document.createElement('div');
     const divCardBackMinimumRequirements = document.createElement('h1');
     const divCardBackRequiredRamMemory = document.createElement('h3');
     const divCardBackTypeRequiredRamMemory = document.createElement('p');
@@ -83,33 +88,22 @@ function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize,
     const divCardBackRequiredOS = document.createElement('h3');
     const divCardBackTypeRequiredOS = document.createElement('p');
 
-    const divCardBackButtonTorrentLink = document.createElement('a');
-    const divCardBackButtonTorrent = document.createElement('button');
-
-    const divCardBackButtonExtra = document.createElement('a');
-    const divCardBackButtonExtraLink = document.createElement('button');
-
     //Card Back Requisítos Recomendados
 
-    // const divCardBackRecommendedRequirements = document.createElement('h1');
-    // const divCardBackRecommendedRamMemory = document.createElement('h3');
-    // const divCardBackTypeRecommendedRamMemory = document.createElement('p');
+    const divCardBackRecommendedContent = document.createElement('div');
+    const divCardBackRecommendedRequirements = document.createElement('h1');
+    const divCardBackRecommendedRamMemory = document.createElement('h3');
+    const divCardBackTypeRecommendedRamMemory = document.createElement('p');
 
-    // const divCardBackRecommendedGraphicsCard = document.createElement('h3');
-    // const divCardBackTypeRecommendedGraphicsCard = document.createElement('p');
+    const divCardBackRecommendedGraphicsCard = document.createElement('h3');
+    const divCardBackTypeRecommendedGraphicsCard = document.createElement('p');
 
 
-    // const divCardBackRecommendedCPU = document.createElement('h3');
-    // const divCardBackTypeRecommendedCPU = document.createElement('p');
+    const divCardBackRecommendedCPU = document.createElement('h3');
+    const divCardBackTypeRecommendedCPU = document.createElement('p');
 
-    // const divCardBackRecommendedOS = document.createElement('h3');
-    // const divCardBackTypeRecommendedOS = document.createElement('p');
-
-    // const divCardBackButtonTorrentLink = document.createElement('a');
-    // const divCardBackButtonTorrent = document.createElement('button');
-
-    // const divCardBackButtonExtra = document.createElement('a');
-    // const divCardBackButtonExtraLink = document.createElement('button');
+    const divCardBackRecommendedOS = document.createElement('h3');
+    const divCardBackTypeRecommendedOS = document.createElement('p');
 
     //Card Overlay
 
@@ -129,8 +123,16 @@ function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize,
     const divCardOverlaySize = document.createElement('h3');
     const divCardOverlayFileSize = document.createElement('p');
 
+
+
+    const divCardBackButtonTorrentLink = document.createElement('a');
+    const divCardBackButtonTorrent = document.createElement('button');
+
+    const divCardBackButtonExtra = document.createElement('a');
+    const divCardBackButtonExtraLink = document.createElement('button');
+
     // Tudo da divMain
-    divMain.className = 'maincontainer';
+    divMain.className = 'gameContent';
 
     // Tudo da divCard
     divCard.className = 'card';
@@ -150,8 +152,8 @@ function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize,
     divCardOverlay.className = 'card_overlay';
 
 
-    // Tudo da divCardBackContent
-    divCardBackContent.className = 'minimumrequirements';
+    // Tudo da divCardBackRequiredContent
+    divCardBackRequiredContent.className = 'minimumrequirements';
     divCardBackMinimumRequirements.innerText = 'Requisitos Mínimos:';
     divCardBackRequiredRamMemory.innerText = 'RAM:';
     divCardBackTypeRequiredRamMemory.innerText = typeRequiredRamMemory;
@@ -167,21 +169,16 @@ function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize,
     divCardBackButtonExtraLink.innerText = 'Updater';
     divCardBackButtonExtraLink.className = 'extra';
 
-    // divCardBackContent.className = 'recommendedrequirements';
-    // divCardBackRecommendedRequirements.innerText = 'Requisitos Recomendados:';
-    // divCardBackRecommendedRamMemory.innerText = 'Memória RAM Recomendado:';
-    // divCardBackTypeRecommendedRamMemory.innerText = typeRecommendedRamMemory;
-    // divCardBackRecommendedGraphicsCard.innerText = 'Placa de Vídeo Recomendado:';
-    // divCardBackTypeRecommendedGraphicsCard.innerText = typeRecommendedGraphicsCard;
-    // divCardBackRecommendedCPU.innerText = 'Processador Recomendado:';
-    // divCardBackTypeRecommendedCPU.innerText = typeRecommendedCPU;
-    // divCardBackRecommendedOS.innerText = 'Sistema Operacional Recomendado:';
-    // divCardBackTypeRecommendedOS.innerText = typeRecommendedOS;
-    // divCardBackButtonTorrentLink.href = buttonTorrentLink;
-    // divCardBackButtonTorrent.innerText = 'Download';
-    // divCardBackButtonExtraLink.href = buttonExtraLink;
-    // divCardBackButtonExtraLink.innerText = 'Updater';
-    // divCardBackButtonExtraLink.className = 'extra';
+    divCardBackRecommendedContent.className = 'recommendedrequirements';
+    divCardBackRecommendedRequirements.innerText = 'Requisitos Recomendados:';
+    divCardBackRecommendedRamMemory.innerText = 'Memória RAM Recomendado:';
+    divCardBackTypeRecommendedRamMemory.innerText = typeRecommendedRamMemory;
+    divCardBackRecommendedGraphicsCard.innerText = 'Placa de Vídeo Recomendado:';
+    divCardBackTypeRecommendedGraphicsCard.innerText = typeRecommendedGraphicsCard;
+    divCardBackRecommendedCPU.innerText = 'Processador Recomendado:';
+    divCardBackTypeRecommendedCPU.innerText = typeRecommendedCPU;
+    divCardBackRecommendedOS.innerText = 'Sistema Operacional Recomendado:';
+    divCardBackTypeRecommendedOS.innerText = typeRecommendedOS;
 
     // Tudo da divCardOverlayContent
     divCardOverlayContent.className = 'description';
@@ -208,48 +205,53 @@ function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize,
     divCardOverlayContent.appendChild(divCardOverlaySize);
     divCardOverlayContent.appendChild(divCardOverlayFileSize);
 
+    divCardOverlayContent.appendChild(divCardBackButtonTorrentLink);
+    divCardBackButtonTorrentLink.appendChild(divCardBackButtonTorrent);
+
+
+
+    if (isShowExtraLink) {
+        divCardOverlayContent.appendChild(divCardBackButtonExtraLink);
+        divCardBackButtonExtraLink.appendChild(divCardBackButtonExtra);
+    }
+
     divCardOverlay.appendChild(divCardOverlayContent);
     divCard.appendChild(divCardOverlay);
-    divCardBack.appendChild(divCardBackContent);
+    divCardBack.appendChild(divCardBackRequiredContent);
+    divCardBack.appendChild(divCardBackRecommendedContent);
     divCard.appendChild(divCardBack);
     divCardFront.appendChild(divCardFrontImg);
     divCard.appendChild(divCardFront);
     divMain.appendChild(divCard);
     mainContent.appendChild(divMain);
 
-    divCardBackContent.appendChild(divCardBackMinimumRequirements);
-    divCardBackContent.appendChild(divCardBackRequiredRamMemory);
-    divCardBackContent.appendChild(divCardBackTypeRequiredRamMemory);
+    divCardBackRequiredContent.appendChild(divCardBackMinimumRequirements);
+    divCardBackRequiredContent.appendChild(divCardBackRequiredRamMemory);
+    divCardBackRequiredContent.appendChild(divCardBackTypeRequiredRamMemory);
 
-    divCardBackContent.appendChild(divCardBackRequiredGraphicsCard);
-    divCardBackContent.appendChild(divCardBackTypeRequiredGraphicsCard);
+    divCardBackRequiredContent.appendChild(divCardBackRequiredGraphicsCard);
+    divCardBackRequiredContent.appendChild(divCardBackTypeRequiredGraphicsCard);
 
-    divCardBackContent.appendChild(divCardBackRequiredCPU);
-    divCardBackContent.appendChild(divCardBackTypeRequiredCPU);
+    divCardBackRequiredContent.appendChild(divCardBackRequiredCPU);
+    divCardBackRequiredContent.appendChild(divCardBackTypeRequiredCPU);
 
-    divCardBackContent.appendChild(divCardBackRequiredOS);
-    divCardBackContent.appendChild(divCardBackTypeRequiredOS);
+    divCardBackRequiredContent.appendChild(divCardBackRequiredOS);
+    divCardBackRequiredContent.appendChild(divCardBackTypeRequiredOS);
 
-    // divCardBackContent.appendChild(divCardBackRecommendedRequirements);
-    // divCardBackContent.appendChild(divCardBackRecommendedRamMemory);
-    // divCardBackContent.appendChild(divCardBackTypeRecommendedRamMemory);
+    divCardBackRecommendedContent.appendChild(divCardBackRecommendedRequirements);
+    divCardBackRecommendedContent.appendChild(divCardBackRecommendedRamMemory);
+    divCardBackRecommendedContent.appendChild(divCardBackTypeRecommendedRamMemory);
 
-    // divCardBackContent.appendChild(divCardBackRecommendedGraphicsCard);
-    // divCardBackContent.appendChild(divCardBackTypeRecommendedGraphicsCard);
+    divCardBackRecommendedContent.appendChild(divCardBackRecommendedGraphicsCard);
+    divCardBackRecommendedContent.appendChild(divCardBackTypeRecommendedGraphicsCard);
 
-    // divCardBackContent.appendChild(divCardBackRecommendedCPU);
-    // divCardBackContent.appendChild(divCardBackTypeRecommendedCPU);
+    divCardBackRecommendedContent.appendChild(divCardBackRecommendedCPU);
+    divCardBackRecommendedContent.appendChild(divCardBackTypeRecommendedCPU);
 
-    // divCardBackContent.appendChild(divCardBackRecommendedOS);
-    // divCardBackContent.appendChild(divCardBackTypeRecommendedOS);
+    divCardBackRecommendedContent.appendChild(divCardBackRecommendedOS);
+    divCardBackRecommendedContent.appendChild(divCardBackTypeRecommendedOS);
 
-    divCardBackContent.appendChild(divCardBackButtonTorrentLink);
-    divCardBackContent.appendChild(divCardBackButtonTorrent);
 
-    if (isShowExtraLink) {
-        divCardBackContent.appendChild(divCardBackButtonExtraLink);
-        divCardBackContent.appendChild(divCardBackButtonExtra);
-    }
 
 }
 
@@ -266,10 +268,10 @@ function sectionBtn() {
 // Botões de Opções do Form
 
 function requirementsBtn() {
-    if (formrequirements.style.display == 'flex')
-        formrequirements.style.display = 'none'
+    if (gameminimumrequirements.style.display == 'flex')
+        gameminimumrequirements.style.display = 'none'
     else {
-        formrequirements.style.display = 'flex'
+        gameminimumrequirements.style.display = 'flex'
     }
 }
 
@@ -286,29 +288,19 @@ function flipCard(card) {
 
 // Função de abrir o Menu de Adição
 
-function openAddMenu() {
-    const section = document.querySelector("section")
-    if (form.style.display == 'flex') {
-        form.style.display = 'none'
-    } else {
-        form.style.display = 'flex'
-    }
+const modalOpenBtn = document.querySelector("#open_modal")
+const modalCloseBtn = document.querySelector("#close_modal")
+const modal = document.querySelector("dialog")
 
-    addbtn.style.transition = '0.2s'
+modalOpenBtn.addEventListener('click', () => {
+    modal.show();
+})
 
-    if (addbtn.style.transform == 'rotate(45deg)') {
-        addbtn.style.transform = 'rotate(0deg)'
-    }
-    else {
-        addbtn.style.transform = 'rotate(45deg)'
-    }
+modalCloseBtn.addEventListener('click', () => {
+    modal.close();
+})
 
-    if (sectionbtn.style.display == 'flex') {
-        sectionbtn.style.display = 'none'
-    } else {
-        sectionbtn.style.display = 'flex'
-    }
-}
+// Função do Menu Dropdown
 
 function menuDropdown() {
     if (dropdown_items.style.display == 'flex') {
@@ -317,3 +309,12 @@ function menuDropdown() {
         dropdown_items.style.display = 'flex'
     }
 }
+
+// Função de Mudança de Tema
+
+const checkbox = document.getElementById('checkbox');
+
+checkbox.addEventListener('change', () => {
+    document.querySelector('header').classList.toggle('dark')
+    document.body.classList.toggle('dark')
+})

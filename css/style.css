@@ -97,8 +97,9 @@ body {
     transition: background 0.2s linear;
 }
 
-body .dark {
-    background-color: #000;
+.dark {
+    background-color: white;
+    color: black;
 }
 
 /*-------------Main-------------*/
@@ -114,6 +115,8 @@ main {
 /*-------------Menu Principal-------------*/
 
 header {
+    z-index: 1;
+    width: 100%;
     height: 55px;
     color: red;
     text-align: center;
@@ -179,7 +182,7 @@ nav {
 }
 
 .dropdown_item {
-    background-color: rgba(0, 0, 0, 0.945);
+    background-image: linear-gradient(to ,);
     border-radius: 10px;
     width: 170px;
     height: 30px;
@@ -197,19 +200,34 @@ nav {
     transform: scale(1.1);
 }
 
-/*-------------Botão de Adicionar Jogo-------------*/
+/*-------------Modal Adicionar Jogo-------------*/
 
-section {
-    border-radius: 10px;
-    background-image: linear-gradient(to bottom, rgb(129, 0, 0), rgb(153, 0, 0), red);
-    width: 22rem;
+dialog {
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: #000000b8;
+    width: 100%;
+    height: 100%;
     z-index: 1;
-    position: absolute;
+    position: fixed;
+    flex-direction: column;
 }
 
-section>div {
-    display: block;
+dialog[open] {
+    display: flex;
 }
+
+.modal {
+    background-color: #0e0e0ede;
+    flex-direction: column;
+    overflow: hidden;
+    width: 19%;
+    height: 53%;
+    border-radius: 10px;
+}
+
+/*-------------Botão de Adicionar Jogo-------------*/
 
 .add_game {
     font-weight: bolder;
@@ -234,7 +252,7 @@ section>div {
     position: absolute;
 }
 
-section>div>i:active {
+dialog>div>i:active {
     font-size: 27px;
 }
 
@@ -247,16 +265,18 @@ i {
     position: absolute;
 }
 
-#closebtn {
-    display: none;
-}
-
-.bi::after {
-    transform: rotate(45deg);
-}
-
 .bi:hover {
     cursor: pointer;
+}
+
+#close_modal {
+    width: 100%;
+    height: 100%;
+    justify-content: end;
+}
+
+#close_modal>i:hover {
+    color: red;
 }
 
 /*-------------Botão de Escolha de Modo-------------*/
@@ -265,7 +285,6 @@ i {
 
 .mode_label>i {
     margin: 0;
-    color: black;
     font-size: 16px;
     position: relative;
 }
@@ -274,7 +293,7 @@ i {
     width: 55px;
     height: 26px;
     align-items: center;
-    background-color: white;
+    background-color: rgb(116, 114, 114);
     border-radius: 50px;
     margin: 5px;
     justify-content: space-evenly;
@@ -282,6 +301,7 @@ i {
 }
 
 .mode_label .ball {
+    z-index: 1;
     background-color: black;
     border-radius: 50%;
     position: absolute;
@@ -291,6 +311,10 @@ i {
     width: 22px;
     transform: translateX(0px);
     transition: transform 0.2s linear;
+}
+
+.ball:hover {
+    background-color: red;
 }
 
 .checkbox {
@@ -305,17 +329,29 @@ i {
     transform: translateX(24px);
 }
 
+.bi-moon-fill {
+    color: white;
+}
+
+.bi-sun-fill {
+    color: yellow;
+}
+
 /*-------------Form-------------*/
 
 #form {
-    background-color: #000000;
-    display: none;
+    display: flex;
     margin: 5px;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
     flex-direction: column;
     gap: 0.5rem;
+}
+
+.slide_options {
+    gap: 40px;
+    margin-top: -11%;
 }
 
 #formback {
@@ -335,7 +371,7 @@ input {
     font-size: 1rem;
     border-style: none;
     border-color: white;
-    width: 100%;
+    width: 300px;
     border-radius: 4px;
     padding-left: 0.5rem;
 }
@@ -376,10 +412,55 @@ fieldset {
 #formback input[type=submit]:hover,
 #formback input[type=reset]:hover {
     cursor: pointer;
-    height: 30px;
-    font-size: 20px;
-    transition: 0.4s;
     background-image: linear-gradient(to right, rgb(129, 0, 0), rgb(153, 0, 0), red);
+}
+
+#form>fieldset,
+#formback>fieldset {
+    gap: 0.5rem;
+    border: none;
+    flex-direction: column;
+    width: 100%;
+}
+
+#gamedescription,
+#gameminimumrequirements,
+#gamerecommendedrequirements {
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+#gameminimumrequirements,
+#gamerecommendedrequirements {
+    gap: 20px;
+}
+
+.select_slides>input {
+    width: 50px;
+}
+
+.input_btns {
+    gap: 20px;
+}
+
+.input_btns>input {
+    width: 100px;
+}
+
+#descriptionbtn {
+    border-bottom-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+#requirementsbtn {
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+#yesbtn,
+#nobtn {
+    width: 50px;
 }
 
 /*-------------Main-------------*/
@@ -401,7 +482,7 @@ body {
 
 /*-------------Card do Jogo-------------*/
 
-.maincontainer {
+.gameContent {
     position: static;
     width: 17.125rem;
     height: 24.188rem;
@@ -457,6 +538,8 @@ body {
 .card_back {
     z-index: 2;
     position: absolute;
+    justify-content: unset;
+    gap: 10px;
     top: 0;
     left: 0;
     width: 100%;
@@ -468,10 +551,23 @@ body {
     color: #ffffff;
     text-align: center;
     transform: rotateY(180deg);
+    padding: 10px 0;
+    flex-direction: column;
+    overflow: scroll;
+
 }
 
-.sectionbtn {
+.recommendedrequirements,
+.minimumrequirements {
+    flex-direction: column;
+}
+
+/* .recommendedrequirements{
     display: none;
+} */
+
+.sectionbtn {
+    display: flex;
     padding: 5px;
     width: 100%;
     gap: 10px;
@@ -490,33 +586,6 @@ body {
     border: 1px solid white;
     color: red;
     font-size: medium;
-}
-
-#form>fieldset,
-#formback>fieldset {
-    gap: 0.5rem;
-    border: none;
-    flex-direction: column;
-    width: 100%;
-}
-
-#formrequirements {
-    display: none;
-}
-
-#descriptionbtn {
-    border-bottom-left-radius: 100px;
-    border-top-right-radius: 100px;
-}
-
-#requirementsbtn {
-    border-top-left-radius: 100px;
-    border-bottom-right-radius: 100px;
-}
-
-#yesbtn,
-#nobtn {
-    width: 50px;
 }
 
 /*-------------Descrição-------------*/

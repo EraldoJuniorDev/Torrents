@@ -148,16 +148,21 @@
         gap: 0.5rem;
     }
 
+    .minimumrequirements,
+    .recommendedrequirements {
+        gap: 10px;
+    }
+
     h1 {
-        font-size: 1.625rem;
+        font-size: 19px;
     }
 
     h3 {
-        font-size: 1.25rem;
+        font-size: 14px;
     }
 
     p {
-        font-size: 1.063rem;
+        font-size: 12px;
     }
 
     button,
