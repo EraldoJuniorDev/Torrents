@@ -255,26 +255,6 @@ function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize,
 
 }
 
-// Botão de Adicionar Jogos
-
-function sectionBtn() {
-    if (formdescription.style.display == 'none')
-        formdescription.style.display = 'flex'
-    else {
-        formdescription.style.display = 'none'
-    }
-}
-
-// Botões de Opções do Form
-
-function requirementsBtn() {
-    if (gameminimumrequirements.style.display == 'flex')
-        gameminimumrequirements.style.display = 'none'
-    else {
-        gameminimumrequirements.style.display = 'flex'
-    }
-}
-
 // Função de Virar Os Cards
 
 function flipCard(card) {

@@ -219,13 +219,16 @@ dialog[open] {
 }
 
 .modal {
+    justify-content: space-between;
+    /* gap: 20px; */
     background-color: #0e0e0ede;
     flex-direction: column;
     overflow: hidden;
     width: 19%;
-    height: 53%;
+    height: fit-content;
     border-radius: 10px;
 }
+
 
 .navigation{
     margin-bottom: 26px;
@@ -293,8 +296,9 @@ i {
 
 #close_modal {
     width: 100%;
-    height: 100%;
-    justify-content: end;
+    height: 50px;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 #close_modal>i:hover {
@@ -370,9 +374,11 @@ i {
     flex-direction: column;
 }
 
-.slide_options {
-    gap: 40px;
-    margin-top: -11%;
+#close_modal {
+    width: 100%;
+    height: 50px;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 #formback {
@@ -444,6 +450,10 @@ fieldset {
     width: 100%;
 }
 
+#game_description{
+    gap: 5px;
+}
+
 #gamedescription,
 #gameminimumrequirements,
 #gamerecommendedrequirements {
@@ -459,6 +469,11 @@ fieldset {
 
 .select_slides>input {
     display: none;
+}
+
+.slide_options{
+    gap: 30px;
+    margin-left: 655px;
 }
 
 .input_btns {
