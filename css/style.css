@@ -130,10 +130,20 @@ nav {
 /*-------------Botão de Fechar Modal-------------*/
 
 #close_modal {
+    color: rgb(255, 255, 255);
     width: 100%;
     height: 50px;
+    font-size: 25px;
     justify-content: flex-end;
     align-items: center;
+}
+
+#close_modal>i{
+        z-index: 1;
+        width: fit-content;
+        font-size: 25px;
+        margin: 15px 15px;
+        position: absolute;
 }
 
 #close_modal>i:hover {
@@ -150,6 +160,11 @@ nav {
 
 .link {
     width: 127px;
+}
+
+.main_menu_item>a>i, .bi{
+    font-size: 25px;
+    color: white;
 }
 
 .main_menu_item>a>i:hover,
@@ -470,22 +485,6 @@ fieldset {
 /*-------------Botão de Adicionar Jogo-------------*/
 
 
-#addmenu {
-    position: absolute;
-}
-
-dialog>div>i:active {
-    font-size: 27px;
-}
-
-i {
-    z-index: 1;
-    width: fit-content;
-    font-size: 25px;
-    color: rgb(255, 255, 255);
-    margin: 15px 15px;
-    position: absolute;
-}
 
 .bi:hover {
     cursor: pointer;
