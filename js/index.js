@@ -292,12 +292,12 @@ function menuDropdown() {
 
 // Função de Mudança de Tema
 
-const checkbox = document.getElementById('checkbox');
+// const checkbox = document.getElementById('checkbox');
 
-checkbox.addEventListener('change', () => {
-    document.querySelector('header').classList.toggle('dark')
-    document.querySelector('body').classList.toggle('dark')
-})
+// checkbox.addEventListener('change', () => {
+//     document.querySelector('header').classList.toggle('dark')
+//     document.querySelector('body').classList.toggle('dark')
+// })
 
 //
 

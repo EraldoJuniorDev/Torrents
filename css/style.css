@@ -78,42 +78,9 @@ fieldset,
     display: flex;
 }
 
-aside {
-    font-family: 'Font';
-    background-color: darkred;
-    width: 18.75rem;
-    display: flex;
-    justify-content: center;
-}
 
-aside>ul {
-    list-style-type: none;
-}
 
-/*-------------Body-------------*/
-
-body {
-    width: 100vh;
-    flex-direction: column;
-    transition: background 0.2s linear;
-}
-
-.dark {
-    background-color: white;
-    color: black;
-}
-
-/*-------------Main-------------*/
-
-main {
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    row-gap: 2.5rem;
-    background-color: rgba(0, 0, 0, 0.91);
-    padding: 1.25rem;
-}
-
-/*-------------Menu Principal-------------*/
+/*-------------Header-------------*/
 
 header {
     z-index: 1;
@@ -124,6 +91,8 @@ header {
     border-bottom: 2px solid white;
     background-color: rgb(5, 5, 5);
 }
+
+/*-------------Menu de Navegação-------------*/
 
 nav {
     width: 100%;
@@ -137,10 +106,50 @@ nav {
     gap: 50px;
 }
 
+/*-------------Botão de Abrir Modal-------------*/
+
+.add_game {
+    font-weight: bolder;
+    font-size: 1rem;
+    width: 150px;
+    height: 30px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.add_game:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    color: red;
+    background-color: black;
+    border-color: red;
+}
+
+/*-------------Botão de Fechar Modal-------------*/
+
+#close_modal {
+    width: 100%;
+    height: 50px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#close_modal>i:hover {
+    color: red;
+}
+
+/*-------------Itens Principais do Menu de Navegação-------------*/
+
 .main_menu_item {
     width: 127px;
     height: 55px;
     justify-content: center;
+}
+
+.link {
+    width: 127px;
 }
 
 .main_menu_item>a>i:hover,
@@ -160,9 +169,7 @@ nav {
     color: red;
 }
 
-.link {
-    width: 127px;
-}
+/*-------------Item Dropdown do Menu de Navegação-------------*/
 
 .dropdown {
     z-index: 1;
@@ -201,7 +208,86 @@ nav {
     transform: scale(1.1);
 }
 
-/*-------------Modal Adicionar Jogo-------------*/
+/*-------------Botão de Troca de Modo-------------*/
+
+.mode_label {
+    width: 55px;
+    height: 26px;
+    align-items: center;
+    background-color: rgb(116, 114, 114);
+    border-radius: 50px;
+    margin: 5px;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.checkbox {
+    cursor: pointer;
+    width: 55px;
+    height: 26px;
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox:checked+.mode_label .ball {
+    transform: translateX(24px);
+}
+
+.mode_label>i {
+    margin: 0;
+    font-size: 16px;
+    position: relative;
+}
+
+.bi-sun-fill {
+    color: yellow;
+}
+
+.bi-moon-fill {
+    color: white;
+}
+
+.mode_label .ball {
+    z-index: 1;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 22px;
+    width: 22px;
+    transform: translateX(0px);
+    transition: transform 0.2s linear;
+}
+
+.ball:hover {
+    background-color: red;
+}
+
+/*-------------Body-------------*/
+
+body {
+    width: 100vh;
+    flex-direction: column;
+    transition: background 0.2s linear;
+}
+
+.dark {
+    background-color: white;
+    color: black;
+}
+
+/*-------------Main-------------*/
+
+main {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.91);
+    padding: 1.25rem;
+}
+
+/*-------------Div Geral do Modal-------------*/
 
 dialog {
     align-items: center;
@@ -230,139 +316,7 @@ dialog[open] {
     border-radius: 10px;
 }
 
-
-.navigation {
-    margin-bottom: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.bar {
-    width: 15px;
-    height: 15px;
-    margin: 6px;
-    border-radius: 50%;
-    cursor: pointer;
-    pointer-events: all;
-    transform: .5s ease;
-}
-
-.bar:hover {
-    color: black;
-    background-color: white;
-}
-
-/*-------------Botão de Adicionar Jogo-------------*/
-
-.add_game {
-    font-weight: bolder;
-    font-size: 1rem;
-    width: 150px;
-    height: 30px;
-    color: white;
-    background-color: rgb(0, 0, 0);
-    border: 1px solid white;
-    border-radius: 10px;
-}
-
-.add_game:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-    color: red;
-    background-color: black;
-    border-color: red;
-}
-
-#addmenu {
-    position: absolute;
-}
-
-dialog>div>i:active {
-    font-size: 27px;
-}
-
-i {
-    z-index: 1;
-    width: fit-content;
-    font-size: 25px;
-    color: rgb(255, 255, 255);
-    margin: 15px 15px;
-    position: absolute;
-}
-
-.bi:hover {
-    cursor: pointer;
-}
-
-#close_modal {
-    width: 100%;
-    height: 50px;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-#close_modal>i:hover {
-    color: red;
-}
-
-/*-------------Botão de Escolha de Modo-------------*/
-
-.mode_label>i {
-    margin: 0;
-    font-size: 16px;
-    position: relative;
-}
-
-.mode_label {
-    width: 55px;
-    height: 26px;
-    align-items: center;
-    background-color: rgb(116, 114, 114);
-    border-radius: 50px;
-    margin: 5px;
-    justify-content: space-evenly;
-    position: relative;
-}
-
-.mode_label .ball {
-    z-index: 1;
-    background-color: black;
-    border-radius: 50%;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    height: 22px;
-    width: 22px;
-    transform: translateX(0px);
-    transition: transform 0.2s linear;
-}
-
-.ball:hover {
-    background-color: red;
-}
-
-.checkbox {
-    cursor: pointer;
-    width: 55px;
-    height: 26px;
-    opacity: 0;
-    position: absolute;
-}
-
-.checkbox:checked+.mode_label .ball {
-    transform: translateX(24px);
-}
-
-.bi-moon-fill {
-    color: white;
-}
-
-.bi-sun-fill {
-    color: yellow;
-}
-
-/*-------------Form-------------*/
+/*-------------Formulário do Modal-------------*/
 
 #form {
     display: flex;
@@ -373,50 +327,7 @@ i {
     flex-direction: column;
 }
 
-#close_modal {
-    width: 100%;
-    height: 50px;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-#formback {
-    background-color: #303030;
-    display: flex;
-    margin: 5px;
-    padding: 20px;
-    width: 300px;
-    border-radius: 5px;
-    text-align: center;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-
-input {
-    color: #fff;
-    font-size: 1rem;
-    border-style: none;
-    border-color: white;
-    width: 300px;
-    border-radius: 4px;
-    padding-left: 0.5rem;
-}
-
-label {
-    color: white;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-fieldset {
-    color: white;
-    width: 210px;
-    border-bottom-left-radius: 30px;
-    border-top-right-radius: 30px;
-}
+/*-------------Inputs do Modal-------------*/
 
 #form input[type=text],
 #formback input[type=text] {
@@ -449,14 +360,48 @@ fieldset {
     width: 100%;
 }
 
-.select_extra_download {
+/*-------------Inputs das Opções de Formulário-------------*/
+
+.select_slides>input {
     display: none;
-    flex-direction: column;
 }
 
-#gamedescription {
-    gap: 5px;
+input {
+    color: #fff;
+    font-size: 1rem;
+    border-style: none;
+    border-color: white;
+    width: 300px;
+    border-radius: 4px;
+    padding-left: 0.5rem;
 }
+
+label {
+    color: white;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/*-------------Opções do Formulário-------------*/
+
+.slide_options {
+    gap: 30px;
+    margin-left: 656px;
+}
+
+/*-------------Fieldset do Formulário-------------*/
+
+fieldset {
+    color: white;
+    width: 210px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+/*-------------Opções Gerais do Formulário-------------*/
 
 #gamedescription,
 #gameminimumrequirements,
@@ -471,14 +416,47 @@ fieldset {
     gap: 17px;
 }
 
-.select_slides>input {
-    display: none;
+/*-------------Opção de Descrição do Jogo-------------*/
+
+#gamedescription {
+    gap: 5px;
 }
 
-.slide_options {
-    gap: 30px;
-    margin-left: 656px;
+#yesbtn,
+#nobtn {
+    width: 50px;
 }
+
+.select_extra_download {
+    display: none;
+    flex-direction: column;
+}
+
+/*-------------Label dos Inputs das Opções de Formulário-------------*/
+
+.navigation {
+    margin-bottom: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bar {
+    width: 15px;
+    height: 15px;
+    margin: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: all;
+    transform: .5s ease;
+}
+
+.bar:hover {
+    color: black;
+    background-color: white;
+}
+
+/*-------------Botões de Cadastrar ou Limpar Dados do Jogo-------------*/
 
 .input_btns {
     gap: 20px;
@@ -488,20 +466,32 @@ fieldset {
     width: 100px;
 }
 
-#descriptionbtn {
-    border-bottom-left-radius: 100px;
-    border-top-right-radius: 100px;
+
+/*-------------Botão de Adicionar Jogo-------------*/
+
+
+#addmenu {
+    position: absolute;
 }
 
-#requirementsbtn {
-    border-top-left-radius: 100px;
-    border-bottom-right-radius: 100px;
+dialog>div>i:active {
+    font-size: 27px;
 }
 
-#yesbtn,
-#nobtn {
-    width: 50px;
+i {
+    z-index: 1;
+    width: fit-content;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    margin: 15px 15px;
+    position: absolute;
 }
+
+.bi:hover {
+    cursor: pointer;
+}
+
+
 
 /*-------------Main-------------*/
 
