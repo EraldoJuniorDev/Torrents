@@ -53,6 +53,7 @@ div,
 .link,
 span,
 abbr,
+.bar,
 .dropdown,
 .dropdown_item>a,
 fieldset,
@@ -182,7 +183,7 @@ nav {
 }
 
 .dropdown_item {
-    background-image: linear-gradient(to ,);
+    background-color: #000000f2;
     border-radius: 10px;
     width: 170px;
     height: 30px;
@@ -230,17 +231,16 @@ dialog[open] {
 }
 
 
-.navigation{
+.navigation {
     margin-bottom: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.bar{
+.bar {
     width: 15px;
     height: 15px;
-    border: 2px solid white;
     margin: 6px;
     border-radius: 50%;
     cursor: pointer;
@@ -248,7 +248,8 @@ dialog[open] {
     transform: .5s ease;
 }
 
-.bar:hover{
+.bar:hover {
+    color: black;
     background-color: white;
 }
 
@@ -450,7 +451,12 @@ fieldset {
     width: 100%;
 }
 
-#game_description{
+.select_extra_download {
+    display: none;
+    flex-direction: column;
+}
+
+#gamedescription {
     gap: 5px;
 }
 
@@ -471,9 +477,9 @@ fieldset {
     display: none;
 }
 
-.slide_options{
+.slide_options {
     gap: 30px;
-    margin-left: 655px;
+    margin-left: 656px;
 }
 
 .input_btns {

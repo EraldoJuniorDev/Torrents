@@ -56,7 +56,7 @@ function listAllGames() {
     return listGames.map((game) => addCard(game));
 }
 
-function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink = false, typeRecommendedRamMemory, typeRecommendedGraphicsCard, typeRecommendedCPU, typeRecommendedOS }) {
+function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink = true, typeRecommendedRamMemory, typeRecommendedGraphicsCard, typeRecommendedCPU, typeRecommendedOS }) {
     const mainContent = document.getElementById('mainContent');
     const divMain = document.createElement('div');
 
@@ -269,7 +269,7 @@ function flipCard(card) {
 // Função de abrir o Menu de Adição
 
 const modalOpenBtn = document.querySelector("#open_modal")
-const modalCloseBtn = document.querySelector("#close_modal")
+const modalCloseBtn = document.querySelector(".bi-x-circle-fill")
 const modal = document.querySelector("dialog")
 
 modalOpenBtn.addEventListener('click', () => {
@@ -296,5 +296,44 @@ const checkbox = document.getElementById('checkbox');
 
 checkbox.addEventListener('change', () => {
     document.querySelector('header').classList.toggle('dark')
-    document.body.classList.toggle('dark')
+    document.querySelector('body').classList.toggle('dark')
 })
+
+//
+
+const sliderCheckbox = document.querySelector("input[name=select_slide_option]");
+
+
+sliderCheckbox.addEventListener('click', () => {
+    if (sliderCheckbox) {
+        alert('Hello World');
+    }
+    else {
+        alert("Checkbox is not checked...");
+    }
+});
+
+//
+
+const extraLinkYesButton = document.getElementById('yesbtn')
+const extraLinkNoButton = document.getElementById('nobtn')
+const labelExtraLink = document.querySelector("div .select_extra_download")
+
+extraLinkYesButton.addEventListener('click', () => {
+    if (extraLinkYesButton.checked) {
+        labelExtraLink.style.display = 'flex'
+
+    }
+})
+
+extraLinkYesButton.addEventListener('click', () => {
+    if (extraLinkYesButton.checked) {
+    }
+})
+
+extraLinkNoButton.addEventListener('click', () => {
+    if (extraLinkNoButton.checked) {
+        labelExtraLink.style.display = 'none'
+    }
+})
+

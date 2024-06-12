@@ -15,11 +15,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <header>
-    <!-- <div>
-        <input type="text" name="" id="">
-    </div> -->
+
+    <!--Menu de Navegação-->
     <nav class="main_menu">
+
+        <!--Botão de Abrir Modal-->
         <span class="add_game" id="open_modal">Adicionar Jogo</span>
+
+        <!--Itens Principais do Menu de Navegação-->
         <div class="menu_nav">
             <li class="main_menu_item">
                 <a href="#" class="link">
@@ -55,6 +58,8 @@
                 </ol>
             </li>
         </div>
+
+        <!--Botão de Troca de Modo-->
         <div class="mode_btn">
             <input type="checkbox" class="checkbox" id="checkbox">
 
@@ -69,24 +74,28 @@
 </header>
 
 <body>
+    <!--Div Geral do Modal-->
     <dialog>
-        <!-- <div onclick="openAddMenu()" id="addmenu">
-        <i class="bi bi-plus-circle" id="addbtn"></i>
-        <i class="bi bi-x-circle" id="closebtn"></i>
-    </div> -->
+
         <div class="modal">
-            <!-- <div class="sectionbtn" id="sectionbtn">
-                <button id="descriptionbtn" onclick="sectionBtn()">Descrição</button>
-                <button id="requirementsbtn" onclick="requirementsBtn()">Requisitos</button>
-            </div> -->
+
+            <!--Botão de Fechar Modal-->
             <span id="close_modal"><i class="bi bi-x-circle-fill"></i></span>
+
+            <!--Formulário do Modal-->
             <form id="form">
+
+                <!--Inputs das Opções de Formulário-->
                 <div class="select_slides">
-                    <input type="radio" name="select_slide_option" id="radio1" checked>
+                    <input type="radio" name="select_slide_option" id="radio1">
                     <input type="radio" name="select_slide_option" id="radio2">
                     <input type="radio" name="select_slide_option" id="radio3">
                 </div>
+
+                <!--Opções do Formulário-->
                 <div class="slide_options">
+
+                    <!--Opção de Descrição do Jogo-->
                     <fieldset id="gamedescription" class="formitem">
                         <h1>Informações do Jogo:</h1>
                         <label for="frontimage">
@@ -120,13 +129,17 @@
                         <fieldset>
                             <legend>Adicionar Download Extra?</legend>
                             <input type="radio" name="buttonextra" id="yesbtn" value="yesbtn">Sim
-                            <input type="radio" name="buttonextra" id="nobtn" value="nobtn">Não
+                            <input type="radio" name="buttonextra" id="nobtn" value="nobtn" checked>Não
                         </fieldset>
-                        <label for="gamelinkextra">
-                            Link do Download Extra:
-                        </label>
-                        <input type="text" name="gamelinkextra" id="gamelinkextra">
+                        <div class="select_extra_download">
+                            <label for="gamelinkextra">
+                                Link do Download Extra:
+                            </label>
+                            <input type="text" name="gamelinkextra" id="gamelinkextra">
+                        </div>
                     </fieldset>
+
+                    <!--Opção de Requisitos Mínimos do Jogo-->
                     <fieldset id="gameminimumrequirements" class="formitem">
                         <h1>Requisitos Necessários:</h1>
                         <label for="requiredram">
@@ -145,10 +158,12 @@
                             Sistema Operacional:
                         </label>
                         <input type="text" name="requiredos" id="requiredos">
-                        
+
                     </fieldset>
+
+                    <!--Opção de Requisitos Recomendados do Jogo-->
                     <fieldset id="gamerecommendedrequirements" class="formitem">
-                        <h1>Requisitos Recomendado:</h1>
+                        <h1>Requisitos Recomendados:</h1>
                         <label for="recommendedram">
                             Memória RAM Recomendada:
                         </label>
@@ -167,22 +182,29 @@
                         <input type="text" name="recommendedos" id="recommendedos">
                     </fieldset>
                 </div>
+
+                <!--Label dos Inputs das Opções de Formulário-->
                 <div class="navigation">
-                    <label for="radio1" class="bar"></label>
-                    <label for="radio2" class="bar"></label>
-                    <label for="radio3" class="bar"></label>
+                    <label for="radio1" class="bar"><abbr title="Informações do Jogo">1</abbr></label>
+                    <label for="radio2" class="bar"><abbr title="Requisitos Necessários">2</abbr></label>
+                    <label for="radio3" class="bar"><abbr title="Requisitos Recomendados">3</abbr></label>
                 </div>
+
+                <!--Botões de Cadastrar ou Limpar Dados do Jogo-->
                 <div class="input_btns">
                     <input type="submit" value="Cadastrar">
                     <input type="reset" value="Limpar">
                 </div>
+
             </form>
+
         </div>
+
     </dialog>
     <main id="mainContent">
     </main>
 
 </body>
-<script src="js/index.js" defer></script>
+<script src="js/index.js"></script>
 
 </html>
