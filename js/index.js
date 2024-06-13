@@ -47,7 +47,7 @@ function saveGameData(game) {
 }
 
 function listAllGames() {
-    const listGames = JSON.parse(localStorage.getItem(key));
+    let listGames = JSON.parse(localStorage.getItem(key));
 
     if (!listGames) {
         listGames = [];

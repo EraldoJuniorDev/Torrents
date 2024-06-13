@@ -88,8 +88,8 @@ header {
     height: 55px;
     color: red;
     text-align: center;
-    border-bottom: 2px solid white;
-    background-color: rgb(5, 5, 5);
+    border-bottom: 2px solid black;
+    background-color: white;
 }
 
 /*-------------Menu de Navegação-------------*/
@@ -164,7 +164,7 @@ nav {
 
 .main_menu_item>a>i, .bi{
     font-size: 25px;
-    color: white;
+    color: black;
 }
 
 .main_menu_item>a>i:hover,
@@ -282,7 +282,7 @@ nav {
 /*-------------Body-------------*/
 
 body {
-    width: 100vh;
+    width: 100vw;
     flex-direction: column;
     transition: background 0.2s linear;
 }
@@ -292,15 +292,7 @@ body {
     color: black;
 }
 
-/*-------------Main-------------*/
 
-main {
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    row-gap: 2.5rem;
-    background-color: rgba(0, 0, 0, 0.91);
-    padding: 1.25rem;
-}
 
 /*-------------Div Geral do Modal-------------*/
 
@@ -494,18 +486,13 @@ fieldset {
 
 /*-------------Main-------------*/
 
-body {
-    width: 100vw;
-    background-color: rgba(0, 0, 0, 0.91);
-}
-
 #mainContent {
     width: 100vw;
     justify-content: space-evenly;
     flex-wrap: wrap;
     row-gap: 2.5rem;
     column-gap: 5rem;
-    background-color: rgba(17, 17, 17, 0.91);
+    background-color: white;
     padding: 1.25rem 5rem 1.25rem 5rem;
 }
 
@@ -516,6 +503,7 @@ body {
     width: 17.125rem;
     height: 24.188rem;
     background: none;
+    border-radius: 10px;
     top: 50%;
     left: 50%;
 }
@@ -526,6 +514,7 @@ body {
     left: 0;
     width: 17.125rem;
     height: 24.188rem;
+    box-shadow: 7px 3px 19px #0000009e;
     border-radius: 0.625rem;
     transform-style: preserve-3d;
     transition: all 0.8s ease;
@@ -620,6 +609,7 @@ body {
 /*-------------Descrição-------------*/
 
 h1 {
+    width: 154px;
     background-color: red;
     padding: 5px;
     border-radius: 10px;
@@ -642,6 +632,7 @@ h1 {
 }
 
 h3 {
+    width: 154px;
     background-color: black;
     border-radius: 10px;
     padding: 5px;
