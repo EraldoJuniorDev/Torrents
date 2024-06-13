@@ -29,7 +29,7 @@ function handleSubmit(ev) {
     const typeRecommendedCPU = document.getElementById('recommendedcpu').value;
     const typeRecommendedOS = document.getElementById('recommendedos').value;
 
-    const game = { frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink: false, typeRecommendedRamMemory, typeRecommendedGraphicsCard, typeRecommendedCPU, typeRecommendedOS };
+    const game = { frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink, typeRecommendedRamMemory, typeRecommendedGraphicsCard, typeRecommendedCPU, typeRecommendedOS };
     games.push(game);
     saveGameData(game);
     addCard(game);
@@ -320,18 +320,14 @@ const extraLinkNoButton = document.getElementById('nobtn')
 const labelExtraLink = document.querySelector("div .select_extra_download")
 
 extraLinkYesButton.addEventListener('click', () => {
+    isShowExtraLink = true
     if (extraLinkYesButton.checked) {
         labelExtraLink.style.display = 'flex'
-
-    }
-})
-
-extraLinkYesButton.addEventListener('click', () => {
-    if (extraLinkYesButton.checked) {
     }
 })
 
 extraLinkNoButton.addEventListener('click', () => {
+    isShowExtraLink = false
     if (extraLinkNoButton.checked) {
         labelExtraLink.style.display = 'none'
     }
