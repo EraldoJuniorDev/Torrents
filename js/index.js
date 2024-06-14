@@ -8,6 +8,8 @@ const gameRecommendedRequirements = document.getElementById('gamerecommendedrequ
 gameRecommendedRequirements.addEventListener("submit", handleSubmit);
 listAllGames();
 
+// Função de Adicionar um Jogo
+
 function handleSubmit(ev) {
     ev.preventDefault();
     const frontImg = document.getElementById('frontimage').value;
@@ -35,6 +37,8 @@ function handleSubmit(ev) {
     addCard(game);
 }
 
+// Função de Salvar os Jogos no LocalStorage
+
 function saveGameData(game) {
     let listGames = JSON.parse(localStorage.getItem(key));
 
@@ -46,6 +50,8 @@ function saveGameData(game) {
     localStorage.setItem(key, JSON.stringify(listGames));
 }
 
+// Função de Listar os Jogos
+
 function listAllGames() {
     let listGames = JSON.parse(localStorage.getItem(key));
 
@@ -55,6 +61,8 @@ function listAllGames() {
 
     return listGames.map((game) => addCard(game));
 }
+
+// Função de Gerar um Jogo
 
 function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink = true, typeRecommendedRamMemory, typeRecommendedGraphicsCard, typeRecommendedCPU, typeRecommendedOS }) {
     const mainContent = document.getElementById('mainContent');
@@ -266,7 +274,7 @@ function flipCard(card) {
     }
 }
 
-// Função de abrir o Menu de Adição
+// Função de abrir Janela de Adição de Jogos
 
 const modalOpenBtn = document.querySelector("#open_modal")
 const modalCloseBtn = document.querySelector(".bi-x-circle-fill")
@@ -299,7 +307,7 @@ function menuDropdown() {
 //     document.querySelector('body').classList.toggle('dark')
 // })
 
-//
+// Função de Slide da Janela de dição de Jogos
 
 const sliderCheckbox = document.querySelector("input[name=select_slide_option]");
 
@@ -313,7 +321,7 @@ sliderCheckbox.addEventListener('click', () => {
     }
 });
 
-//
+// Função de Adicionar Link/Botão de Download Extra
 
 const extraLinkYesButton = document.getElementById('yesbtn')
 const extraLinkNoButton = document.getElementById('nobtn')
