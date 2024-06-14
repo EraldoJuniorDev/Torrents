@@ -341,3 +341,9 @@ extraLinkNoButton.addEventListener('click', () => {
     }
 })
 
+const input = document.querySelector("input[type=text]");
+
+input.addEventListener('click', ()=>
+    {
+        input.style.backgroundColor = 'purple'
+    })

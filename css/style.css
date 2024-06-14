@@ -50,6 +50,7 @@
 /*-------------Unificações-------------*/
 
 div,
+.search_input,
 .link,
 span,
 abbr,
@@ -114,7 +115,7 @@ nav {
     width: 150px;
     height: 30px;
     color: white;
-    background-color: rgb(0, 0, 0);
+    background-color: green;
     border: 1px solid white;
     border-radius: 10px;
 }
@@ -122,9 +123,28 @@ nav {
 .add_game:hover {
     cursor: pointer;
     transform: scale(1.1);
-    color: red;
-    background-color: black;
-    border-color: red;
+    background-color: rgb(138, 230, 1);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.349);
+    border: none;
+}
+
+.delete_game{
+    font-weight: bolder;
+    font-size: 1rem;
+    width: 150px;
+    height: 30px;
+    color: white;
+    background-color: rgb(197, 0, 0);
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.delete_game:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: rgb(255, 36, 36);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.349);
+    border: none;
 }
 
 /*-------------Botão de Fechar Modal-------------*/
@@ -279,6 +299,47 @@ nav {
     background-color: red;
 }
 
+/*-------------Input de Caixa de Pesquisa-------------*/
+
+.search_input{
+    width: fit-content;
+    height: fit-content;
+    gap: 10px;
+}
+
+.search_box{
+    width: 200px;
+    height: 30px;
+    border: 1px solid black;
+}
+
+.search_box:active{
+    background-color: #008609;
+}
+
+.search_btn{
+    color: black;
+    font-size: 12px;
+    background-color: transparent;
+    border: 1px solid black;
+    width: 80px;
+    height: 20px;
+    text-align: center;
+    padding: 0;
+    cursor: pointer;
+}
+
+.search_btn:hover{
+    color: white;
+    background-color: black;
+}
+
+.search_btn:active{
+    color: white;
+    background-color: red;
+    border: none;
+}
+
 /*-------------Body-------------*/
 
 body {
@@ -336,35 +397,22 @@ dialog[open] {
 
 /*-------------Inputs do Modal-------------*/
 
-#form input[type=text],
-#formback input[type=text] {
+#form input[type=text] {
     color: black;
-    height: 25px;
-    border-radius: 20px;
+    height: 40px;
+    border-radius: 10px;
 }
 
 #form input[type=submit],
-#form input[type=reset],
-#formback input[type=submit],
-#formback input[type=reset] {
+#form input[type=reset] {
     background-image: linear-gradient(to left, rgb(129, 0, 0), rgb(153, 0, 0), red);
     height: 25px;
 }
 
 #form input[type=submit]:hover,
-#form input[type=reset]:hover,
-#formback input[type=submit]:hover,
-#formback input[type=reset]:hover {
+#form input[type=reset]:hover {
     cursor: pointer;
     background-image: linear-gradient(to right, rgb(129, 0, 0), rgb(153, 0, 0), red);
-}
-
-#form>fieldset,
-#formback>fieldset {
-    gap: 0.5rem;
-    border: none;
-    flex-direction: column;
-    width: 100%;
 }
 
 /*-------------Inputs das Opções de Formulário-------------*/
@@ -374,13 +422,14 @@ dialog[open] {
 }
 
 input {
-    color: #fff;
+    color: black;
     font-size: 1rem;
     border-style: none;
     border-color: white;
     width: 300px;
     border-radius: 4px;
-    padding-left: 0.5rem;
+    padding-left: 0.8rem;
+    outline: none;
 }
 
 label {
