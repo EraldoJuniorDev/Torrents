@@ -7,6 +7,7 @@
     text-decoration: none;
     list-style-type: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: 0.5s;
 }
 
 :root {
@@ -184,7 +185,7 @@ nav {
 
 .main_menu_item>a>i, .bi{
     font-size: 25px;
-    color: black;
+    color: red;
 }
 
 .main_menu_item>a>i:hover,
@@ -195,7 +196,6 @@ nav {
 
 .main_menu_item>a>i:hover,
 .main_menu_item.dropdown>i:hover {
-    color: red;
     transform: scale(1.2);
 }
 
@@ -251,7 +251,7 @@ nav {
     width: 55px;
     height: 26px;
     align-items: center;
-    background-color: rgb(116, 114, 114);
+    background-color: yellow;
     border-radius: 50px;
     margin: 5px;
     justify-content: space-evenly;
@@ -267,7 +267,7 @@ nav {
 }
 
 .checkbox:checked+.mode_label .ball {
-    transform: translateX(24px);
+    transform: translateX(29px);
 }
 
 .mode_label>i {
@@ -281,7 +281,7 @@ nav {
 }
 
 .bi-moon-fill {
-    color: white;
+    color: grey;
 }
 
 .mode_label .ball {
@@ -347,11 +347,17 @@ nav {
 body {
     width: 100vw;
     flex-direction: column;
-    transition: background 0.2s linear;
+    /* transition: background 0.2s linear; */
 }
 
 .dark {
     color: white;
+    background-color: rgb(12, 12, 12);
+    border-color: white;
+}
+
+.light_dark{
+    background-color: grey;
 }
 
 
@@ -532,8 +538,6 @@ fieldset {
     cursor: pointer;
 }
 
-
-
 /*-------------Main-------------*/
 
 #mainContent {
@@ -542,7 +546,6 @@ fieldset {
     flex-wrap: wrap;
     row-gap: 2.5rem;
     column-gap: 5rem;
-    background-color: white;
     padding: 1.25rem 5rem 1.25rem 5rem;
 }
 

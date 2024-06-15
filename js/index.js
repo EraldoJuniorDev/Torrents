@@ -313,7 +313,10 @@ function menuDropdown() {
 const checkbox = document.getElementById('checkbox');
 
 checkbox.addEventListener('change', () => {
-    document.getElementById('bi-controller').classList.toggle('dark')
+    document.querySelector('body').classList.toggle('dark')
+    document.querySelector('header').classList.toggle('dark')
+    document.querySelector('.search_btn').classList.toggle('dark')
+    document.querySelector('.mode_label').classList.toggle('light_dark')
 })
 
 // Função de Slide da Janela de dição de Jogos
@@ -348,10 +351,4 @@ extraLinkNoButton.addEventListener('click', () => {
     if (extraLinkNoButton.checked) {
         labelExtraLink.style.display = 'none'
     }
-})
-
-const input = document.querySelector("input[type=text]");
-
-input.addEventListener('click', () => {
-    input.style.backgroundColor = 'purple'
 })
