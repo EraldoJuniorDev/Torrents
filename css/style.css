@@ -7,7 +7,6 @@
     text-decoration: none;
     list-style-type: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    transition: 0.5s;
 }
 
 :root {
@@ -92,6 +91,7 @@ header {
     text-align: center;
     border-bottom: 2px solid black;
     background-color: white;
+    transition: 0.5s;
 }
 
 /*-------------Menu de Navegação-------------*/
@@ -345,6 +345,7 @@ nav {
 body {
     width: 100vw;
     flex-direction: column;
+    transition: 0.5s;
     /* transition: background 0.2s linear; */
 }
 
