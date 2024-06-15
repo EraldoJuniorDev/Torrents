@@ -28,7 +28,7 @@
         <span class="delete_game" id="open_modal">Excluir Jogo</span>
         <br>
 
-        
+
 
         <!--Itens Principais do Menu de Navegação-->
         <div class="menu_nav">
@@ -58,18 +58,20 @@
             </li>
 
             <!--Item Dropdown do Menu de Navegação-->
-            <li class="main_menu_item dropdown" onclick="menuDropdown()">
-                <i class="bi bi-controller"></i>
-                <ol class="dropdown_items" id="dropdown_items">
-                    <li class="dropdown_item"><a href="#">Ação</a></li>
-                    <li class="dropdown_item"><a href="#">Aventura</a></li>
-                    <li class="dropdown_item"><a href="#">Mundo Aberto</a></li>
-                    <li class="dropdown_item"><a href="#">Furtivo</a></li>
-                    <li class="dropdown_item"><a href="#">Survival</a></li>
-                    <li class="dropdown_item"><a href="#">Terror</a></li>
-                    <li class="dropdown_item"><a href="#">Survival Horror</a></li>
-                    <li class="dropdown_item"><a href="#">Terror Psicológico</a></li>
-                </ol>
+            <li class="main_menu_item dropdown">
+                <i class="bi bi-controller" onclick="menuDropdown()"></i>
+                <div>
+                    <ol class="dropdown_items" id="dropdown_items">
+                        <li class="dropdown_item"><a href="#">Ação</a></li>
+                        <li class="dropdown_item"><a href="#">Aventura</a></li>
+                        <li class="dropdown_item"><a href="#">Mundo Aberto</a></li>
+                        <li class="dropdown_item"><a href="#">Furtivo</a></li>
+                        <li class="dropdown_item"><a href="#">Survival</a></li>
+                        <li class="dropdown_item"><a href="#">Terror</a></li>
+                        <li class="dropdown_item"><a href="#">Survival Horror</a></li>
+                        <li class="dropdown_item"><a href="#">Terror Psicológico</a></li>
+                    </ol>
+                </div>
             </li>
 
         </div>
@@ -93,7 +95,7 @@
 
         <!--Input de Caixa de Pesquisa-->
         <div class="search_input">
-            <input type="search" class="search_box" placeholder="Faça Uma Pesquisa...">
+            <input type="search" class="search_box" placeholder="Digite Algo...">
             <input type="submit" value="Pesquisar" class="search_btn">
         </div>
 
@@ -224,7 +226,7 @@
 
                 <!--Botões de Cadastrar ou Limpar Dados do Jogo-->
                 <div class="input_btns">
-                    
+
                     <input type="submit" value="Cadastrar">
 
                     <input type="reset" value="Limpar">
@@ -236,7 +238,7 @@
         </div>
 
     </dialog>
-    
+
     <main id="mainContent">
     </main>
 

@@ -62,6 +62,16 @@ function listAllGames() {
     return listGames.map((game) => addCard(game));
 }
 
+// mainContent.addEventListener('load', () => {
+
+//     if (games.length === 0) {
+//         alert('Vazio');
+//     }
+//     else {
+//         alert('Não Vazio');
+//     }
+// })
+
 // Função de Gerar um Jogo
 
 function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink = false, typeRecommendedRamMemory, typeRecommendedGraphicsCard, typeRecommendedCPU, typeRecommendedOS }) {
@@ -343,7 +353,6 @@ extraLinkNoButton.addEventListener('click', () => {
 
 const input = document.querySelector("input[type=text]");
 
-input.addEventListener('click', ()=>
-    {
-        input.style.backgroundColor = 'purple'
-    })
+input.addEventListener('click', () => {
+    input.style.backgroundColor = 'purple'
+})

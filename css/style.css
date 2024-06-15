@@ -32,13 +32,13 @@
 ::-webkit-scrollbar-thumb {
     border-radius: 3.125rem;
     background-color: red;
-    border: 2px solid rgb(73, 73, 73);
+    /* border: 2px solid rgb(73, 73, 73); */
 }
 
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
     background: rgb(73, 73, 73);
     border-radius: 10px;
-}
+} */
 
 /*-------------Keyframes-------------*/
 
@@ -179,7 +179,7 @@ nav {
 }
 
 .link {
-    width: 127px;
+    /* width: 127px; */
 }
 
 .main_menu_item>a>i, .bi{
@@ -213,12 +213,13 @@ nav {
     position: relative;
 }
 
-.dropdown:hover {
-    cursor: pointer;
+.dropdown>i{
+    position: absolute;
 }
 
 .dropdown_items {
-    padding-top: 385px;
+    margin-top: 70px;
+    height: 0px;
     display: none;
     gap: 10px;
     flex-direction: column;
@@ -229,6 +230,7 @@ nav {
     border-radius: 10px;
     width: 170px;
     height: 30px;
+    padding: 5px;
 }
 
 .dropdown_item>a {
