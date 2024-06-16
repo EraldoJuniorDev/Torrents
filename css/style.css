@@ -113,7 +113,7 @@ nav {
 .add_game {
     font-weight: bolder;
     font-size: 1rem;
-    width: 150px;
+    width: 130px;
     height: 30px;
     color: white;
     background-color: green;
@@ -123,7 +123,7 @@ nav {
 .add_game:hover {
     cursor: pointer;
     transform: scale(1.1);
-    background-color: rgb(138, 230, 1);
+    background-color: rgb(109, 180, 2);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.349);
     border: none;
 }
@@ -131,7 +131,7 @@ nav {
 .delete_game{
     font-weight: bolder;
     font-size: 1rem;
-    width: 150px;
+    width: 170px;
     height: 30px;
     color: white;
     background-color: rgb(197, 0, 0);
