@@ -31,7 +31,7 @@ function handleSubmit(ev) {
     const typeRecommendedCPU = document.getElementById('recommendedcpu').value;
     const typeRecommendedOS = document.getElementById('recommendedos').value;
 
-    const game = { frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink, typeRecommendedRamMemory, typeRecommendedGraphicsCard, typeRecommendedCPU, typeRecommendedOS };
+    const game = { id : 0 , frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink, typeRecommendedRamMemory, typeRecommendedGraphicsCard, typeRecommendedCPU, typeRecommendedOS };
     games.push(game);
     saveGameData(game);
     addCard(game);
@@ -62,19 +62,9 @@ function listAllGames() {
     return listGames.map((game) => addCard(game));
 }
 
-// mainContent.addEventListener('load', () => {
-
-//     if (games.length === 0) {
-//         alert('Vazio');
-//     }
-//     else {
-//         alert('Não Vazio');
-//     }
-// })
-
 // Função de Gerar um Jogo
 
-function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink = false, typeRecommendedRamMemory, typeRecommendedGraphicsCard, typeRecommendedCPU, typeRecommendedOS }) {
+function addCard({ id ,frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink = false, typeRecommendedRamMemory, typeRecommendedGraphicsCard, typeRecommendedCPU, typeRecommendedOS }) {
     const mainContent = document.getElementById('mainContent');
     const divMain = document.createElement('div');
 
@@ -127,6 +117,10 @@ function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize,
 
     const divCardOverlay = document.createElement('div');
     const divCardOverlayContent = document.createElement('div');
+
+    const deleteIcon = document.createElement('i');
+    const deleteGame = document.createElement('button');
+
     const divCardOverlayTitle = document.createElement('h1');
     const divCardOverlayRelease = document.createElement('h3');
     const divCardOverlayReleaseDate = document.createElement('p');
@@ -151,12 +145,13 @@ function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize,
 
     // Tudo da divMain
     divMain.className = 'gameContent';
+    divMain.addEventListener('click', (ev) => deleteGameButton(ev.currentTarget));
 
     // Tudo da divCard
     divCard.className = 'card';
     divCard.id = 'card';
     divCard.tagName = 'card';
-    divCard.addEventListener('click', (ev) => flipCard(ev.currentTarget));
+    // divCard.addEventListener('click', (ev) => flipCard(ev.currentTarget));
 
     // Tudo da divCardFront
     divCardFront.className = 'card_front';
@@ -168,6 +163,7 @@ function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize,
 
     // Tudo da divCardOverlay
     divCardOverlay.className = 'card_overlay';
+  
 
 
     // Tudo da divCardBackRequiredContent
@@ -200,6 +196,9 @@ function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize,
 
     // Tudo da divCardOverlayContent
     divCardOverlayContent.className = 'description';
+    deleteIcon.className = 'bi bi-x-circle';
+    deleteGame.className = 'delete_btn';
+    deleteGame.id = 'deleteGameButton'
     divCardOverlayTitle.innerText = title;
     divCardOverlayRelease.innerText = 'Lançamento:';
     divCardOverlayReleaseDate.innerText = releaseDate;
@@ -209,6 +208,10 @@ function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize,
     divCardOverlayGenre.innerText = genre;
     divCardOverlaySize.innerText = 'Tamanho:';
     divCardOverlayFileSize.innerText = fileSize;
+
+
+    deleteGame.appendChild(deleteIcon);
+    divCardOverlayContent.appendChild(deleteGame);
 
     divCardOverlayContent.appendChild(divCardOverlayTitle);
     divCardOverlayContent.appendChild(divCardOverlayRelease);
@@ -269,20 +272,35 @@ function addCard({ frontImg, title, releaseDate, developerName, genre, fileSize,
     divCardBackRecommendedContent.appendChild(divCardBackRecommendedOS);
     divCardBackRecommendedContent.appendChild(divCardBackTypeRecommendedOS);
 
+    id = games.length +1; 
+
+}
 
 
+
+function deleteGameButton(card) {
+
+    let listGames = JSON.parse(localStorage.getItem(key));
+
+    if (!listGames) {
+        listGames = [];
+    }
+
+    console.log(listGames)
+    // localStorage.setItem(key, JSON.stringify(listGames));
+    // card.remove();
 }
 
 // Função de Virar Os Cards
 
-function flipCard(card) {
-    if (card.style.transform == 'rotateY(180deg)') {
-        card.style.transform = 'none'
-    }
-    else {
-        card.style.transform = 'rotateY(180deg)'
-    }
-}
+// function flipCard(card) {
+//     if (card.style.transform == 'rotateY(180deg)') {
+//         card.style.transform = 'none'
+//     }
+//     else {
+//         card.style.transform = 'rotateY(180deg)'
+//     }
+// }
 
 // Função de abrir Janela de Adição de Jogos
 
@@ -317,21 +335,12 @@ checkbox.addEventListener('change', () => {
     document.querySelector('header').classList.toggle('dark')
     document.querySelector('.search_btn').classList.toggle('dark')
     document.querySelector('.mode_label').classList.toggle('light_dark')
+    // document.querySelector('.modal').classList.replace('light_dark', 'dark')
 })
 
-// Função de Slide da Janela de dição de Jogos
-
-const sliderCheckbox = document.querySelector("input[name=select_slide_option]");
-
-
-sliderCheckbox.addEventListener('click', () => {
-    if (sliderCheckbox) {
-        alert('Hello World');
-    }
-    else {
-        alert("Checkbox is not checked...");
-    }
-});
+window.addEventListener('load', (event) => {
+    document.querySelector('.modal').classList.add('light_dark')
+})
 
 // Função de Adicionar Link/Botão de Download Extra
 
@@ -352,3 +361,17 @@ extraLinkNoButton.addEventListener('click', () => {
         labelExtraLink.style.display = 'none'
     }
 })
+
+// Função de Slide da Janela de dição de Jogos
+
+// const sliderCheckbox = document.querySelector("input[name=select_slide_option]");
+
+
+// sliderCheckbox.addEventListener('click', () => {
+//     if (sliderCheckbox) {
+//         alert('Hello World');
+//     }
+//     else {
+//         alert("Checkbox is not checked...");
+//     }
+// });

@@ -51,6 +51,7 @@
 
 div,
 .search_input,
+.delete_btn,
 .link,
 span,
 abbr,
@@ -224,15 +225,16 @@ nav {
 }
 
 .dropdown_item {
-    background-color: #000000f2;
+    background-color: #cfcfcff2;
     border-radius: 10px;
     width: 170px;
     height: 30px;
     padding: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.322);
 }
 
 .dropdown_item>a {
-    color: white;
+    color: black;
     font-weight: bolder;
     width: 100%;
     height: 100%;
@@ -349,11 +351,15 @@ body {
     /* transition: background 0.2s linear; */
 }
 
+/*-------------Mudança de Modo (body, header e botão de pesquisa)-------------*/
+
 .dark {
     color: white;
     background-color: rgb(12, 12, 12);
     border-color: white;
 }
+
+/*-------------Mudança de Modo (label do Modo Escuro)-------------*/
 
 .light_dark{
     background-color: grey;
@@ -382,10 +388,9 @@ dialog[open] {
 .modal {
     justify-content: space-between;
     /* gap: 20px; */
-    background-color: #0e0e0ede;
+    /* background-color: #0e0e0ede; */
     flex-direction: column;
-    overflow: hidden;
-    width: 19%;
+    width: fit-content;
     height: fit-content;
     border-radius: 10px;
 }
@@ -423,9 +428,6 @@ dialog[open] {
 
 /*-------------Inputs das Opções de Formulário-------------*/
 
-.select_slides>input {
-    display: none;
-}
 
 input {
     color: black;
@@ -449,9 +451,8 @@ label {
 
 /*-------------Opções do Formulário-------------*/
 
-.slide_options {
+.game_options {
     gap: 30px;
-    margin-left: 656px;
 }
 
 /*-------------Fieldset do Formulário-------------*/
@@ -603,6 +604,27 @@ fieldset {
 .card_overlay:hover {
     transition: 1s;
     opacity: 1;
+}
+
+.delete_btn{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    padding: 0;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+}
+
+.delete_btn>i{
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.delete_btn:hover{
+    transform: none;
+    background-color: transparent;
 }
 
 .card_back {
