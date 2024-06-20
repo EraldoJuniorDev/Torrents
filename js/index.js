@@ -1,11 +1,16 @@
 const key = 'eraldo';
 const games = [];
+let gameId = 0;
 const form = document.getElementById('form');
-form.addEventListener("submit", handleSubmit);
-const gameMinimumRequirements = document.getElementById('gameminimumrequirements');
-gameMinimumRequirements.addEventListener("submit", handleSubmit);
-const gameRecommendedRequirements = document.getElementById('gamerecommendedrequirements');
-gameRecommendedRequirements.addEventListener("submit", handleSubmit);
+form.addEventListener('submit', handleSubmit);
+const gameMinimumRequirements = document.getElementById(
+    'gameminimumrequirements'
+);
+gameMinimumRequirements.addEventListener('submit', handleSubmit);
+const gameRecommendedRequirements = document.getElementById(
+    'gamerecommendedrequirements'
+);
+gameRecommendedRequirements.addEventListener('submit', handleSubmit);
 listAllGames();
 
 // Função de Adicionar um Jogo
@@ -22,16 +27,42 @@ function handleSubmit(ev) {
     const buttonExtraLink = document.getElementById('gamelinkextra').value;
 
     const typeRequiredRamMemory = document.getElementById('requiredram').value;
-    const typeRequiredGraphicsCard = document.getElementById('requiredgraphicscard').value;
+    const typeRequiredGraphicsCard = document.getElementById(
+        'requiredgraphicscard'
+    ).value;
     const typeRequiredCPU = document.getElementById('requiredcpu').value;
     const typeRequiredOS = document.getElementById('requiredos').value;
 
-    const typeRecommendedRamMemory = document.getElementById('recommendedram').value;
-    const typeRecommendedGraphicsCard = document.getElementById('recommendedgraphicscard').value;
+    const typeRecommendedRamMemory =
+        document.getElementById('recommendedram').value;
+    const typeRecommendedGraphicsCard = document.getElementById(
+        'recommendedgraphicscard'
+    ).value;
     const typeRecommendedCPU = document.getElementById('recommendedcpu').value;
     const typeRecommendedOS = document.getElementById('recommendedos').value;
 
-    const game = { id : 0 , frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink, typeRecommendedRamMemory, typeRecommendedGraphicsCard, typeRecommendedCPU, typeRecommendedOS };
+    const game = {
+        id: 0,
+        frontImg,
+        title,
+        releaseDate,
+        developerName,
+        genre,
+        fileSize,
+        typeRequiredRamMemory,
+        typeRequiredGraphicsCard,
+        typeRequiredCPU,
+        typeRequiredOS,
+        buttonTorrentLink,
+        buttonExtraLink,
+        isShowExtraLink: false,
+        typeRecommendedRamMemory,
+        typeRecommendedGraphicsCard,
+        typeRecommendedCPU,
+        typeRecommendedOS,
+    };
+
+    game.id = gameId++;
     games.push(game);
     saveGameData(game);
     addCard(game);
@@ -59,12 +90,31 @@ function listAllGames() {
         listGames = [];
     }
 
-    return listGames.map((game) => addCard(game));
+    return listGames.map(game => addCard(game));
 }
 
 // Função de Gerar um Jogo
 
-function addCard({ id ,frontImg, title, releaseDate, developerName, genre, fileSize, typeRequiredRamMemory, typeRequiredGraphicsCard, typeRequiredCPU, typeRequiredOS, buttonTorrentLink, buttonExtraLink, isShowExtraLink = false, typeRecommendedRamMemory, typeRecommendedGraphicsCard, typeRecommendedCPU, typeRecommendedOS }) {
+function addCard({
+    id,
+    frontImg,
+    title,
+    releaseDate,
+    developerName,
+    genre,
+    fileSize,
+    typeRequiredRamMemory,
+    typeRequiredGraphicsCard,
+    typeRequiredCPU,
+    typeRequiredOS,
+    buttonTorrentLink,
+    buttonExtraLink,
+    isShowExtraLink = false,
+    typeRecommendedRamMemory,
+    typeRecommendedGraphicsCard,
+    typeRecommendedCPU,
+    typeRecommendedOS,
+}) {
     const mainContent = document.getElementById('mainContent');
     const divMain = document.createElement('div');
 
@@ -89,7 +139,6 @@ function addCard({ id ,frontImg, title, releaseDate, developerName, genre, fileS
     const divCardBackRequiredGraphicsCard = document.createElement('h3');
     const divCardBackTypeRequiredGraphicsCard = document.createElement('p');
 
-
     const divCardBackRequiredCPU = document.createElement('h3');
     const divCardBackTypeRequiredCPU = document.createElement('p');
 
@@ -105,7 +154,6 @@ function addCard({ id ,frontImg, title, releaseDate, developerName, genre, fileS
 
     const divCardBackRecommendedGraphicsCard = document.createElement('h3');
     const divCardBackTypeRecommendedGraphicsCard = document.createElement('p');
-
 
     const divCardBackRecommendedCPU = document.createElement('h3');
     const divCardBackTypeRecommendedCPU = document.createElement('p');
@@ -128,14 +176,11 @@ function addCard({ id ,frontImg, title, releaseDate, developerName, genre, fileS
     const divCardOverlayDeveloper = document.createElement('h3');
     const divCardOverlayDeveloperName = document.createElement('p');
 
-
     const divCardOverlayGenreType = document.createElement('h3');
     const divCardOverlayGenre = document.createElement('p');
 
     const divCardOverlaySize = document.createElement('h3');
     const divCardOverlayFileSize = document.createElement('p');
-
-
 
     const divCardBackButtonTorrentLink = document.createElement('a');
     const divCardBackButtonTorrent = document.createElement('button');
@@ -145,13 +190,14 @@ function addCard({ id ,frontImg, title, releaseDate, developerName, genre, fileS
 
     // Tudo da divMain
     divMain.className = 'gameContent';
-    divMain.addEventListener('click', (ev) => deleteGameButton(ev.currentTarget));
+    divMain.id = id;
+    //   divMain.addEventListener('click', ev => deleteGameButton(ev.currentTarget));
 
     // Tudo da divCard
     divCard.className = 'card';
     divCard.id = 'card';
     divCard.tagName = 'card';
-    // divCard.addEventListener('click', (ev) => flipCard(ev.currentTarget));
+    divCard.addEventListener('click', (ev) => flipCard(ev.currentTarget));
 
     // Tudo da divCardFront
     divCardFront.className = 'card_front';
@@ -163,8 +209,6 @@ function addCard({ id ,frontImg, title, releaseDate, developerName, genre, fileS
 
     // Tudo da divCardOverlay
     divCardOverlay.className = 'card_overlay';
-  
-
 
     // Tudo da divCardBackRequiredContent
     divCardBackRequiredContent.className = 'minimumrequirements';
@@ -188,7 +232,8 @@ function addCard({ id ,frontImg, title, releaseDate, developerName, genre, fileS
     divCardBackRecommendedRamMemory.innerText = 'Memória RAM Recomendado:';
     divCardBackTypeRecommendedRamMemory.innerText = typeRecommendedRamMemory;
     divCardBackRecommendedGraphicsCard.innerText = 'Placa de Vídeo Recomendado:';
-    divCardBackTypeRecommendedGraphicsCard.innerText = typeRecommendedGraphicsCard;
+    divCardBackTypeRecommendedGraphicsCard.innerText =
+        typeRecommendedGraphicsCard;
     divCardBackRecommendedCPU.innerText = 'Processador Recomendado:';
     divCardBackTypeRecommendedCPU.innerText = typeRecommendedCPU;
     divCardBackRecommendedOS.innerText = 'Sistema Operacional Recomendado:';
@@ -198,7 +243,8 @@ function addCard({ id ,frontImg, title, releaseDate, developerName, genre, fileS
     divCardOverlayContent.className = 'description';
     deleteIcon.className = 'bi bi-x-circle';
     deleteGame.className = 'delete_btn';
-    deleteGame.id = 'deleteGameButton'
+    deleteGame.id = 'deleteGameButton';
+
     divCardOverlayTitle.innerText = title;
     divCardOverlayRelease.innerText = 'Lançamento:';
     divCardOverlayReleaseDate.innerText = releaseDate;
@@ -208,7 +254,6 @@ function addCard({ id ,frontImg, title, releaseDate, developerName, genre, fileS
     divCardOverlayGenre.innerText = genre;
     divCardOverlaySize.innerText = 'Tamanho:';
     divCardOverlayFileSize.innerText = fileSize;
-
 
     deleteGame.appendChild(deleteIcon);
     divCardOverlayContent.appendChild(deleteGame);
@@ -228,8 +273,6 @@ function addCard({ id ,frontImg, title, releaseDate, developerName, genre, fileS
 
     divCardOverlayContent.appendChild(divCardBackButtonTorrentLink);
     divCardBackButtonTorrentLink.appendChild(divCardBackButtonTorrent);
-
-
 
     if (isShowExtraLink) {
         divCardOverlayContent.appendChild(divCardBackButtonExtraLink);
@@ -261,68 +304,74 @@ function addCard({ id ,frontImg, title, releaseDate, developerName, genre, fileS
 
     divCardBackRecommendedContent.appendChild(divCardBackRecommendedRequirements);
     divCardBackRecommendedContent.appendChild(divCardBackRecommendedRamMemory);
-    divCardBackRecommendedContent.appendChild(divCardBackTypeRecommendedRamMemory);
+    divCardBackRecommendedContent.appendChild(
+        divCardBackTypeRecommendedRamMemory
+    );
 
     divCardBackRecommendedContent.appendChild(divCardBackRecommendedGraphicsCard);
-    divCardBackRecommendedContent.appendChild(divCardBackTypeRecommendedGraphicsCard);
+    divCardBackRecommendedContent.appendChild(
+        divCardBackTypeRecommendedGraphicsCard
+    );
 
     divCardBackRecommendedContent.appendChild(divCardBackRecommendedCPU);
     divCardBackRecommendedContent.appendChild(divCardBackTypeRecommendedCPU);
 
     divCardBackRecommendedContent.appendChild(divCardBackRecommendedOS);
     divCardBackRecommendedContent.appendChild(divCardBackTypeRecommendedOS);
-
-    id = games.length +1; 
-
 }
 
+const deleteButtons = document.querySelectorAll('.delete_btn');
 
+deleteButtons.forEach(button => {
+    button.addEventListener('click', ev => {
+        const cardId = ev.currentTarget.closest('.gameContent').id;
+        handleDeleteGame(cardId);
+    });
+});
 
-function deleteGameButton(card) {
+function handleDeleteGame(id) {
+    const card = document.getElementById(id);
+    card.remove();
 
     let listGames = JSON.parse(localStorage.getItem(key));
-
-    if (!listGames) {
-        listGames = [];
-    }
-
-    console.log(listGames)
-    // localStorage.setItem(key, JSON.stringify(listGames));
-    // card.remove();
+    listGames = listGames.filter(game => game.id !== parseInt(id));
+    localStorage.setItem(key, JSON.stringify(listGames));
 }
 
 // Função de Virar Os Cards
 
-// function flipCard(card) {
-//     if (card.style.transform == 'rotateY(180deg)') {
-//         card.style.transform = 'none'
-//     }
-//     else {
-//         card.style.transform = 'rotateY(180deg)'
-//     }
-// }
+function flipCard(card) {
+    if (card.style.transform == 'rotateY(180deg)') {
+        card.style.transform = 'none'
+    }
+    else {
+        card.style.transform = 'rotateY(180deg)'
+    }
+}
 
 // Função de abrir Janela de Adição de Jogos
 
-const modalOpenBtn = document.querySelector("#open_modal")
-const modalCloseBtn = document.querySelector(".bi-x-circle-fill")
-const modal = document.querySelector("dialog")
+function showModal() {
+    const modalOpenBtn = document.querySelector('#open_modal');
+    const modalCloseBtn = document.querySelector('.bi-x-circle-fill');
+    const modal = document.querySelector('dialog');
 
-modalOpenBtn.addEventListener('click', () => {
-    modal.show();
-})
+    modalOpenBtn.addEventListener('click', () => {
+        modal.show();
+    });
 
-modalCloseBtn.addEventListener('click', () => {
-    modal.close();
-})
+    modalCloseBtn.addEventListener('click', () => {
+        modal.close();
+    });
+}
 
 // Função do Menu Dropdown
 
 function menuDropdown() {
     if (dropdown_items.style.display == 'flex') {
-        dropdown_items.style.display = 'none'
+        dropdown_items.style.display = 'none';
     } else {
-        dropdown_items.style.display = 'flex'
+        dropdown_items.style.display = 'flex';
     }
 }
 
@@ -331,41 +380,42 @@ function menuDropdown() {
 const checkbox = document.getElementById('checkbox');
 
 checkbox.addEventListener('change', () => {
-    document.querySelector('body').classList.toggle('dark')
-    document.querySelector('header').classList.toggle('dark')
-    document.querySelector('.search_btn').classList.toggle('dark')
-    document.querySelector('.mode_label').classList.toggle('light_dark')
+    document.querySelector('body').classList.toggle('dark');
+    document.querySelector('header').classList.toggle('dark');
+    document.querySelector('.search_btn').classList.toggle('dark');
+    document.querySelector('.mode_label').classList.toggle('light_dark');
     // document.querySelector('.modal').classList.replace('light_dark', 'dark')
-})
+});
 
-window.addEventListener('load', (event) => {
-    document.querySelector('.modal').classList.add('light_dark')
-})
+window.addEventListener('load', event => {
+    document.querySelector('.modal').classList.add('light_dark');
+});
 
 // Função de Adicionar Link/Botão de Download Extra
 
-const extraLinkYesButton = document.getElementById('yesbtn')
-const extraLinkNoButton = document.getElementById('nobtn')
-const labelExtraLink = document.querySelector("div .select_extra_download")
+function addExtraDownloadLink() {
 
-extraLinkYesButton.addEventListener('click', () => {
-    isShowExtraLink = true
-    if (extraLinkYesButton.checked) {
-        labelExtraLink.style.display = 'flex'
-    }
-})
+    const extraLinkYesButton = document.getElementById('yesbtn');
+    const extraLinkNoButton = document.getElementById('nobtn');
+    const labelExtraLink = document.querySelector('div .select_extra_download');
 
-extraLinkNoButton.addEventListener('click', () => {
-    isShowExtraLink = false
-    if (extraLinkNoButton.checked) {
-        labelExtraLink.style.display = 'none'
-    }
-})
+    extraLinkYesButton.addEventListener('click', () => {
+        isShowExtraLink = true;
+        if (extraLinkYesButton.checked) {
+            labelExtraLink.style.display = 'flex';
+        }
+    });
 
+    extraLinkNoButton.addEventListener('click', () => {
+        isShowExtraLink = false;
+        if (extraLinkNoButton.checked) {
+            labelExtraLink.style.display = 'none';
+        }
+    });
+}
 // Função de Slide da Janela de dição de Jogos
 
 // const sliderCheckbox = document.querySelector("input[name=select_slide_option]");
-
 
 // sliderCheckbox.addEventListener('click', () => {
 //     if (sliderCheckbox) {
