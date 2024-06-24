@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torrent Games</title>
+    <title>Game's House</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="shortcut icon" href="img/torrent.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Gamja+Flower&display=swap"
@@ -20,15 +20,22 @@
     <!--Menu de Navegação-->
     <nav class="main_menu">
 
-        <!--Botão de Abrir Modal (Adicionar Jogo)-->
-        <span class="add_game" id="open_modal">Adicionar Jogo</span>
-        <br>
+        <!--Botão de Troca de Modo-->
+        <div class="mode_btn">
 
-        <!--Botão de Abrir Modal (Excluir Jogo)-->
-        <!-- <span class="delete_game" id="open_modal">Excluir / Editar Jogo</span>
-        <br> -->
+            <input type="checkbox" class="checkbox" id="checkbox">
 
+            <label class="mode_label" for="checkbox">
 
+                <i class="bi bi-sun-fill"></i>
+
+                <i class="bi bi-moon-fill"></i>
+
+                <div class="ball"></div>
+
+            </label>
+
+        </div>
 
         <!--Itens Principais do Menu de Navegação-->
         <div class="menu_nav">
@@ -73,23 +80,6 @@
                     </ol>
                 </div>
             </li>
-
-        </div>
-
-        <!--Botão de Troca de Modo-->
-        <div class="mode_btn">
-
-            <input type="checkbox" class="checkbox" id="checkbox">
-
-            <label class="mode_label" for="checkbox">
-
-                <i class="bi bi-sun-fill"></i>
-
-                <i class="bi bi-moon-fill"></i>
-
-                <div class="ball"></div>
-
-            </label>
 
         </div>
 
@@ -222,6 +212,10 @@
     </dialog>
 
     <main id="mainContent">
+        <div class="add_game" id="open_modal">
+            <span>Adicionar Novo Jogo</span>
+            <i class="bi bi-plus-circle"></i>
+        </div>
     </main>
 
 </body>

@@ -191,7 +191,6 @@ function addCard({
     // Tudo da divMain
     divMain.className = 'gameContent';
     divMain.id = id;
-    //   divMain.addEventListener('click', ev => deleteGameButton(ev.currentTarget));
 
     // Tudo da divCard
     divCard.className = 'card';
@@ -351,7 +350,6 @@ function flipCard(card) {
 
 // Função de abrir Janela de Adição de Jogos
 
-function showModal() {
     const modalOpenBtn = document.querySelector('#open_modal');
     const modalCloseBtn = document.querySelector('.bi-x-circle-fill');
     const modal = document.querySelector('dialog');
@@ -363,7 +361,6 @@ function showModal() {
     modalCloseBtn.addEventListener('click', () => {
         modal.close();
     });
-}
 
 // Função do Menu Dropdown
 
@@ -393,7 +390,6 @@ window.addEventListener('load', event => {
 
 // Função de Adicionar Link/Botão de Download Extra
 
-function addExtraDownloadLink() {
 
     const extraLinkYesButton = document.getElementById('yesbtn');
     const extraLinkNoButton = document.getElementById('nobtn');
@@ -412,7 +408,7 @@ function addExtraDownloadLink() {
             labelExtraLink.style.display = 'none';
         }
     });
-}
+
 // Função de Slide da Janela de dição de Jogos
 
 // const sliderCheckbox = document.querySelector("input[name=select_slide_option]");

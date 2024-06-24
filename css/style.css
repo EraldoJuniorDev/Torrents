@@ -59,7 +59,8 @@ abbr,
 .dropdown,
 .dropdown_item>a,
 fieldset,
-button {
+button,
+.add_game_container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,8 +81,6 @@ fieldset,
     display: flex;
 }
 
-
-
 /*-------------Header-------------*/
 
 header {
@@ -99,7 +98,6 @@ header {
 
 nav {
     width: 100%;
-    /* background-color: #000000; */
 }
 
 .main_menu {
@@ -109,65 +107,64 @@ nav {
     gap: 50px;
 }
 
-/*-------------Botão de Abrir Modal-------------*/
+/*-------------Botão de Troca de Modo-------------*/
 
-.add_game {
-    font-weight: bolder;
-    font-size: 1rem;
-    width: 130px;
-    height: 30px;
-    color: white;
-    background-color: green;
-    border-radius: 10px;
+.mode_btn{
+    width: 290px;
 }
 
-.add_game:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-    background-color: rgb(109, 180, 2);
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.349);
-    border: none;
-}
-
-.delete_game{
-    font-weight: bolder;
-    font-size: 1rem;
-    width: 170px;
-    height: 30px;
-    color: white;
-    background-color: rgb(197, 0, 0);
-    border-radius: 10px;
-}
-
-.delete_game:hover{
-    cursor: pointer;
-    transform: scale(1.1);
-    background-color: rgb(255, 36, 36);
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.349);
-    border: none;
-}
-
-/*-------------Botão de Fechar Modal-------------*/
-
-#close_modal {
-    color: rgb(255, 255, 255);
-    width: 100%;
-    height: 50px;
-    font-size: 25px;
-    justify-content: flex-end;
+.mode_label {
+    width: 55px;
+    height: 26px;
     align-items: center;
+    background-color: yellow;
+    border-radius: 50px;
+    margin: 5px;
+    justify-content: space-evenly;
+    position: relative;
 }
 
-#close_modal>i{
-        z-index: 1;
-        width: fit-content;
-        font-size: 25px;
-        margin: 15px 15px;
-        position: absolute;
+.checkbox {
+    cursor: pointer;
+    width: 55px;
+    height: 26px;
+    opacity: 0;
+    position: absolute;
 }
 
-#close_modal>i:hover {
-    color: red;
+.checkbox:checked+.mode_label .ball {
+    transform: translateX(29px);
+}
+
+.mode_label>i {
+    margin: 0;
+    font-size: 16px;
+    position: relative;
+}
+
+.mode_label>.bi-sun-fill {
+    color: yellow;
+}
+
+.mode_label>.bi-moon-fill {
+    color: grey;
+}
+
+.mode_label .ball {
+    z-index: 1;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 22px;
+    width: 22px;
+    transform: translateX(0px);
+    transition: transform 0.2s linear;
+}
+
+.ball:hover {
+    background-color: red;
 }
 
 /*-------------Itens Principais do Menu de Navegação-------------*/
@@ -178,11 +175,8 @@ nav {
     justify-content: center;
 }
 
-.link {
-    /* width: 127px; */
-}
-
-.main_menu_item>a>i, .bi{
+.main_menu_item>a>i,
+.bi {
     font-size: 25px;
     color: red;
 }
@@ -212,7 +206,7 @@ nav {
     position: relative;
 }
 
-.dropdown>i{
+.dropdown>i {
     position: absolute;
 }
 
@@ -245,81 +239,25 @@ nav {
     transform: scale(1.1);
 }
 
-/*-------------Botão de Troca de Modo-------------*/
-
-.mode_label {
-    width: 55px;
-    height: 26px;
-    align-items: center;
-    background-color: yellow;
-    border-radius: 50px;
-    margin: 5px;
-    justify-content: space-evenly;
-    position: relative;
-}
-
-.checkbox {
-    cursor: pointer;
-    width: 55px;
-    height: 26px;
-    opacity: 0;
-    position: absolute;
-}
-
-.checkbox:checked+.mode_label .ball {
-    transform: translateX(29px);
-}
-
-.mode_label>i {
-    margin: 0;
-    font-size: 16px;
-    position: relative;
-}
-
-.bi-sun-fill {
-    color: yellow;
-}
-
-.bi-moon-fill {
-    color: grey;
-}
-
-.mode_label .ball {
-    z-index: 1;
-    background-color: black;
-    border-radius: 50%;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    height: 22px;
-    width: 22px;
-    transform: translateX(0px);
-    transition: transform 0.2s linear;
-}
-
-.ball:hover {
-    background-color: red;
-}
-
 /*-------------Input de Caixa de Pesquisa-------------*/
 
-.search_input{
+.search_input {
     width: fit-content;
     height: fit-content;
     gap: 10px;
 }
 
-.search_box{
+.search_box {
     width: 200px;
     height: 30px;
     border: 1px solid black;
 }
 
-.search_box:active{
-    background-color: #008609;
+.search_box:active {
+    background-color: rgba(0, 0, 0, 0.185);
 }
 
-.search_btn{
+.search_btn {
     color: black;
     font-size: 12px;
     background-color: transparent;
@@ -331,12 +269,12 @@ nav {
     cursor: pointer;
 }
 
-.search_btn:hover{
+.search_btn:hover {
     color: white;
     background-color: black;
 }
 
-.search_btn:active{
+.search_btn:active {
     color: white;
     background-color: red;
     border: none;
@@ -361,7 +299,7 @@ body {
 
 /*-------------Mudança de Modo (label do Modo Escuro)-------------*/
 
-.light_dark{
+.light_dark {
     background-color: grey;
 }
 
@@ -393,6 +331,29 @@ dialog[open] {
     width: fit-content;
     height: fit-content;
     border-radius: 10px;
+}
+
+/*-------------Botão de Fechar Modal-------------*/
+
+#close_modal {
+    color: rgb(255, 255, 255);
+    width: 100%;
+    height: 50px;
+    font-size: 25px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#close_modal>i {
+    z-index: 1;
+    width: fit-content;
+    font-size: 25px;
+    margin: 15px 15px;
+    position: absolute;
+}
+
+#close_modal>i:hover {
+    color: red;
 }
 
 /*-------------Formulário do Modal-------------*/
@@ -549,6 +510,36 @@ fieldset {
     padding: 1.25rem 5rem 1.25rem 5rem;
 }
 
+/*-------------Container Para Adição de Jogo-------------*/
+
+.add_game {
+    position: static;
+    width: 17.125rem;
+    height: 24.188rem;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    background-color: #b6b6b6;
+    flex-direction: column;
+    gap: 40px;
+    cursor: pointer;
+    box-shadow: 7px 3px 19px #0000009e;
+}
+
+.add_game:hover{
+    transform: scale(1.02);
+}
+
+.add_game>span{
+    color: rgb(56, 56, 56);
+}
+
+.add_game>i{
+    color: rgb(255, 255, 255);
+    background-color: rgb(56, 56, 56);
+    border-radius: 50%;
+}
+
 /*-------------Card do Jogo-------------*/
 
 .gameContent {
@@ -606,7 +597,7 @@ fieldset {
     opacity: 1;
 }
 
-.delete_btn{
+.delete_btn {
     width: fit-content;
     height: fit-content;
     border-radius: 50%;
@@ -616,16 +607,18 @@ fieldset {
     right: 10px;
 }
 
-.delete_btn>i{
+.delete_btn:hover {
+    transform: scale(1.2);
+    background-color: transparent;
+}
+
+.delete_btn>i {
     color: white;
     background-color: red;
     border-radius: 50%;
 }
 
-.delete_btn:hover{
-    transform: none;
-    background-color: transparent;
-}
+
 
 .card_back {
     z-index: 2;
@@ -682,9 +675,14 @@ fieldset {
 
 /*-------------Descrição-------------*/
 
+h1,
+h3,
+p {
+    background-color: black;
+}
+
 h1 {
     width: 154px;
-    background-color: red;
     padding: 5px;
     border-radius: 10px;
     font-size: 1.3rem;
@@ -707,7 +705,6 @@ h1 {
 
 h3 {
     width: 154px;
-    background-color: black;
     border-radius: 10px;
     padding: 5px;
     font-size: 1rem;
@@ -715,11 +712,10 @@ h3 {
 }
 
 p {
-    background-color: #d90007;
     border-radius: 10px;
     font-size: 0.9rem;
     font-weight: 500;
-    padding: 5px;
+    padding: 5px 10px;
 }
 
 /*-------------Capa do Jogo-------------*/
