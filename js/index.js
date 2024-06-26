@@ -350,17 +350,17 @@ function flipCard(card) {
 
 // Função de abrir Janela de Adição de Jogos
 
-    const modalOpenBtn = document.querySelector('#open_modal');
-    const modalCloseBtn = document.querySelector('.bi-x-circle-fill');
-    const modal = document.querySelector('dialog');
+const modalOpenBtn = document.querySelector('#open_modal');
+const modalCloseBtn = document.querySelector('.bi-x-circle-fill');
+const modal = document.querySelector('dialog');
 
-    modalOpenBtn.addEventListener('click', () => {
-        modal.show();
-    });
+modalOpenBtn.addEventListener('click', () => {
+    modal.show();
+});
 
-    modalCloseBtn.addEventListener('click', () => {
-        modal.close();
-    });
+modalCloseBtn.addEventListener('click', () => {
+    modal.close();
+});
 
 // Função do Menu Dropdown
 
@@ -375,54 +375,75 @@ function menuDropdown() {
 // Função de Mudança de Tema
 
 const checkbox = document.getElementById('checkbox');
+const modalDarkMode = document.querySelector('dialog .light')
+const iconList = document.querySelectorAll('a i');
+const labelList = document.querySelectorAll('label');
+const inputList = document.querySelectorAll('input[type=text]');
+const modalTitleList = document.querySelectorAll('fieldset h1');
 
 checkbox.addEventListener('change', () => {
     document.querySelector('body').classList.toggle('dark');
     document.querySelector('header').classList.toggle('dark');
+    document.querySelector('.search_input .search_box').classList.toggle('dark');
     document.querySelector('.search_btn').classList.toggle('dark');
     document.querySelector('.mode_label').classList.toggle('light_dark');
-    document.querySelector('a i').classList.toggle('dark_font');
     document.querySelector('.dropdown i').classList.toggle('dark_font');
+    modalDarkMode.classList.toggle('light');
+    document.querySelector('#close_modal i').classList.toggle('dark_font');
+    document.querySelector('fieldset legend').classList.toggle('dark_font');
+    document.querySelector('.add_game').classList.toggle('light_dark');
+    document.querySelector('.add_game span').classList.toggle('dark_font');
+
+    iconList.forEach(icon =>
+        icon.classList.toggle('dark_font'));
+    labelList.forEach(label =>
+        label.classList.toggle('dark_font'));
+    inputList.forEach(input =>
+        input.classList.toggle('light_dark'));
+    modalTitleList.forEach(modalTitle =>
+        modalTitle.classList.toggle('dark_font'));
 });
+
+
 
 // Função de Adicionar Link/Botão de Download Extra
 
 
-    const extraLinkYesButton = document.getElementById('yesbtn');
-    const extraLinkNoButton = document.getElementById('nobtn');
-    const labelExtraLink = document.querySelector('div .select_extra_download');
+const extraLinkYesButton = document.getElementById('yesbtn');
+const extraLinkNoButton = document.getElementById('nobtn');
+const labelExtraLink = document.querySelector('div .select_extra_download');
 
-    extraLinkYesButton.addEventListener('click', () => {
-        isShowExtraLink = true;
-        if (extraLinkYesButton.checked) {
-            labelExtraLink.style.display = 'flex';
-        }
-    });
+extraLinkYesButton.addEventListener('click', () => {
+    isShowExtraLink = true;
+    if (extraLinkYesButton.checked) {
+        labelExtraLink.style.display = 'flex';
+    }
+});
 
-    extraLinkNoButton.addEventListener('click', () => {
-        isShowExtraLink = false;
-        if (extraLinkNoButton.checked) {
-            labelExtraLink.style.display = 'none';
-        }
-    });
+extraLinkNoButton.addEventListener('click', () => {
+    isShowExtraLink = false;
+    if (extraLinkNoButton.checked) {
+        labelExtraLink.style.display = 'none';
+    }
+});
 
 // Função dos Slides do Modal
 
-function slideOptions(){
+function slideOptions() {
 
-const slideGameOptions = document.querySelector('.game_options');
-const sliderOption0 = document.querySelector('#option0');
-const sliderOption1 = document.querySelector('#option1');
+    const slideGameOptions = document.querySelector('.game_options');
+    const sliderOption0 = document.querySelector('#option0');
+    const sliderOption1 = document.querySelector('#option1');
 
-if(sliderOption0.checked){
-    slideGameOptions.style.left = '360px';
-}
-else if(sliderOption1.checked){
-    slideGameOptions.style.left = '0';
-}
-else{
-    slideGameOptions.style.left = '-360px';
-}
+    if (sliderOption0.checked) {
+        slideGameOptions.style.left = '360px';
+    }
+    else if (sliderOption1.checked) {
+        slideGameOptions.style.left = '0';
+    }
+    else {
+        slideGameOptions.style.left = '-360px';
+    }
 }
 
 // function selectSlideOptions() {
