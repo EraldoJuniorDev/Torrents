@@ -381,11 +381,8 @@ checkbox.addEventListener('change', () => {
     document.querySelector('header').classList.toggle('dark');
     document.querySelector('.search_btn').classList.toggle('dark');
     document.querySelector('.mode_label').classList.toggle('light_dark');
-    // document.querySelector('.modal').classList.replace('light_dark', 'dark')
-});
-
-window.addEventListener('load', event => {
-    document.querySelector('.modal').classList.add('light_dark');
+    document.querySelector('a i').classList.toggle('dark_font');
+    document.querySelector('.dropdown i').classList.toggle('dark_font');
 });
 
 // Função de Adicionar Link/Botão de Download Extra
@@ -409,15 +406,32 @@ window.addEventListener('load', event => {
         }
     });
 
-// Função de Slide da Janela de dição de Jogos
+// Função dos Slides do Modal
 
-// const sliderCheckbox = document.querySelector("input[name=select_slide_option]");
+function slideOptions(){
 
-// sliderCheckbox.addEventListener('click', () => {
-//     if (sliderCheckbox) {
-//         alert('Hello World');
+const slideGameOptions = document.querySelector('.game_options');
+const sliderOption0 = document.querySelector('#option0');
+const sliderOption1 = document.querySelector('#option1');
+
+if(sliderOption0.checked){
+    slideGameOptions.style.left = '360px';
+}
+else if(sliderOption1.checked){
+    slideGameOptions.style.left = '0';
+}
+else{
+    slideGameOptions.style.left = '-360px';
+}
+}
+
+// function selectSlideOptions() {
+//     const sliderOption = document.querySelector('.slides_labels');
+//     if (sliderOption.style.backgroundColor == 'black') {
+//         sliderOption.style.backgroundColor = 'transparent'
 //     }
 //     else {
-//         alert("Checkbox is not checked...");
+//         sliderOption.style.backgroundColor = 'black'
 //     }
-// });
+//     sliderOption.addEventListener('click', (ev) => selectSlideOptions(ev.currentTarget));
+// }

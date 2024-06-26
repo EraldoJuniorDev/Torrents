@@ -7,6 +7,7 @@
     text-decoration: none;
     list-style-type: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
 }
 
 :root {
@@ -59,6 +60,7 @@ abbr,
 .dropdown,
 .dropdown_item>a,
 fieldset,
+.slides_labels,
 button,
 .add_game_container {
     display: flex;
@@ -87,7 +89,6 @@ header {
     z-index: 1;
     width: 100%;
     height: 55px;
-    color: red;
     text-align: center;
     border-bottom: 2px solid black;
     background-color: white;
@@ -109,7 +110,7 @@ nav {
 
 /*-------------Botão de Troca de Modo-------------*/
 
-.mode_btn{
+.mode_btn {
     width: 290px;
 }
 
@@ -161,10 +162,7 @@ nav {
     width: 22px;
     transform: translateX(0px);
     transition: transform 0.2s linear;
-}
-
-.ball:hover {
-    background-color: red;
+    cursor: pointer;
 }
 
 /*-------------Itens Principais do Menu de Navegação-------------*/
@@ -175,10 +173,13 @@ nav {
     justify-content: center;
 }
 
+.main_menu_item>a{
+    /* color: black; */
+}
+
 .main_menu_item>a>i,
 .bi {
     font-size: 25px;
-    color: red;
 }
 
 .main_menu_item>a>i:hover,
@@ -297,13 +298,19 @@ body {
     border-color: white;
 }
 
+#light{
+    background-color: white;
+}
+
 /*-------------Mudança de Modo (label do Modo Escuro)-------------*/
 
 .light_dark {
-    background-color: grey;
+    background-color: rgb(46, 46, 46);
 }
 
-
+.dark_font{
+    color: white;
+}
 
 /*-------------Div Geral do Modal-------------*/
 
@@ -328,9 +335,10 @@ dialog[open] {
     /* gap: 20px; */
     /* background-color: #0e0e0ede; */
     flex-direction: column;
-    width: fit-content;
+    width: 400px;
     height: fit-content;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 /*-------------Botão de Fechar Modal-------------*/
@@ -345,6 +353,7 @@ dialog[open] {
 }
 
 #close_modal>i {
+    color: black;
     z-index: 1;
     width: fit-content;
     font-size: 25px;
@@ -356,6 +365,18 @@ dialog[open] {
     color: red;
 }
 
+/*-------------Inputs do Slide-------------*/
+
+.select_slide_options {
+    display: none;
+    gap: 20px;
+}
+
+.select_slide_options>input {
+    width: fit-content;
+    cursor: pointer;
+}
+
 /*-------------Formulário do Modal-------------*/
 
 #form {
@@ -365,6 +386,25 @@ dialog[open] {
     border-radius: 5px;
     text-align: center;
     flex-direction: column;
+    gap: 15px;
+}
+
+/*-------------Labels dos Inputs do Slide-------------*/
+
+.select_slide_options_labels {
+    width: 100%;
+    height: 20px;
+    gap: 20px;
+}
+
+.select_slide_options_labels>label {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.slides_labels {
+    cursor: pointer;
 }
 
 /*-------------Inputs do Modal-------------*/
@@ -393,8 +433,7 @@ dialog[open] {
 input {
     color: black;
     font-size: 1rem;
-    border-style: none;
-    border-color: white;
+    border: 1px solid black;
     width: 300px;
     border-radius: 4px;
     padding-left: 0.8rem;
@@ -402,18 +441,20 @@ input {
 }
 
 label {
-    color: white;
+    font-weight: bold;
     left: 0;
     bottom: 0;
-    width: 100%;
+    width: fit-content;
     height: 100%;
-    pointer-events: none;
 }
 
 /*-------------Opções do Formulário-------------*/
 
 .game_options {
-    gap: 30px;
+    position: relative;
+    left: 360px;
+    gap: 60px;
+    transition: 0.8s;
 }
 
 /*-------------Fieldset do Formulário-------------*/
@@ -421,8 +462,20 @@ label {
 fieldset {
     color: white;
     width: 210px;
+    border: 1px solid black;
     border-bottom-left-radius: 30px;
     border-top-right-radius: 30px;
+}
+
+fieldset>h1 {
+    color: black;
+    background-color: transparent;
+    font-weight: bolder;
+}
+
+fieldset>legend {
+    color: black;
+    font-weight: bolder;
 }
 
 /*-------------Opções Gerais do Formulário-------------*/
@@ -526,15 +579,15 @@ fieldset {
     box-shadow: 7px 3px 19px #0000009e;
 }
 
-.add_game:hover{
+.add_game:hover {
     transform: scale(1.02);
 }
 
-.add_game>span{
+.add_game>span {
     color: rgb(56, 56, 56);
 }
 
-.add_game>i{
+.add_game>i {
     color: rgb(255, 255, 255);
     background-color: rgb(56, 56, 56);
     border-radius: 50%;

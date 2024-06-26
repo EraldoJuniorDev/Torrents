@@ -97,13 +97,20 @@
     <!--Div Geral do Modal-->
     <dialog>
 
-        <div class="modal">
+        <div class="modal" id="light">
 
             <!--Botão de Fechar Modal-->
             <span id="close_modal"><i class="bi bi-x-circle-fill"></i></span>
 
             <!--Formulário do Modal-->
             <form id="form"> 
+
+                <!--Inputs do Slide-->
+                <div class="select_slide_options" onchange="slideOptions()">
+                    <input type="radio" name="choose_options" id="option0" checked>
+                    <input type="radio" name="choose_options" id="option1">
+                    <input type="radio" name="choose_options" id="option2">
+                </div>
 
                 <!--Opções do Formulário-->
                 <div class="game_options">
@@ -141,8 +148,10 @@
                         <input type="text" name="gamelink" id="gamelink">
                         <fieldset>
                             <legend>Adicionar Download Extra?</legend>
-                            <input type="radio" name="buttonextra" id="yesbtn" value="yesbtn">Sim
-                            <input type="radio" name="buttonextra" id="nobtn" value="nobtn" checked>Não
+                            <input type="radio" name="buttonextra" id="yesbtn" value="yesbtn">
+                            <label for="yesbtn">Sim</label>
+                            <input type="radio" name="buttonextra" id="nobtn" value="nobtn" checked>
+                            <label for="nobtn">Não</label>
                         </fieldset>
                         <div class="select_extra_download">
                             <label for="gamelinkextra">
@@ -194,6 +203,13 @@
                         </label>
                         <input type="text" name="recommendedos" id="recommendedos">
                     </fieldset>
+                </div>
+
+                <!--Labels dos Inputs do Slide-->
+                <div class="select_slide_options_labels" onclick="selectSlideOptions()">
+                    <label for="option0" class="slides_labels">1</label>
+                    <label for="option1" class="slides_labels">2</label>
+                    <label for="option2" class="slides_labels">3</label>
                 </div>
 
                 <!--Botões de Cadastrar ou Limpar Dados do Jogo-->
