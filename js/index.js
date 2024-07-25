@@ -3,15 +3,16 @@ const games = [];
 let gameId = 0;
 const form = document.getElementById('form');
 form.addEventListener('submit', handleSubmit);
-const gameMinimumRequirements = document.getElementById(
-    'gameminimumrequirements'
-);
+const gameMinimumRequirements = document.getElementById('gameminimumrequirements');
 gameMinimumRequirements.addEventListener('submit', handleSubmit);
-const gameRecommendedRequirements = document.getElementById(
-    'gamerecommendedrequirements'
-);
+const gameRecommendedRequirements = document.getElementById('gamerecommendedrequirements');
 gameRecommendedRequirements.addEventListener('submit', handleSubmit);
 listAllGames();
+openAddMenu();
+darkTheme();
+addExtraLink();
+SlidesModal();
+slideOptions();
 
 // Função de Adicionar um Jogo
 
@@ -67,7 +68,6 @@ function handleSubmit(ev) {
     saveGameData(game);
     addCard(game);
 }
-
 // Função de Salvar os Jogos no LocalStorage
 
 function saveGameData(game) {
@@ -231,8 +231,7 @@ function addCard({
     divCardBackRecommendedRamMemory.innerText = 'Memória RAM Recomendado:';
     divCardBackTypeRecommendedRamMemory.innerText = typeRecommendedRamMemory;
     divCardBackRecommendedGraphicsCard.innerText = 'Placa de Vídeo Recomendado:';
-    divCardBackTypeRecommendedGraphicsCard.innerText =
-        typeRecommendedGraphicsCard;
+    divCardBackTypeRecommendedGraphicsCard.innerText = typeRecommendedGraphicsCard;
     divCardBackRecommendedCPU.innerText = 'Processador Recomendado:';
     divCardBackTypeRecommendedCPU.innerText = typeRecommendedCPU;
     divCardBackRecommendedOS.innerText = 'Sistema Operacional Recomendado:';
@@ -240,7 +239,11 @@ function addCard({
 
     // Tudo da divCardOverlayContent
     divCardOverlayContent.className = 'description';
+    deleteIcon.onclick = function () {
+        deleteGameModal();
+    }
     deleteIcon.className = 'bi bi-x-circle';
+    deleteIcon.innerText = 'X';
     deleteGame.className = 'delete_btn';
     deleteGame.id = 'deleteGameButton';
 
@@ -253,6 +256,7 @@ function addCard({
     divCardOverlayGenre.innerText = genre;
     divCardOverlaySize.innerText = 'Tamanho:';
     divCardOverlayFileSize.innerText = fileSize;
+
 
     deleteGame.appendChild(deleteIcon);
     divCardOverlayContent.appendChild(deleteGame);
@@ -320,13 +324,14 @@ function addCard({
 }
 
 const deleteButtons = document.querySelectorAll('.delete_btn');
+const modalK = document.querySelector('.deleteGameModalConfirmation');
 
-deleteButtons.forEach(button => {
-    button.addEventListener('click', ev => {
-        const cardId = ev.currentTarget.closest('.gameContent').id;
-        handleDeleteGame(cardId);
-    });
-});
+// deleteButtons.forEach(button => {
+//     button.addEventListener('click', ev => {
+//         const cardId = ev.currentTarget.closest('.gameContent').id;
+//         handleDeleteGame(cardId);
+//     });
+// });
 
 function handleDeleteGame(id) {
     const card = document.getElementById(id);
@@ -350,17 +355,19 @@ function flipCard(card) {
 
 // Função de abrir Janela de Adição de Jogos
 
-const modalOpenBtn = document.querySelector('#open_modal');
-const modalCloseBtn = document.querySelector('.bi-x-circle-fill');
-const modal = document.querySelector('dialog');
+function openAddMenu() {
+    const modalOpenBtn = document.querySelector('#open_modal');
+    const modalCloseBtn = document.querySelector('.bi-x-circle-fill');
+    const modal = document.querySelector('.addGameModal');
 
-modalOpenBtn.addEventListener('click', () => {
-    modal.show();
-});
+    modalOpenBtn.addEventListener('click', () => {
+        modal.show();
+    });
 
-modalCloseBtn.addEventListener('click', () => {
-    modal.close();
-});
+    modalCloseBtn.addEventListener('click', () => {
+        modal.close();
+    });
+};
 
 // Função do Menu Dropdown
 
@@ -372,87 +379,248 @@ function menuDropdown() {
     }
 }
 
-// Função de Mudança de Tema
+// Função do Modo Escuro
 
-const checkbox = document.getElementById('checkbox');
-const modalDarkMode = document.querySelector('dialog .light')
-const iconList = document.querySelectorAll('a i');
-const labelList = document.querySelectorAll('label');
-const inputList = document.querySelectorAll('input[type=text]');
-const modalTitleList = document.querySelectorAll('fieldset h1');
+function darkTheme() {
+    const checkbox = document.getElementById('checkbox');
+    const dropDownMenuItem = document.querySelectorAll('.dropdown_item>a');
+    const inputList = document.querySelectorAll('#form input[type=text]');
+    // const inputExtraLink = document.querySelector('input[type=text] #gamelinkextra');
 
-checkbox.addEventListener('change', () => {
-    document.querySelector('body').classList.toggle('dark');
-    document.querySelector('header').classList.toggle('dark');
-    document.querySelector('.search_input .search_box').classList.toggle('dark');
-    document.querySelector('.search_btn').classList.toggle('dark');
-    document.querySelector('.mode_label').classList.toggle('light_dark');
-    document.querySelector('.dropdown i').classList.toggle('dark_font');
-    modalDarkMode.classList.toggle('light');
-    document.querySelector('#close_modal i').classList.toggle('dark_font');
-    document.querySelector('fieldset legend').classList.toggle('dark_font');
-    document.querySelector('.add_game').classList.toggle('light_dark');
-    document.querySelector('.add_game span').classList.toggle('dark_font');
+    checkbox.addEventListener('change', () => {
+        document.querySelector('body').classList.toggle('dark');
+        document.querySelector('header').classList.toggle('dark');
+        document.querySelector('.search_input .search_box').classList.toggle('dark');
+        // document.querySelector('.deleteGameModalWindow').classList.toggle('light');
+        // document.querySelector('.gameModalClosureWindow').classList.toggle('light');
+        // modalDarkMode.classList.toggle('light');
+        document.querySelector('.add_game').classList.toggle('light_dark');
+        document.querySelector('#open_modal span').classList.toggle('white_only_font')
+        document.querySelector('.card_back').classList.toggle('dark');
+        document.querySelector('#modal').classList.toggle('light');
 
-    iconList.forEach(icon =>
-        icon.classList.toggle('dark_font'));
-    labelList.forEach(label =>
-        label.classList.toggle('dark_font'));
-    inputList.forEach(input =>
-        input.classList.toggle('light_dark'));
-    modalTitleList.forEach(modalTitle =>
-        modalTitle.classList.toggle('dark_font'));
-});
-
-
+        dropDownMenuItem.forEach(menuItem =>
+            menuItem.classList.toggle('white_font'));
+        inputList.forEach(input =>
+            input.classList.toggle('white_only_font'));
+    });
+};
 
 // Função de Adicionar Link/Botão de Download Extra
 
+function addExtraLink() {
+    const extraLinkYesButton = document.getElementById('yesbtn');
+    const extraLinkNoButton = document.getElementById('nobtn');
+    const labelExtraLink = document.querySelector('div .select_extra_download');
 
-const extraLinkYesButton = document.getElementById('yesbtn');
-const extraLinkNoButton = document.getElementById('nobtn');
-const labelExtraLink = document.querySelector('div .select_extra_download');
+    extraLinkYesButton.addEventListener('click', () => {
+        isShowExtraLink = true;
+        if (extraLinkYesButton.checked) {
+            labelExtraLink.style.display = 'flex';
+        }
+    });
 
-extraLinkYesButton.addEventListener('click', () => {
-    isShowExtraLink = true;
-    if (extraLinkYesButton.checked) {
-        labelExtraLink.style.display = 'flex';
-    }
-});
-
-extraLinkNoButton.addEventListener('click', () => {
-    isShowExtraLink = false;
-    if (extraLinkNoButton.checked) {
-        labelExtraLink.style.display = 'none';
-    }
-});
+    extraLinkNoButton.addEventListener('click', () => {
+        isShowExtraLink = false;
+        if (extraLinkNoButton.checked) {
+            labelExtraLink.style.display = 'none';
+        }
+    });
+};
 
 // Função dos Slides do Modal
 
+function SlidesModal() {
+    window.addEventListener('load', () => {
+        const slideGameOptions = document.querySelector('.game_options');
+        const sliderOption0 = document.querySelector('#option0');
+        if (sliderOption0.checked) {
+            slideGameOptions.style.left = '305px';
+        }
+    })
+};
+
+
 function slideOptions() {
 
-    const slideGameOptions = document.querySelector('.game_options');
-    const sliderOption0 = document.querySelector('#option0');
-    const sliderOption1 = document.querySelector('#option1');
+    window.addEventListener('change', () => {
+        const slideGameOptions = document.querySelector('.game_options');
+        const sliderOption0 = document.querySelector('#option0');
+        const sliderOption1 = document.querySelector('#option1');
 
-    if (sliderOption0.checked) {
-        slideGameOptions.style.left = '360px';
+        if (sliderOption0.checked) {
+            slideGameOptions.style.left = '305px';
+        }
+        else if (sliderOption1.checked) {
+            slideGameOptions.style.left = '0';
+        }
+        else {
+            slideGameOptions.style.left = '-305px';
+        }
+    })
+};
+
+//Função do Modal de Confirmação dos Jogos
+
+function deleteGameModal() {
+    const bodyContainer = document.querySelector('body');
+    const deleteButtons = document.querySelectorAll('.delete_btn');
+    const gameModalContainer = document.createElement('dialog');
+    const deleteGameModalWindow = document.createElement('div');
+    const deleteGameModalHeaderContainer = document.createElement('div');
+    const deleteGameModalIcon = document.createElement('i');
+    const deleteGameModalTitle = document.createElement('p');
+    const deleteGameModal = document.createElement('i');
+    const deleteGameModalMessage = document.createElement('p');
+    const deleteButtonsContainer = document.createElement('div');
+    const deleteButtonYes = document.createElement('button');
+    const deleteButtonNo = document.createElement('button');
+
+    //Tudo do Modal de Exclusão de Jogos
+
+    gameModalContainer.className = 'deleteGameModal';
+    deleteGameModalWindow.className = 'deleteGameModalWindow light dark';
+    deleteGameModalHeaderContainer.className = 'deleteGameModalHeaderContainer';
+    deleteGameModalIcon.innerText = '*';
+    deleteGameModalTitle.innerText = 'Deletar Jogo:';
+    deleteGameModalTitle.className = 'deleteGameModalTitle';
+    deleteGameModal.className = 'closeDeleteGameModal bi bi-x-circle';
+    deleteGameModal.innerText = 'X';
+    deleteGameModalMessage.innerText = 'Você deseja realmente excluir esse jogo?';
+    deleteGameModalMessage.className = 'deleteGameModalMessage light_font dark_font';
+    deleteButtonsContainer.className = 'deleteButtonsContainer';
+    deleteButtonYes.onclick = function () {
+        gameModalClosure(modalArr[0]);
     }
-    else if (sliderOption1.checked) {
-        slideGameOptions.style.left = '0';
+    deleteButtonYes.id = 'deleteYesButton';
+    deleteButtonYes.innerText = 'Sim';
+    deleteButtonNo.id = 'deleteNoButton'
+    deleteButtonNo.innerText = 'Não';
+
+    //Árvore dos Elementos
+
+    deleteGameModalHeaderContainer.appendChild(deleteGameModalIcon);
+    deleteGameModalHeaderContainer.appendChild(deleteGameModalTitle)
+    deleteGameModalHeaderContainer.appendChild(deleteGameModal);
+    deleteGameModalWindow.appendChild(deleteGameModalHeaderContainer);
+    deleteGameModalWindow.appendChild(deleteGameModalMessage);
+    deleteButtonsContainer.appendChild(deleteButtonYes);
+    deleteButtonsContainer.appendChild(deleteButtonNo);
+    deleteGameModalWindow.appendChild(deleteButtonsContainer)
+    gameModalContainer.appendChild(deleteGameModalWindow);
+    bodyContainer.appendChild(gameModalContainer);
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', ev => {
+            gameModalContainer.show();
+        });
+    });
+
+    deleteGameModal.addEventListener('click', () => {
+        gameModalContainer.remove();
+    });
+
+    deleteButtonYes.addEventListener('click', () => {
+        const closureModal = document.querySelector('.gameModalContainer');
+        gameModalContainer.remove();
+        closureModal.show();
+    });
+
+    deleteButtonNo.addEventListener('click', () => {
+        gameModalContainer.remove();
+    });
+};
+
+//Função do Modal de Finalização
+
+function gameModalClosure(
+    {
+        modalIcon,
+        modalTitle,
+        modalCloseButton,
+        modalMessage
     }
-    else {
-        slideGameOptions.style.left = '-360px';
+) {
+    const bodyContainer = document.querySelector('body');
+    const gameModalContainer = document.createElement('dialog');
+    const gameModalClosureWindow = document.createElement('div');
+    const gameModalClosureContainer = document.createElement('div');
+    const gameModalClosureIcon = document.createElement('i');
+    const gameModalClosureTitle = document.createElement('p');
+    const gameModalClosure = document.createElement('i');
+    const gameModalClosureMessage = document.createElement('p');
+    // const deleteButtonsContainer = document.createElement('div');
+    const modalClosureButton = document.createElement('button');
+
+    //Tudo do Modal de Exclusão de Jogos
+
+    gameModalContainer.className = 'gameModalContainer';
+    gameModalClosureWindow.className = 'gameModalClosureWindow light dark';
+    gameModalClosureContainer.className = 'gameModalClosureContainer';
+    gameModalClosureIcon.innerText = modalIcon;
+    gameModalClosureTitle.innerText = modalTitle;
+    gameModalClosureTitle.className = 'gameModalClosureTitle';
+    gameModalClosure.className = 'gameModalClosure bi bi-x-circle';
+    gameModalClosure.innerText = modalCloseButton;
+    gameModalClosureMessage.innerText = modalMessage;
+    gameModalClosureMessage.className = 'gameModalClosureMessage light_font dark_font';
+    modalClosureButton.id = 'modalClosureButton'
+    modalClosureButton.innerText = 'Fechar';
+
+    //Árvore dos Elementos
+
+    // closeDeleteGameModalClosureContainer.appendChild(closeDeleteGameModalClosureIcon);
+    // closeDeleteGameModalClosureContainer.appendChild(closeDeleteGameModalClosureText)
+
+    gameModalClosureContainer.appendChild(gameModalClosureIcon);
+    gameModalClosureContainer.appendChild(gameModalClosureTitle);
+    gameModalClosureContainer.appendChild(gameModalClosure);
+    gameModalClosureWindow.appendChild(gameModalClosureContainer);
+    gameModalClosureWindow.appendChild(gameModalClosureMessage);
+    gameModalClosureWindow.appendChild(modalClosureButton);
+    gameModalContainer.appendChild(gameModalClosureWindow);
+    bodyContainer.appendChild(gameModalContainer);
+
+    modalClosureButton.addEventListener('click', () => {
+        gameModalContainer.remove();
+    });
+
+    gameModalClosure.addEventListener('click', () => {
+        gameModalContainer.remove();
+    })
+};
+
+//Array de Objetos do Modal de Exclusão
+
+const modalArr = [
+    {
+        modalIcon: '*',
+        modalTitle: 'Aviso:',
+        modalCloseButton: 'X',
+        modalMessage: 'Seu jogo foi excluído com sucesso.'
+    },
+    {
+        modalIcon: '*',
+        modalTitle: 'Aviso:',
+        modalCloseButton: 'X',
+        modalMessage: 'Seu jogo foi adicionado com sucesso.'
+    }
+]
+
+function teste() {
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', ev => {
+            const cardId = ev.currentTarget.closest('.gameContent').id;
+            handleDeleteGame(cardId);
+        });
+    });
+
+    function handleDeleteGame(id) {
+        const card = document.getElementById(id);
+        card.remove();
+
+        let listGames = JSON.parse(localStorage.getItem(key));
+        listGames = listGames.filter(game => game.id !== parseInt(id));
+        localStorage.setItem(key, JSON.stringify(listGames));
     }
 }
-
-// function selectSlideOptions() {
-//     const sliderOption = document.querySelector('.slides_labels');
-//     if (sliderOption.style.backgroundColor == 'black') {
-//         sliderOption.style.backgroundColor = 'transparent'
-//     }
-//     else {
-//         sliderOption.style.backgroundColor = 'black'
-//     }
-//     sliderOption.addEventListener('click', (ev) => selectSlideOptions(ev.currentTarget));
-// }
