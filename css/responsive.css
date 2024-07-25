@@ -17,7 +17,7 @@
     }
 
     .main_menu {
-        justify-content: space-between;
+        justify-content: space-evenly;
         gap: 5px;
     }
 
@@ -247,7 +247,7 @@
 @media (min-width: 425px) {
 
     .main_menu {
-        justify-content: space-between;
+        justify-content: space-evenly;
         gap: 15px;
     }
 
@@ -281,7 +281,7 @@
     .main_menu {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     .mode_btn {
@@ -369,7 +369,7 @@
 
 @media (min-width: 1024px) {
     .main_menu {
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     .menu_nav {
@@ -431,7 +431,7 @@
 
 @media (min-width: 1440px) {
     .main_menu {
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     .main_menu_item {
