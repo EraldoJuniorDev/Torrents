@@ -141,7 +141,7 @@ nav {
 }
 
 .checkbox:checked+.mode_label .ball {
-    transform: translateX(29px);
+    transform: translateX(25px);
 }
 
 .mode_label>i {

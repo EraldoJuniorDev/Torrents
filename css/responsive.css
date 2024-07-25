@@ -7,7 +7,7 @@
 
     #mainContent {
         column-gap: 0;
-        padding: 1.25rem 0.5rem 1.25rem 0.5rem;
+        padding: 1.25rem 1rem 1.25rem 1rem;
     }
 
     .add_game>span {
@@ -25,12 +25,26 @@
         width: fit-content;
     }
 
+    .mode_label {
+        width: 45px;
+        height: 20px;
+    }
+
+    .checkbox:checked+.mode_label .ball {
+        transform: translateX(25px);
+    }
+
+    .mode_label .ball {
+        width: 16px;
+        height: 16px
+    }
+
     .menu_nav {
-        gap: 10px;
+        gap: 20px;
     }
 
     .main_menu_item {
-        width: fit-content;
+        width: 10px;
     }
 
     .main_menu_item>a>i,
@@ -38,18 +52,23 @@
         font-size: 1rem;
     }
 
+    .dropdown_item {
+        width: 80px;
+        font-size: 7px;
+    }
+
     input {
-        font-size: 9px;
+        font-size: 4px;
     }
 
     .search_box {
-        width: 80px;
+        width: 50px;
         height: 20px;
     }
 
     .search_btn {
-        font-size: 6px;
-        width: 35px;
+        font-size: 4px;
+        width: 26px;
         height: 20px;
     }
 
@@ -167,16 +186,12 @@
         width: fit-content;
     }
 
-    .menu_nav {
-        gap: 5px;
-    }
-
     .main_menu_item {
         width: 20px;
     }
 
     .search_box {
-        width: 80px;
+        width: 55px;
     }
 
     .search_btn {
@@ -229,15 +244,11 @@
 
     .main_menu {
         justify-content: center;
-        gap: 10px;
+        gap: 15px;
     }
 
     .main_menu_item {
         width: 25px;
-    }
-
-    .mode_btn {
-        width: 80px;
     }
 
     .add_game,
@@ -247,12 +258,17 @@
     }
 
     .search_box {
-        width: 100px;
-        height: 30px;
+        width: 60px;
+        height: 20px;
     }
 
     .search_btn {
+        font-size: 6px;
         width: 40px;
+    }
+
+    input{
+        font-size: 6px;
     }
 }
 
@@ -272,6 +288,11 @@
         width: 60px;
         height: 55px;
         justify-content: center;
+    }
+
+    .dropdown_item{
+        font-size: 1rem;
+        width: 170px;
     }
 
     input {
@@ -348,14 +369,15 @@
     }
 
     .menu_nav {
-        gap: 10px;
+        gap: 40px;
     }
 
     .main_menu_item {
         width: 50px;
     }
 
-    .main_menu_item>a>i, .bi {
+    .main_menu_item>a>i,
+    .bi {
         font-size: 25px;
     }
 
