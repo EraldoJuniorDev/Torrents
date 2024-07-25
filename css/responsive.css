@@ -17,7 +17,7 @@
     }
 
     .main_menu {
-        justify-content: space-around;
+        justify-content: space-between;
         gap: 0;
     }
 
