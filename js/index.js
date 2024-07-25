@@ -480,7 +480,7 @@ function deleteGameModal() {
     gameModalContainer.className = 'deleteGameModal';
     deleteGameModalWindow.className = 'deleteGameModalWindow light dark';
     deleteGameModalHeaderContainer.className = 'deleteGameModalHeaderContainer';
-    deleteGameModalIcon.innerText = '*';
+    deleteGameModalIcon.className = 'bi bi-trash-fill';
     deleteGameModalTitle.innerText = 'Deletar Jogo:';
     deleteGameModalTitle.className = 'deleteGameModalTitle';
     deleteGameModal.className = 'closeDeleteGameModal bi bi-x-circle';
