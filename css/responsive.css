@@ -30,6 +30,10 @@
         height: 20px;
     }
 
+    .mode_label>i{
+        font-size: 10px;
+    }
+
     .checkbox:checked+.mode_label .ball {
         transform: translateX(25px);
     }
