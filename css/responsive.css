@@ -17,8 +17,8 @@
     }
 
     .main_menu {
-        justify-content: space-evenly;
-        gap: 5px;
+        justify-content: space-around;
+        gap: 0;
     }
 
     .mode_btn {
@@ -26,21 +26,21 @@
     }
 
     .mode_label {
-        width: 45px;
-        height: 20px;
+        width: 25px;
+        height: 10px;
     }
 
-    .mode_label>i{
-        font-size: 10px;
+    .mode_label>i {
+        font-size: 0px;
     }
 
     .checkbox:checked+.mode_label .ball {
-        transform: translateX(25px);
+        transform: translateX(15px);
     }
 
     .mode_label .ball {
-        width: 16px;
-        height: 16px
+        width: 6px;
+        height: 6px;
     }
 
     .menu_nav {
@@ -53,7 +53,7 @@
 
     .main_menu_item>a>i,
     .bi {
-        font-size: 1rem;
+        font-size: 13px;
     }
 
     .dropdown_item {
@@ -61,19 +61,23 @@
         font-size: 7px;
     }
 
-    input {
+    input[type=search] {
         font-size: 4px;
+    }
+
+    .search_input {
+        gap: 5px;
     }
 
     .search_box {
         width: 50px;
-        height: 20px;
+        height: 15px;
     }
 
     .search_btn {
         font-size: 4px;
-        width: 26px;
-        height: 20px;
+        width: 10px;
+        height: 10px;
     }
 
     .add_game,
@@ -194,14 +198,6 @@
         width: 20px;
     }
 
-    .search_box {
-        width: 55px;
-    }
-
-    .search_btn {
-        width: 30px;
-    }
-
     #mainContent {
         padding: 1.25rem 1rem 1.25rem 1rem;
     }
@@ -247,12 +243,16 @@
 @media (min-width: 425px) {
 
     .main_menu {
-        justify-content: space-evenly;
+        justify-content: space-around;
         gap: 15px;
     }
 
     .main_menu_item {
         width: 25px;
+    }
+
+    .menu_nav {
+        gap: 25px;
     }
 
     .add_game,
@@ -262,16 +262,15 @@
     }
 
     .search_box {
-        width: 60px;
-        height: 20px;
+        width: 80px;
+        height: 15px;
     }
 
     .search_btn {
-        font-size: 6px;
-        width: 40px;
+        font-size: 5px;
     }
 
-    input{
+    input {
         font-size: 6px;
     }
 }
@@ -282,10 +281,26 @@
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+        gap: 20px;
     }
 
     .mode_btn {
-        width: 150px;
+        width: fit-content;
+    }
+    
+
+    .mode_label {
+        width: 30px;
+        height: 15px;
+    }
+
+    .mode_label .ball {
+        width: 11px;
+        height: 11px;
+    }
+
+    .menu_nav {
+        gap: 20px;
     }
 
     .main_menu_item {
@@ -294,24 +309,30 @@
         justify-content: center;
     }
 
-    .dropdown_item{
+    .dropdown_item {
         font-size: 1rem;
         width: 170px;
     }
 
-    input {
-        font-size: 12px;
+    .main_menu_item>a>i,
+    .bi {
+        font-size: 20px;
+    }
+
+    input[type=search] {
+        font-size: 10px;
     }
 
     .search_box {
-        width: 100px;
-        height: 30px;
+        width: 150px;
+        height: 20px;
         border: 1px solid var(--red);
     }
 
     .search_btn {
         font-size: 7px;
-        width: 40px;
+        width: 15px;
+        height: 15px;
     }
 
     .add_game,
@@ -373,7 +394,25 @@
     }
 
     .menu_nav {
-        gap: 40px;
+        gap: 70px;
+    }
+
+    .mode_label {
+        width: 50px;
+        height: 25px;
+    }
+
+    .mode_label>i{
+        font-size: 15px;
+    }
+
+    .mode_label .ball {
+        width: 21px;
+        height: 21px;
+    }
+
+    .checkbox:checked+.mode_label .ball {
+        transform: translateX(25px);
     }
 
     .main_menu_item {
@@ -385,18 +424,25 @@
         font-size: 25px;
     }
 
-    #mainContent {
-        padding: 1.25rem 2rem 1.25rem 2rem;
+    input[type=search] {
+        font-size: 13px;
     }
 
     .search_box {
         width: 200px;
+        height: 25px;
     }
 
     .search_btn {
-        font-size: 13px;
-        width: 80px;
+        font-size: 10px;
+        width: 20px;
+        height: 20px;
     }
+
+    #mainContent {
+        padding: 1.25rem 2rem 1.25rem 2rem;
+    }
+
 
     .description {
         gap: 0.5rem;
@@ -431,7 +477,7 @@
 
 @media (min-width: 1440px) {
     .main_menu {
-        justify-content: space-evenly;
+        justify-content: space-around;
     }
 
     .main_menu_item {
