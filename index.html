@@ -27,9 +27,9 @@
 
             <label class="mode_label" for="checkbox">
 
-                <i class="bi bi-sun-fill"></i>
+                <i class="bi bi-sun-fill">*</i>
 
-                <i class="bi bi-moon-fill"></i>
+                <i class="bi bi-moon-fill">*</i>
 
                 <div class="ball"></div>
 
@@ -42,41 +42,41 @@
 
             <li class="main_menu_item">
                 <a href="#" class="link">
-                    <i class="bi bi-bar-chart" id="chart"></i>
+                    <i class="bi bi-bar-chart" id="chart">#</i>
                 </a>
             </li>
 
             <li class="main_menu_item">
                 <a href="#" class="link">
-                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill">#</i>
                 </a>
             </li>
 
             <li class="main_menu_item">
                 <a href="#" class="link">
-                    <i class="bi bi-house"></i>
+                    <i class="bi bi-house">#</i>
                 </a>
             </li>
 
             <li class="main_menu_item">
                 <a href="#" class="link">
-                    <i class="bi bi-bookmark"></i>
+                    <i class="bi bi-bookmark">#</i>
                 </a>
             </li>
 
             <!--Item Dropdown do Menu de Navegação-->
             <li class="main_menu_item dropdown">
-                <i class="bi bi-controller" onclick="menuDropdown()"></i>
+                <i class="bi bi-controller" onclick="menuDropdown()">#</i>
                 <div>
                     <ol class="dropdown_items" id="dropdown_items">
-                        <li class="dropdown_item"><a href="#">Ação</a></li>
-                        <li class="dropdown_item"><a href="#">Aventura</a></li>
-                        <li class="dropdown_item"><a href="#">Mundo Aberto</a></li>
-                        <li class="dropdown_item"><a href="#">Furtivo</a></li>
-                        <li class="dropdown_item"><a href="#">Survival</a></li>
-                        <li class="dropdown_item"><a href="#">Terror</a></li>
-                        <li class="dropdown_item"><a href="#">Survival Horror</a></li>
-                        <li class="dropdown_item"><a href="#">Terror Psicológico</a></li>
+                        <li class="dropdown_item"><a href="#" class="white_font black_font">Ação</a></li>
+                        <li class="dropdown_item"><a href="#" class="white_font black_font">Aventura</a></li>
+                        <li class="dropdown_item"><a href="#" class="white_font black_font">Mundo Aberto</a></li>
+                        <li class="dropdown_item"><a href="#" class="white_font black_font">Furtivo</a></li>
+                        <li class="dropdown_item"><a href="#" class="white_font black_font">Survival</a></li>
+                        <li class="dropdown_item"><a href="#" class="white_font black_font">Terror</a></li>
+                        <li class="dropdown_item"><a href="#" class="white_font black_font">Survival Horror</a></li>
+                        <li class="dropdown_item"><a href="#" class="white_font black_font">Terror Psicológico</a></li>
                     </ol>
                 </div>
             </li>
@@ -93,20 +93,24 @@
 
 </header>
 
-<body>
+<body id="body">
     <!--Div Geral do Modal-->
-    <dialog>
+    <dialog class="addGameModal">
 
         <div id="modal" class="light dark">
 
             <!--Botão de Fechar Modal-->
-            <span id="close_modal"><i class="bi bi-x-circle-fill"></i></span>
+            <div id="close_modal">
+                <i>*</i>
+                <p>Adicionar Jogo:</p>
+                <i class="bi bi-x-circle-fill">X</i>
+            </div>
 
             <!--Formulário do Modal-->
-            <form id="form"> 
+            <form id="form">
 
                 <!--Inputs do Slide-->
-                <div class="select_slide_options" onchange="slideOptions()">
+                <div class="select_slide_options">
                     <input type="radio" name="choose_options" id="option0" checked>
                     <input type="radio" name="choose_options" id="option1">
                     <input type="radio" name="choose_options" id="option2">
@@ -206,16 +210,16 @@
                 </div>
 
                 <!--Labels dos Inputs do Slide-->
-                <div class="select_slide_options_labels" onclick="selectSlideOptions()">
-                    <label for="option0" class="slides_labels">1</label>
-                    <label for="option1" class="slides_labels">2</label>
-                    <label for="option2" class="slides_labels">3</label>
+                <div class="select_slide_options_labels">
+                    <label for="option0" class="slides_labels" id="label0">1</label>
+                    <label for="option1" class="slides_labels" id="label1">2</label>
+                    <label for="option2" class="slides_labels" id="label2">3</label>
                 </div>
 
                 <!--Botões de Cadastrar ou Limpar Dados do Jogo-->
                 <div class="input_btns">
 
-                    <input type="submit" value="Cadastrar">
+                    <input type="submit" value="Cadastrar" class="submitBitch">
 
                     <input type="reset" value="Limpar">
 
@@ -230,7 +234,7 @@
     <main id="mainContent">
         <div class="add_game" id="open_modal">
             <span>Adicionar Novo Jogo</span>
-            <i class="bi bi-plus-circle"></i>
+            <i class="bi bi-plus-circle">+</i>
         </div>
     </main>
 
