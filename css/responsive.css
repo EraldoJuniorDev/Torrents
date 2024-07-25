@@ -1,12 +1,92 @@
 @media (min-width: 320px) {
 
-    main {
-        row-gap: 0.5rem;
+    dialog {
+        width: 100vw;
+        height: 100vh;
     }
 
-    .maincontainer {
-        width: 8.563rem;
-        height: 12.094rem;
+    #mainContent {
+        column-gap: 0;
+        padding: 1.25rem 0.5rem 1.25rem 0.5rem;
+    }
+
+    .add_game>span {
+        text-align: center;
+        font-size: 13px;
+        padding: 0 20px 0 20px;
+    }
+
+    .main_menu {
+        justify-content: space-around;
+        gap: 0;
+    }
+
+    .mode_btn {
+        width: fit-content;
+    }
+
+    .menu_nav {
+        gap: 10px;
+    }
+
+    .main_menu_item {
+        width: fit-content;
+    }
+
+    .main_menu_item>a>i,
+    .bi {
+        font-size: 1rem;
+    }
+
+    input {
+        font-size: 9px;
+    }
+
+    .search_box {
+        width: 80px;
+        height: 20px;
+    }
+
+    .search_btn {
+        font-size: 6px;
+        width: 35px;
+        height: 20px;
+    }
+
+    .add_game,
+    .gameContent {
+        width: 7.125rem;
+        height: 11.188rem;
+    }
+
+    #modal,
+    .deleteGameModalWindow,
+    .gameModalClosureWindow {
+        width: 90%;
+    }
+
+    .deleteGameModalWindow,
+    .gameModalClosureWindow {
+        gap: 60px;
+    }
+
+    #close_modal,
+    .deleteGameModalHeaderContainer,
+    .gameModalClosureContainer {
+        gap: 30px;
+    }
+
+    .deleteGameModalMessage {
+        text-align: center;
+        padding: 0 30px 0 30px;
+    }
+
+    #deleteYesButton,
+    #deleteNoButton,
+    #modalClosureButton {
+        font-size: 12px;
+        width: 50px;
+        height: 25px;
     }
 
     .card {
@@ -29,10 +109,23 @@
         height: 100%;
     }
 
+    h1 {
+        font-size: 7px
+    }
+
+    h3 {
+        font-size: 5px
+    }
+
+    p {
+        font-size: 4px
+    }
+
     .description,
-    .minimumrequirements {
+    .minimumrequirements,
+    .recommendedrequirements {
         flex-direction: column;
-        gap: 0.1rem;
+        gap: 1px;
     }
 
     .description_item {
@@ -40,25 +133,13 @@
         gap: 0;
     }
 
-    h1 {
-        font-size: 0.875rem;
-    }
-
-    h3 {
-        font-size: 0.688rem;
-    }
-
-    p {
-        font-size: 0.688rem;
-    }
-
     button,
     .extra {
-        width: 100%;
+        width: fit-content;
+        padding: 0 5px 0 5px;
         height: 1rem;
-        font-size: 0.813rem;
+        font-size: 5px;
         gap: 0.313rem;
-        padding: 0.25rem;
     }
 
     button>img {
@@ -72,30 +153,152 @@
 
 @media (min-width: 375px) {
 
-    main {
-        row-gap: 0.5rem;
+    .main_menu {
+        gap: 0;
     }
+
+    .add_game,
+    .gameContent {
+        width: 9.125rem;
+        height: 13.188rem;
+    }
+
+    .mode_btn {
+        width: fit-content;
+    }
+
+    .menu_nav {
+        gap: 5px;
+    }
+
+    .main_menu_item {
+        width: 20px;
+    }
+
+    .search_box {
+        width: 80px;
+    }
+
+    .search_btn {
+        width: 30px;
+    }
+
+    #mainContent {
+        padding: 1.25rem 1rem 1.25rem 1rem;
+    }
+
+    #modal,
+    .deleteGameModalWindow,
+    .gameModalClosureWindow {
+        width: 90%;
+    }
+
+    .deleteGameModalWindow,
+    .gameModalClosureWindow {
+        gap: 60px;
+    }
+
+    #close_modal,
+    .deleteGameModalHeaderContainer,
+    .gameModalClosureContainer {
+        gap: 60px;
+    }
+
+    .deleteGameModalMessage {
+        text-align: center;
+        padding: 0 30px 0 30px;
+    }
+
+    #deleteYesButton,
+    #deleteNoButton,
+    #modalClosureButton {
+        font-size: 12px;
+        width: 50px;
+        height: 25px;
+    }
+
+    .description,
+    .minimumrequirements,
+    .recommendedrequirements {
+        gap: 3px;
+    }
+
 }
 
 @media (min-width: 425px) {
-    .maincontainer {
-        width: 8.438rem;
-        height: 11.813rem;
+
+    .main_menu {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .main_menu_item {
+        width: 25px;
+    }
+
+    .mode_btn {
+        width: 80px;
+    }
+
+    .add_game,
+    .gameContent {
+        width: 10.125rem;
+        height: 15.188rem;
+    }
+
+    .search_box {
+        width: 100px;
+        height: 30px;
+    }
+
+    .search_btn {
+        width: 40px;
     }
 }
 
 @media (min-width: 768px) {
 
-    main {
+    .main_menu {
+        display: flex;
+        align-items: center;
         justify-content: space-evenly;
-        flex-direction: row;
-        row-gap: 1.563rem;
-        column-gap: 0.625rem;
     }
 
-    .maincontainer {
-        width: 14.25rem;
-        height: 19.375rem;
+    .mode_btn {
+        width: 150px;
+    }
+
+    .main_menu_item {
+        width: 60px;
+        height: 55px;
+        justify-content: center;
+    }
+
+    input {
+        font-size: 12px;
+    }
+
+    .search_box {
+        width: 100px;
+        height: 30px;
+        border: 1px solid var(--red);
+    }
+
+    .search_btn {
+        font-size: 7px;
+        width: 40px;
+    }
+
+    .add_game,
+    .gameContent {
+        width: 13.125rem;
+        height: 20.188rem;
+    }
+
+    #modal,
+    .deleteGameModalWindow,
+    .gameModalClosureWindow {
+        width: 400px;
     }
 
     .description,
@@ -104,22 +307,23 @@
     }
 
     h1 {
-        font-size: 1.438rem;
+        font-size: 15px;
     }
 
     h3 {
-        font-size: 1.25rem;
+        font-size: 12px;
+        width: 135px;
     }
 
     p {
-        font-size: 0.875rem;
+        font-size: 9px;
     }
 
     button,
     .extra {
         width: 100%;
-        height: 1.563rem;
-        font-size: 1.25rem;
+        height: 1.363rem;
+        font-size: 9px;
         gap: 0.313rem;
         padding: 0.25rem;
     }
@@ -139,9 +343,33 @@
 }
 
 @media (min-width: 1024px) {
-    .maincontainer {
-        width: 18.125rem;
-        height: 25rem;
+    .main_menu {
+        justify-content: space-evenly;
+    }
+
+    .menu_nav {
+        gap: 10px;
+    }
+
+    .main_menu_item {
+        width: 50px;
+    }
+
+    .main_menu_item>a>i, .bi {
+        font-size: 25px;
+    }
+
+    #mainContent {
+        padding: 1.25rem 2rem 1.25rem 2rem;
+    }
+
+    .search_box {
+        width: 200px;
+    }
+
+    .search_btn {
+        font-size: 13px;
+        width: 80px;
     }
 
     .description {
@@ -153,25 +381,12 @@
         gap: 10px;
     }
 
-    h1 {
-        font-size: 19px;
-    }
-
-    h3 {
-        font-size: 14px;
-    }
-
-    p {
-        font-size: 12px;
-    }
-
     button,
     .extra {
         width: 100%;
-        height: 2.188rem;
-        font-size: 1.25rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
         gap: 0.313rem;
-        padding: 0.625rem;
     }
 
     .extra {
@@ -185,5 +400,20 @@
     .extra_double>a>.extra {
         width: 3.75rem;
         font-size: 1rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .main_menu {
+        justify-content: space-around;
+    }
+
+    .main_menu_item {
+        width: 120px;
+    }
+
+    #mainContent {
+        column-gap: 10px;
+        padding: 1.25rem 5rem 1.25rem 5rem;
     }
 }

@@ -7,20 +7,21 @@
     text-decoration: none;
     list-style-type: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: black;
 }
 
 :root {
-    --torrent_btn: #008609;
-    --torrent_font: #ffffff;
-    --torrent_btn_active: #00a00b;
-    --torrent_font_active: #ffffff;
-    --mega_btn: #d90007;
+
     --white: #ffffff;
-    --mega_btn_active: #ff0008;
+    --red: #f53d3d;
+    --red_active: #fa898c;
+    --green: rgb(55, 194, 55);
+    --green_active: #80c985;
     --mega_font_active: #a7a7a7;
+    --torrent_font: #ffffff;
+    --torrent_font_active: #ffffff;
     --extra_btn: #000000;
     --extra_btn_active: #242424;
+
 }
 
 /*===========Configs da Scrollbar===========*/
@@ -32,8 +33,12 @@
 
 ::-webkit-scrollbar-thumb {
     border-radius: 3.125rem;
-    background-color: red;
+    background-color: var(--red);
     /* border: 2px solid rgb(73, 73, 73); */
+}
+
+::-webkit-scrollbar-button{
+    display: none;
 }
 
 /* ::-webkit-scrollbar-track {
@@ -62,7 +67,9 @@ abbr,
 fieldset,
 .slides_labels,
 button,
-.add_game_container {
+.add_game_container,
+.deleteGameModalWindow,
+.deleteButtonsContainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,9 +97,9 @@ header {
     width: 100%;
     height: 55px;
     text-align: center;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--red);
     background-color: white;
-    transition: 0.5s;
+    transition: 1s;
 }
 
 /*-------------Menu de Navegação-------------*/
@@ -123,10 +130,10 @@ nav {
     margin: 5px;
     justify-content: space-evenly;
     position: relative;
+    cursor: pointer;
 }
 
 .checkbox {
-    cursor: pointer;
     width: 55px;
     height: 26px;
     opacity: 0;
@@ -144,7 +151,7 @@ nav {
 }
 
 .mode_label>.bi-sun-fill {
-    color: yellow;
+    color: grey;
 }
 
 .mode_label>.bi-moon-fill {
@@ -162,7 +169,6 @@ nav {
     width: 22px;
     transform: translateX(0px);
     transition: transform 0.2s linear;
-    cursor: pointer;
 }
 
 /*-------------Itens Principais do Menu de Navegação-------------*/
@@ -173,8 +179,8 @@ nav {
     justify-content: center;
 }
 
-.main_menu_item>a{
-    /* color: black; */
+*>i {
+    color: var(--red);
 }
 
 .main_menu_item>a>i,
@@ -185,7 +191,7 @@ nav {
 .main_menu_item>a>i:hover,
 .dropdown>i:hover {
     padding: 5px;
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid var(--red);
 }
 
 .main_menu_item>a>i:hover,
@@ -195,7 +201,11 @@ nav {
 
 .main_menu_item>a>i::after,
 .main_menu_item.dropdown>i::after {
-    color: red;
+    color: var(--red);
+}
+
+i:hover {
+    cursor: pointer;
 }
 
 /*-------------Item Dropdown do Menu de Navegação-------------*/
@@ -220,7 +230,7 @@ nav {
 }
 
 .dropdown_item {
-    background-color: #cfcfcff2;
+    background-color: var(--red);
     border-radius: 10px;
     width: 170px;
     height: 30px;
@@ -228,15 +238,17 @@ nav {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.322);
 }
 
+.dropdown_item:hover {
+    transform: scale(1.1);
+}
+
 .dropdown_item>a {
-    color: black;
     font-weight: bolder;
     width: 100%;
     height: 100%;
 }
 
 .dropdown_item>a:hover {
-    color: red;
     transform: scale(1.1);
 }
 
@@ -251,7 +263,11 @@ nav {
 .search_box {
     width: 200px;
     height: 30px;
-    border: 1px solid black;
+    border: 1px solid var(--red);
+}
+
+.search_box::placeholder {
+    color: var(--red);
 }
 
 .search_box:active {
@@ -259,10 +275,10 @@ nav {
 }
 
 .search_btn {
-    color: black;
+    color: var(--red);
     font-size: 12px;
     background-color: transparent;
-    border: 1px solid black;
+    border: 1px solid var(--red);
     width: 80px;
     height: 20px;
     text-align: center;
@@ -271,13 +287,12 @@ nav {
 }
 
 .search_btn:hover {
-    color: white;
-    background-color: black;
+    transform: scale(1.1);
 }
 
 .search_btn:active {
     color: white;
-    background-color: red;
+    background-color: var(--red);
     border: none;
 }
 
@@ -286,19 +301,17 @@ nav {
 body {
     width: 100vw;
     flex-direction: column;
-    transition: 0.5s;
+    transition: 1s;
     /* transition: background 0.2s linear; */
 }
 
 /*-------------Mudança de Modo (body, header e botão de pesquisa)-------------*/
 
 .dark {
-    color: white;
     background-color: rgb(12, 12, 12);
-    border-color: white;
 }
 
-.light{
+.light {
     background-color: white;
 }
 
@@ -308,7 +321,31 @@ body {
     background-color: rgb(46, 46, 46);
 }
 
-.dark_font{
+.dark_font {
+    color: var(--red);
+}
+
+.light_font {
+    color: black;
+}
+
+.black_font {
+    color: black;
+}
+
+.black_font:hover {
+    color: white;
+}
+
+.white_font {
+    color: white;
+}
+
+.white_font:hover {
+    color: black;
+}
+
+.white_only_font {
     color: white;
 }
 
@@ -318,7 +355,7 @@ dialog {
     align-items: center;
     justify-content: center;
     border: none;
-    background-color: #000000b8;
+    background-color: #000000e8;
     width: 100%;
     height: 100%;
     z-index: 1;
@@ -332,8 +369,7 @@ dialog[open] {
 
 #modal {
     justify-content: space-between;
-    /* gap: 20px; */
-    /* background-color: #0e0e0ede; */
+    border: 2px solid var(--red);
     flex-direction: column;
     width: 400px;
     height: fit-content;
@@ -346,23 +382,167 @@ dialog[open] {
 #close_modal {
     color: rgb(255, 255, 255);
     width: 100%;
-    height: 50px;
+    height: 35px;
     font-size: 25px;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: space-around;
+    gap: 95px;
+    border-bottom: 2px inset var(--red);
+}
+
+#close_modal>p {
+    color: var(--green);
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-wrap: nowrap;
+}
+
+#close_modal>i:first-of-type {
+    color: grey;
 }
 
 #close_modal>i {
     z-index: 1;
     width: fit-content;
     font-size: 25px;
-    margin: 15px 15px;
-    position: absolute;
 }
 
 #close_modal>i:hover {
-    color: red;
+    color: var(--red);
 }
+
+/*-------------Modal de Exclusão de Jogos-------------*/
+
+.deleteGameModal {
+    background-color: #00000030;
+    height: 100vh;
+    width: 100vw;
+}
+
+.deleteGameModalHeaderContainer {
+    justify-content: space-around;
+    gap: 100px;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+    border-bottom: 2px solid var(--red);
+}
+
+.deleteGameModalHeaderContainer>i:first-of-type {
+    color: grey;
+}
+
+.deleteGameModalWindow {
+    justify-content: start;
+    width: 400px;
+    height: 260px;
+    border: 2px solid var(--red);
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.deleteGameModalTitle {
+    width: 115px;
+    text-align: center;
+    color: var(--red);
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: transparent;
+    padding: 0;
+}
+
+.deleteGameModalMessage {
+    color: var(--red);
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: transparent;
+}
+
+.deleteButtonsContainer {
+    gap: 50px;
+}
+
+#deleteYesButton {
+    color: var(--green);
+    border: 2px solid var(--green);
+    font-weight: 700;
+    background-color: transparent;
+}
+
+#deleteNoButton {
+    color: var(--red);
+    border: 2px solid var(--red);
+    font-weight: 700;
+    background-color: transparent;
+}
+
+#deleteNoButton:hover,
+#deleteYesButton:hover {
+    transform: scale(1.2);
+    transition: 0s;
+    box-shadow: 5px 9px 22px -2px rgba(0, 0, 0, 0.63);
+}
+
+/*-------------Modal de Finalização-------------*/
+
+.gameModalContainer {
+    background-color: #00000030;
+    height: 100vh;
+    width: 100vw;
+}
+
+.gameModalClosureContainer {
+    justify-content: space-around;
+    gap: 100px;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+    border-bottom: 2px solid var(--red);
+}
+
+.gameModalClosureTitle {
+    width: 115px;
+    text-align: center;
+    color: var(--red);
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.gameModalClosureContainer>i:first-of-type {
+    color: grey;
+}
+
+.gameModalClosureWindow {
+    justify-content: start;
+    width: 400px;
+    height: 260px;
+    border: 2px solid var(--red);
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.gameModalClosureMessage {
+
+    color: var(--green);
+}
+
+.gameModalClosureWindow>p {
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: transparent;
+}
+
+#modalClosureButton {
+    width: fit-content;
+    color: var(--red);
+    border-color: var(--red);
+}
+
 
 /*-------------Inputs do Slide-------------*/
 
@@ -374,6 +554,10 @@ dialog[open] {
 .select_slide_options>input {
     width: fit-content;
     cursor: pointer;
+}
+
+.active {
+    background-color: var(--red);
 }
 
 /*-------------Formulário do Modal-------------*/
@@ -409,23 +593,32 @@ dialog[open] {
 /*-------------Inputs do Modal-------------*/
 
 #form input[type=text] {
-    color: black;
     height: 40px;
     border-radius: 10px;
 }
 
+#form input[type=submit] {
+    color: var(--green);
+    border: 1px solid var(--green);
+}
+
+#form input[type=reset] {
+    color: var(--red);
+    border: 1px solid var(--red);
+}
+
 #form input[type=submit],
 #form input[type=reset] {
+    background-color: transparent;
     font-weight: bolder;
     padding: 0;
     height: 25px;
-    border: 1px solid rgb(12, 12, 12);
 }
 
 #form input[type=submit]:hover,
 #form input[type=reset]:hover {
     cursor: pointer;
-    background-color: red;
+    transform: scale(1.1);
 }
 
 /*-------------Inputs das Opções de Formulário-------------*/
@@ -442,6 +635,7 @@ input {
 }
 
 label {
+    color: var(--red);
     font-weight: bold;
     left: 0;
     bottom: 0;
@@ -453,32 +647,41 @@ label {
 
 .game_options {
     position: relative;
-    left: 360px;
-    gap: 60px;
-    transition: 0.8s;
+    gap: 95px;
+    transition: 1s;
 }
 
 /*-------------Fieldset do Formulário-------------*/
 
 fieldset {
-    color: white;
+    border: 1px solid var(--red);
     width: 210px;
     border-bottom-left-radius: 30px;
     border-top-right-radius: 30px;
 }
 
-fieldset>input{
-    background-color: rgb(173, 173, 173);
+fieldset>input,
+#gamelinkextra {
+    width: 100px;
+    background-color: transparent;
+    border-bottom: 2px solid var(--red);
+    transition: 0.2s;
+}
+
+fieldset>input:focus,
+#gamelinkextra:focus{
+    width: 200px;
 }
 
 fieldset>h1 {
-    color: black;
+    color: var(--red);
     background-color: transparent;
     font-weight: bolder;
+    font-size: 1.3rem;
 }
 
 fieldset>legend {
-    color: black;
+    color: var(--red);
     font-weight: bolder;
 }
 
@@ -513,30 +716,6 @@ fieldset>legend {
     flex-direction: column;
 }
 
-/*-------------Label dos Inputs das Opções de Formulário-------------*/
-
-.navigation {
-    margin-bottom: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.bar {
-    width: 15px;
-    height: 15px;
-    margin: 6px;
-    border-radius: 50%;
-    cursor: pointer;
-    pointer-events: all;
-    transform: .5s ease;
-}
-
-.bar:hover {
-    color: black;
-    background-color: white;
-}
-
 /*-------------Botões de Cadastrar ou Limpar Dados do Jogo-------------*/
 
 .input_btns {
@@ -545,15 +724,6 @@ fieldset>legend {
 
 .input_btns>input {
     width: 100px;
-}
-
-
-/*-------------Botão de Adicionar Jogo-------------*/
-
-
-
-.bi:hover {
-    cursor: pointer;
 }
 
 /*-------------Main-------------*/
@@ -613,7 +783,7 @@ fieldset>legend {
     box-shadow: 7px 3px 19px #0000009e;
     border-radius: 0.625rem;
     transform-style: preserve-3d;
-    transition: all 0.8s ease;
+    transition: all 1s ease;
 }
 
 .card:hover {
@@ -666,7 +836,7 @@ fieldset>legend {
 
 .delete_btn>i {
     color: white;
-    background-color: red;
+    background-color: var(--red);
     border-radius: 50%;
 }
 
@@ -684,7 +854,6 @@ fieldset>legend {
     border-radius: 0.625rem;
     backface-visibility: hidden;
     overflow: hidden;
-    background: #fafafa;
     color: #ffffff;
     text-align: center;
     transform: rotateY(180deg);
@@ -699,10 +868,6 @@ fieldset>legend {
     flex-direction: column;
 }
 
-/* .recommendedrequirements{
-    display: none;
-} */
-
 .sectionbtn {
     display: flex;
     padding: 5px;
@@ -712,7 +877,7 @@ fieldset>legend {
 
 .sectionbtn>button {
     background-color: rgb(0, 0, 0);
-    border: 1px solid red;
+    border: 1px solid var(--red);
     color: white;
     font-size: medium;
     width: 120px;
@@ -721,7 +886,7 @@ fieldset>legend {
 .sectionbtn>button:hover {
     background-color: black;
     border: 1px solid white;
-    color: red;
+    color: var(--red);
     font-size: medium;
 }
 
@@ -731,13 +896,13 @@ h1,
 h3,
 p {
     background-color: black;
+    width: fit-content;
 }
 
 h1 {
-    width: 154px;
     padding: 5px;
     border-radius: 10px;
-    font-size: 1.3rem;
+    font-size: 15px;
     text-align: center;
 }
 
@@ -756,16 +921,15 @@ h1 {
 }
 
 h3 {
-    width: 154px;
     border-radius: 10px;
     padding: 5px;
-    font-size: 1rem;
+    font-size: 12px;
     font-weight: bolder;
 }
 
 p {
     border-radius: 10px;
-    font-size: 0.9rem;
+    font-size: 9px;
     font-weight: 500;
     padding: 5px 10px;
 }
@@ -787,26 +951,25 @@ button {
     height: 2.313rem;
     border: none;
     border-radius: 0.313rem;
-    background-color: var(--torrent_btn);
-    color: var(--torrent_font);
+    background-color: transparent;
+    border: 2px solid var(--green);
+    color: var(--green);
     font-size: large;
 }
 
 button:hover {
-    background-color: var(--torrent_btn_active);
-    color: var(--torrent_font_active);
     cursor: pointer;
-    transform: scale(1.02);
+    transform: scale(1.1);
     transition: 0.5s;
 }
 
 button.mega {
-    background-color: var(--mega_btn);
+    background-color: var(--red);
     color: var(--white);
 }
 
 button.mega:hover {
-    background-color: var(--mega_btn_active);
+    background-color: var(--red_active);
     color: var(--mega_font_active);
 }
 
