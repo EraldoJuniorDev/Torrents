@@ -247,7 +247,7 @@
 @media (min-width: 425px) {
 
     .main_menu {
-        justify-content: center;
+        justify-content: space-between;
         gap: 15px;
     }
 
@@ -281,7 +281,7 @@
     .main_menu {
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 
     .mode_btn {
@@ -369,7 +369,7 @@
 
 @media (min-width: 1024px) {
     .main_menu {
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 
     .menu_nav {
@@ -431,7 +431,7 @@
 
 @media (min-width: 1440px) {
     .main_menu {
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     .main_menu_item {
