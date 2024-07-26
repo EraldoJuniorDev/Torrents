@@ -554,7 +554,7 @@ function gameModalClosure(
     gameModalContainer.className = 'gameModalContainer';
     gameModalClosureWindow.className = 'gameModalClosureWindow light dark';
     gameModalClosureContainer.className = 'gameModalClosureContainer';
-    gameModalClosureIcon.innerText = modalIcon;
+    gameModalClosureIcon.className = modalIcon;
     gameModalClosureTitle.innerText = modalTitle;
     gameModalClosureTitle.className = 'gameModalClosureTitle';
     gameModalClosure.className = 'gameModalClosure bi bi-x-circle';
@@ -590,7 +590,7 @@ function gameModalClosure(
 
 const modalArr = [
     {
-        modalIcon: '*',
+        modalIcon: 'bi bi-trash-fill',
         modalTitle: 'Aviso:',
         modalMessage: 'Seu jogo foi excluído com sucesso.'
     },
