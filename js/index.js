@@ -213,8 +213,7 @@ function addCard({
     deleteIcon.onclick = function () {
         deleteGameModal();
     }
-    deleteIcon.className = 'bi bi-x-circle';
-    deleteIcon.innerText = 'X';
+    deleteIcon.className = 'bi bi-x-circle';
     deleteGame.className = 'delete_btn';
     deleteGame.id = 'deleteGameButton';
 
