@@ -129,6 +129,32 @@ function addCard({
 
     const divCardBack = document.createElement('div');
 
+    //Card Back Descrição
+
+    const divCardBackDescriptionContent = document.createElement('div');
+
+    const deleteIcon = document.createElement('i');
+    const deleteGame = document.createElement('button');
+
+    const divCardBackDescriptionTitle = document.createElement('h1');
+    const divCardBackDescriptionRelease = document.createElement('h3');
+    const divCardBackDescriptionReleaseDate = document.createElement('p');
+
+    const divCardBackDescriptionDeveloper = document.createElement('h3');
+    const divCardBackDescriptionDeveloperName = document.createElement('p');
+
+    const divCardBackDescriptionGenreType = document.createElement('h3');
+    const divCardBackDescriptionGenre = document.createElement('p');
+
+    const divCardBackDescriptionSize = document.createElement('h3');
+    const divCardBackDescriptionFileSize = document.createElement('p');
+
+    const divCardBackButtonTorrentLink = document.createElement('a');
+    const divCardBackButtonTorrent = document.createElement('button');
+
+    const divCardBackButtonExtra = document.createElement('a');
+    const divCardBackButtonExtraLink = document.createElement('button');
+
     //Card Back Requisítos Mínimos
 
     const divCardBackRequiredContent = document.createElement('div');
@@ -161,33 +187,6 @@ function addCard({
     const divCardBackRecommendedOS = document.createElement('h3');
     const divCardBackTypeRecommendedOS = document.createElement('p');
 
-    //Card Overlay
-
-    const divCardOverlay = document.createElement('div');
-    const divCardOverlayContent = document.createElement('div');
-
-    const deleteIcon = document.createElement('i');
-    const deleteGame = document.createElement('button');
-
-    const divCardOverlayTitle = document.createElement('h1');
-    const divCardOverlayRelease = document.createElement('h3');
-    const divCardOverlayReleaseDate = document.createElement('p');
-
-    const divCardOverlayDeveloper = document.createElement('h3');
-    const divCardOverlayDeveloperName = document.createElement('p');
-
-    const divCardOverlayGenreType = document.createElement('h3');
-    const divCardOverlayGenre = document.createElement('p');
-
-    const divCardOverlaySize = document.createElement('h3');
-    const divCardOverlayFileSize = document.createElement('p');
-
-    const divCardBackButtonTorrentLink = document.createElement('a');
-    const divCardBackButtonTorrent = document.createElement('button');
-
-    const divCardBackButtonExtra = document.createElement('a');
-    const divCardBackButtonExtraLink = document.createElement('button');
-
     // Tudo da divMain
     divMain.className = 'gameContent';
     divMain.id = id;
@@ -206,10 +205,31 @@ function addCard({
     // Tudo da divCardBack
     divCardBack.className = 'card_back';
 
-    // Tudo da divCardOverlay
-    divCardOverlay.className = 'card_overlay';
+
 
     // Tudo da divCardBackRequiredContent
+
+    
+    deleteIcon.onclick = function () {
+        deleteGameModal();
+    }
+    deleteIcon.className = 'bi bi-x-circle';
+    deleteIcon.innerText = 'X';
+    deleteGame.className = 'delete_btn';
+    deleteGame.id = 'deleteGameButton';
+
+    divCardBackDescriptionContent.className = 'description';
+
+    divCardBackDescriptionTitle.innerText = title;
+    divCardBackDescriptionRelease.innerText = 'Lançamento:';
+    divCardBackDescriptionReleaseDate.innerText = releaseDate;
+    divCardBackDescriptionDeveloper.innerText = 'Desenvolvedora:';
+    divCardBackDescriptionDeveloperName.innerText = developerName;
+    divCardBackDescriptionGenreType.innerText = 'Gênero:';
+    divCardBackDescriptionGenre.innerText = genre;
+    divCardBackDescriptionSize.innerText = 'Tamanho:';
+    divCardBackDescriptionFileSize.innerText = fileSize;
+
     divCardBackRequiredContent.className = 'minimumrequirements';
     divCardBackMinimumRequirements.innerText = 'Requisitos Mínimos:';
     divCardBackRequiredRamMemory.innerText = 'RAM:';
@@ -236,60 +256,27 @@ function addCard({
     divCardBackTypeRecommendedCPU.innerText = typeRecommendedCPU;
     divCardBackRecommendedOS.innerText = 'Sistema Operacional Recomendado:';
     divCardBackTypeRecommendedOS.innerText = typeRecommendedOS;
+    
+    divCardBackDescriptionContent.appendChild(divCardBackDescriptionTitle);
+    divCardBackDescriptionContent.appendChild(divCardBackDescriptionRelease);
+    divCardBackDescriptionContent.appendChild(divCardBackDescriptionReleaseDate);
 
-    // Tudo da divCardOverlayContent
-    divCardOverlayContent.className = 'description';
-    deleteIcon.onclick = function () {
-        deleteGameModal();
-    }
-    deleteIcon.className = 'bi bi-x-circle';
-    deleteGame.className = 'delete_btn';
-    deleteGame.id = 'deleteGameButton';
+    divCardBackDescriptionContent.appendChild(divCardBackDescriptionDeveloper);
+    divCardBackDescriptionContent.appendChild(divCardBackDescriptionDeveloperName);
 
-    divCardOverlayTitle.innerText = title;
-    divCardOverlayRelease.innerText = 'Lançamento:';
-    divCardOverlayReleaseDate.innerText = releaseDate;
-    divCardOverlayDeveloper.innerText = 'Desenvolvedora:';
-    divCardOverlayDeveloperName.innerText = developerName;
-    divCardOverlayGenreType.innerText = 'Gênero:';
-    divCardOverlayGenre.innerText = genre;
-    divCardOverlaySize.innerText = 'Tamanho:';
-    divCardOverlayFileSize.innerText = fileSize;
+    divCardBackDescriptionContent.appendChild(divCardBackDescriptionGenreType);
+    divCardBackDescriptionContent.appendChild(divCardBackDescriptionGenre);
 
+    divCardBackDescriptionContent.appendChild(divCardBackDescriptionSize);
+    divCardBackDescriptionContent.appendChild(divCardBackDescriptionFileSize);
 
-    deleteGame.appendChild(deleteIcon);
-    divCardOverlayContent.appendChild(deleteGame);
-
-    divCardOverlayContent.appendChild(divCardOverlayTitle);
-    divCardOverlayContent.appendChild(divCardOverlayRelease);
-    divCardOverlayContent.appendChild(divCardOverlayReleaseDate);
-
-    divCardOverlayContent.appendChild(divCardOverlayDeveloper);
-    divCardOverlayContent.appendChild(divCardOverlayDeveloperName);
-
-    divCardOverlayContent.appendChild(divCardOverlayGenreType);
-    divCardOverlayContent.appendChild(divCardOverlayGenre);
-
-    divCardOverlayContent.appendChild(divCardOverlaySize);
-    divCardOverlayContent.appendChild(divCardOverlayFileSize);
-
-    divCardOverlayContent.appendChild(divCardBackButtonTorrentLink);
+    divCardBackDescriptionContent.appendChild(divCardBackButtonTorrentLink);
     divCardBackButtonTorrentLink.appendChild(divCardBackButtonTorrent);
 
     if (isShowExtraLink) {
-        divCardOverlayContent.appendChild(divCardBackButtonExtraLink);
+        divCardBackDescriptionContent.appendChild(divCardBackButtonExtraLink);
         divCardBackButtonExtraLink.appendChild(divCardBackButtonExtra);
     }
-
-    divCardOverlay.appendChild(divCardOverlayContent);
-    divCard.appendChild(divCardOverlay);
-    divCardBack.appendChild(divCardBackRequiredContent);
-    divCardBack.appendChild(divCardBackRecommendedContent);
-    divCard.appendChild(divCardBack);
-    divCardFront.appendChild(divCardFrontImg);
-    divCard.appendChild(divCardFront);
-    divMain.appendChild(divCard);
-    mainContent.appendChild(divMain);
 
     divCardBackRequiredContent.appendChild(divCardBackMinimumRequirements);
     divCardBackRequiredContent.appendChild(divCardBackRequiredRamMemory);
@@ -320,6 +307,19 @@ function addCard({
 
     divCardBackRecommendedContent.appendChild(divCardBackRecommendedOS);
     divCardBackRecommendedContent.appendChild(divCardBackTypeRecommendedOS);
+
+    divCard.appendChild(divCardFront);
+    divCardFront.appendChild(divCardFrontImg);
+
+    divCard.appendChild(divCardBack);
+    divCardBack.appendChild(deleteGame);
+    deleteGame.appendChild(deleteIcon);
+    divCardBack.appendChild(divCardBackDescriptionContent);
+    divCardBack.appendChild(divCardBackRequiredContent);
+    divCardBack.appendChild(divCardBackRecommendedContent);
+
+    divMain.appendChild(divCard);
+    mainContent.appendChild(divMain);
 }
 
 const deleteButtons = document.querySelectorAll('.delete_btn');
@@ -339,17 +339,6 @@ function handleDeleteGame(id) {
     let listGames = JSON.parse(localStorage.getItem(key));
     listGames = listGames.filter(game => game.id !== parseInt(id));
     localStorage.setItem(key, JSON.stringify(listGames));
-}
-
-// Função de Virar Os Cards
-
-function flipCard(card) {
-    if (card.style.transform == 'rotateY(180deg)') {
-        card.style.transform = 'none'
-    }
-    else {
-        card.style.transform = 'rotateY(180deg)'
-    }
 }
 
 // Função de abrir Janela de Adição de Jogos
@@ -384,19 +373,17 @@ function darkTheme() {
     const checkbox = document.getElementById('checkbox');
     const dropDownMenuItem = document.querySelectorAll('.dropdown_item>a');
     const inputList = document.querySelectorAll('#form input[type=text]');
-    // const inputExtraLink = document.querySelector('input[type=text] #gamelinkextra');
 
     checkbox.addEventListener('change', () => {
         document.querySelector('body').classList.toggle('dark');
         document.querySelector('header').classList.toggle('dark');
         document.querySelector('.search_input .search_box').classList.toggle('dark');
         // document.querySelector('.deleteGameModalWindow').classList.toggle('light');
-        // document.querySelector('.gameModalClosureWindow').classList.toggle('light');
-        // modalDarkMode.classList.toggle('light');
+        // document.querySelector('.gameModalClosureContainer').classList.toggle('light');
         document.querySelector('.add_game').classList.toggle('light_dark');
         document.querySelector('#open_modal span').classList.toggle('white_only_font')
         document.querySelector('.card_back').classList.toggle('dark');
-        document.querySelector('#modal').classList.toggle('light');
+        document.querySelector('dialog div').classList.toggle('light');
 
         dropDownMenuItem.forEach(menuItem =>
             menuItem.classList.toggle('white_font'));
@@ -480,10 +467,11 @@ function deleteGameModal() {
     gameModalContainer.className = 'deleteGameModal';
     deleteGameModalWindow.className = 'deleteGameModalWindow light dark';
     deleteGameModalHeaderContainer.className = 'deleteGameModalHeaderContainer';
-    deleteGameModalIcon.className = 'bi bi-trash-fill';
+    deleteGameModalIcon.innerText = '*';
     deleteGameModalTitle.innerText = 'Deletar Jogo:';
     deleteGameModalTitle.className = 'deleteGameModalTitle';
     deleteGameModal.className = 'closeDeleteGameModal bi bi-x-circle';
+    deleteGameModal.innerText = 'X';
     deleteGameModalMessage.innerText = 'Você deseja realmente excluir esse jogo?';
     deleteGameModalMessage.className = 'deleteGameModalMessage light_font dark_font';
     deleteButtonsContainer.className = 'deleteButtonsContainer';
@@ -535,6 +523,7 @@ function gameModalClosure(
     {
         modalIcon,
         modalTitle,
+        modalCloseButton,
         modalMessage
     }
 ) {
@@ -554,10 +543,11 @@ function gameModalClosure(
     gameModalContainer.className = 'gameModalContainer';
     gameModalClosureWindow.className = 'gameModalClosureWindow light dark';
     gameModalClosureContainer.className = 'gameModalClosureContainer';
-    gameModalClosureIcon.className = modalIcon;
+    gameModalClosureIcon.innerText = modalIcon;
     gameModalClosureTitle.innerText = modalTitle;
     gameModalClosureTitle.className = 'gameModalClosureTitle';
     gameModalClosure.className = 'gameModalClosure bi bi-x-circle';
+    gameModalClosure.innerText = modalCloseButton;
     gameModalClosureMessage.innerText = modalMessage;
     gameModalClosureMessage.className = 'gameModalClosureMessage light_font dark_font';
     modalClosureButton.id = 'modalClosureButton'
@@ -590,13 +580,15 @@ function gameModalClosure(
 
 const modalArr = [
     {
-        modalIcon: 'bi bi-trash-fill',
+        modalIcon: '*',
         modalTitle: 'Aviso:',
+        modalCloseButton: 'X',
         modalMessage: 'Seu jogo foi excluído com sucesso.'
     },
     {
         modalIcon: '*',
         modalTitle: 'Aviso:',
+        modalCloseButton: 'X',
         modalMessage: 'Seu jogo foi adicionado com sucesso.'
     }
 ]
