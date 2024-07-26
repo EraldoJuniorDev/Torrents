@@ -18,7 +18,7 @@
 
     .main_menu {
         justify-content: space-around;
-        gap: 0;
+        gap: 5px;
     }
 
     .mode_btn {
@@ -44,7 +44,7 @@
     }
 
     .menu_nav {
-        gap: 20px;
+        gap: 30px;
     }
 
     .main_menu_item {
@@ -70,7 +70,7 @@
     }
 
     .search_box {
-        width: 50px;
+        width: 70px;
         height: 15px;
     }
 
@@ -300,7 +300,7 @@
     }
 
     .menu_nav {
-        gap: 20px;
+        gap: 40px;
     }
 
     .main_menu_item {
@@ -394,7 +394,7 @@
     }
 
     .menu_nav {
-        gap: 70px;
+        gap: 100px;
     }
 
     .mode_label {
