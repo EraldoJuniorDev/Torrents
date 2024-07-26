@@ -86,10 +86,44 @@
         height: 11.188rem;
     }
 
+    #form {
+        margin: 0;
+        padding: 10px;
+        gap: 5px;
+    }
+
+    #form input[type=submit],
+    #form input[type=reset] {
+        font-size: 10px;
+        width: 60px;
+        height: 20px;
+    }
+
+    #close_modal>p {
+        font-size: 10px;
+    }
+
+    fieldset>h1 {
+        font-size: 12px;
+    }
+
+    label {
+        font-size: 10px;
+    }
+
+    #form input[type=text] {
+        font-size: 10px;
+        height: 20px;
+    }
+
+    fieldset>legend {
+        font-size: 10px;
+    }
+
     #modal,
     .deleteGameModalWindow,
     .gameModalClosureWindow {
-        width: 90%;
+        width: 80%;
     }
 
     .deleteGameModalWindow,
@@ -287,7 +321,7 @@
     .mode_btn {
         width: fit-content;
     }
-    
+
 
     .mode_label {
         width: 30px;
@@ -402,7 +436,7 @@
         height: 25px;
     }
 
-    .mode_label>i{
+    .mode_label>i {
         font-size: 15px;
     }
 
@@ -441,6 +475,38 @@
 
     #mainContent {
         padding: 1.25rem 2rem 1.25rem 2rem;
+    }
+
+    #form{
+        padding: 15px;
+    }
+
+    #form input[type=submit],
+    #form input[type=reset] {
+        font-size: 14px;
+        width: 80px;
+        height: 30px;
+    }
+
+    #close_modal>p {
+        font-size: 1rem;
+    }
+
+    fieldset>h1 {
+        font-size: 1rem;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    #form input[type=text] {
+        font-size: 13px;
+        height: 35px;
+    }
+
+    fieldset>legend {
+        font-size: 14px;
     }
 
 
