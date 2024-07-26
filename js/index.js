@@ -11,7 +11,7 @@ listAllGames();
 openAddMenu();
 darkTheme();
 addExtraLink();
-SlidesModal();
+slidesModal();
 slideOptions();
 
 // Função de Adicionar um Jogo
@@ -415,7 +415,7 @@ function addExtraLink() {
 
 // Função dos Slides do Modal
 
-function SlidesModal() {
+function slidesModal() {
     window.addEventListener('load', () => {
         const slideGameOptions = document.querySelector('.game_options');
         const sliderOption0 = document.querySelector('#option0');
