@@ -1,5 +1,9 @@
 @media (min-width: 320px) {
 
+    header{
+        height: 30px;
+    }
+
     dialog {
         width: 100vw;
         height: 100vh;
@@ -12,13 +16,14 @@
 
     .add_game>span {
         text-align: center;
-        font-size: 13px;
+        font-size: 10px;
         padding: 0 20px 0 20px;
     }
 
     .main_menu {
-        justify-content: space-around;
+        justify-content: space-between;
         gap: 5px;
+        padding: 0 5px 0 5px;
     }
 
     .mode_btn {
@@ -62,7 +67,7 @@
     }
 
     input[type=search] {
-        font-size: 4px;
+        font-size: 7px;
     }
 
     .search_input {
@@ -99,8 +104,10 @@
         height: 20px;
     }
 
-    #close_modal>p {
-        font-size: 10px;
+    #close_modal>p,
+    .deleteGameModalTitle,
+    .gameModalClosureTitle {
+        font-size: 12px;
     }
 
     fieldset>h1 {
@@ -116,30 +123,57 @@
         height: 20px;
     }
 
+    fieldset>input,
+    #gamelinkextra {
+        width: 50px;
+    }
+
+    fieldset>input:focus,
+    #gamelinkextra:focus {
+        width: 100px;
+    }
+
     fieldset>legend {
         font-size: 10px;
     }
 
-    #modal,
-    .deleteGameModalWindow,
-    .gameModalClosureWindow {
-        width: 65%;
+    .extra_download {
+        width: 150px;
+        height: 25px;
+    }
+
+    #yesbtn,
+    #nobtn {
+        height: 10px;
+    }
+
+    #modal {
+        width: 70%;
+        height: 300px;
+        overflow-y: scroll;
     }
 
     .deleteGameModalWindow,
     .gameModalClosureWindow {
-        gap: 60px;
+        width: 60%;
+        height: 170px;
+        gap: 20px;
     }
 
     #close_modal,
     .deleteGameModalHeaderContainer,
     .gameModalClosureContainer {
-        gap: 30px;
+        gap: 10px;
     }
 
-    .deleteGameModalMessage {
+    #close_modal>i {
+        font-size: 10px;
+    }
+
+    .deleteGameModalMessage,
+    .gameModalClosureWindow>p {
+        font-size: 12px;
         text-align: center;
-        padding: 0 30px 0 30px;
     }
 
     #deleteYesButton,
@@ -236,21 +270,26 @@
         padding: 1.25rem 1rem 1.25rem 1rem;
     }
 
-    #modal,
-    .deleteGameModalWindow,
-    .gameModalClosureWindow {
-        width: 70%;
+    #modal {
+        width: 50%;
     }
 
     .deleteGameModalWindow,
     .gameModalClosureWindow {
-        gap: 60px;
+        width: 60%;
+        height: fit-content;
+        padding-bottom: 20px;
+    }
+
+    .deleteGameModalWindow,
+    .gameModalClosureWindow {
+        gap: 30px;
     }
 
     #close_modal,
     .deleteGameModalHeaderContainer,
     .gameModalClosureContainer {
-        gap: 60px;
+        gap: 10px;
     }
 
     .deleteGameModalMessage {
@@ -277,7 +316,6 @@
 @media (min-width: 425px) {
 
     .main_menu {
-        justify-content: space-around;
         gap: 15px;
     }
 
@@ -307,21 +345,34 @@
     input {
         font-size: 6px;
     }
+
+    #modal {
+        width: 60%;
+        height: fit-content;
+        overflow-y: hidden;
+    }
+
+    .extra_download {
+        width: 80%;
+    }
 }
 
 @media (min-width: 768px) {
 
+    header{
+        height: 50px;
+    }
+
     .main_menu {
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
         gap: 20px;
+        padding: 0 20px 0 20px;
     }
 
     .mode_btn {
         width: fit-content;
     }
-
 
     .mode_label {
         width: 30px;
@@ -375,10 +426,18 @@
         height: 20.188rem;
     }
 
+    .add_game>span{
+        font-size: 16px;
+    }
+
     #modal,
     .deleteGameModalWindow,
     .gameModalClosureWindow {
-        width: 70%;
+        width: 300px;
+    }
+
+    .extra_download {
+        width: 100%;
     }
 
     .description,
@@ -423,12 +482,8 @@
 }
 
 @media (min-width: 1024px) {
-    .main_menu {
-        justify-content: space-evenly;
-    }
-
     .menu_nav {
-        gap: 100px;
+        gap: 80px;
     }
 
     .mode_label {
@@ -477,7 +532,7 @@
         padding: 1.25rem 2rem 1.25rem 2rem;
     }
 
-    #form{
+    #form {
         padding: 15px;
     }
 
@@ -505,10 +560,17 @@
         height: 35px;
     }
 
+    .extra_download {
+        width: 100%;
+    }
+
     fieldset>legend {
         font-size: 14px;
     }
 
+    .extra_download {
+        height: 35px;
+    }
 
     .description {
         gap: 0.5rem;
