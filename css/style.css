@@ -37,7 +37,7 @@
     /* border: 2px solid rgb(73, 73, 73); */
 }
 
-::-webkit-scrollbar-button{
+::-webkit-scrollbar-button {
     display: none;
 }
 
@@ -87,7 +87,9 @@ i,
 fieldset,
 .description,
 .minimumrequirements,
-#mainContent {
+#mainContent,
+.openLogin,
+.loginContent {
     display: flex;
 }
 
@@ -119,16 +121,15 @@ nav {
 /*-------------Botão de Troca de Modo-------------*/
 
 .mode_btn {
-    width: 290px;
+    border: 2px solid var(--red);
+    border-radius: 50px;
 }
 
 .mode_label {
     width: 55px;
     height: 26px;
     align-items: center;
-    background-color: yellow;
     border-radius: 50px;
-    margin: 5px;
     justify-content: space-evenly;
     position: relative;
     cursor: pointer;
@@ -161,7 +162,7 @@ nav {
 
 .mode_label .ball {
     z-index: 1;
-    background-color: black;
+    background-color: var(--red);
     border-radius: 50%;
     position: absolute;
     top: 2px;
@@ -297,10 +298,17 @@ i:hover {
     border: none;
 }
 
+/*-------------Login-------------*/
+
+.openLogin{
+    flex-direction: column;
+}
+
 /*-------------Body-------------*/
 
 body {
     width: 100vw;
+    overflow-x: hidden;
     flex-direction: column;
     transition: 1s;
     /* transition: background 0.2s linear; */
@@ -350,7 +358,7 @@ body {
     color: white;
 }
 
-/*-------------Div Geral do Modal-------------*/
+/*-------------Div Geral do Modal de Adicionar Jogos-------------*/
 
 dialog {
     align-items: center;
@@ -376,6 +384,80 @@ dialog[open] {
     height: fit-content;
     border-radius: 10px;
     overflow: hidden;
+}
+
+/*-------------Div Geral do Login-------------*/
+
+.loginContainer {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 79px;
+}
+
+.loginContent {
+    background-color: white;
+    width: 300px;
+    height: fit-content;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    padding-bottom: 40px;
+    gap: 40px;
+    border: 2px solid var(--green);
+    border-radius: 10px;
+}
+
+.loginContent>#close_modal{
+    border-color: var(--green);
+}
+
+.loginContent>#close_modal>p{
+    width: 115px;
+    padding: 0;
+}
+
+.loginFieldset {
+    flex-direction: column;
+    gap: 25px;
+    border: none;
+}
+
+.loginFieldset>label {
+    color: var(--green);
+    height: fit-content;
+}
+
+.loginFieldset>input[type=text],
+.loginFieldset>input[type=password] {
+    width: 200px;
+    height: 30px;
+    font-size: 14px;
+    border-color: var(--green);
+}
+
+.loginMessage{
+    color: var(--red);
+    background-color: transparent;
+    font-weight: bolder;
+    font-size: 13px;
+    display: none;
+}
+
+.loginContent>input[type=submit] {
+    color: var(--green);
+    background-color: transparent;
+    border: 2px solid var(--green);
+    width: 60px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.loginContent>input[type=submit]:hover {
+    transform: scale(1.1);
 }
 
 /*-------------Botão de Fechar Modal-------------*/
@@ -663,7 +745,8 @@ fieldset {
 }
 
 fieldset>input,
-#gamelinkextra {
+#gamelinkextra,
+#linkextrabutton {
     width: 100px;
     background-color: transparent;
     border-bottom: 2px solid var(--red);
@@ -671,7 +754,8 @@ fieldset>input,
 }
 
 fieldset>input:focus,
-#gamelinkextra:focus{
+#gamelinkextra:focus,
+#linkextrabutton:focus {
     width: 200px;
 }
 
@@ -721,6 +805,7 @@ fieldset>legend {
 /*-------------Botões de Cadastrar ou Limpar Dados do Jogo-------------*/
 
 .input_btns {
+    flex-direction: column;
     gap: 20px;
 }
 
@@ -742,6 +827,7 @@ fieldset>legend {
 /*-------------Container Para Adição de Jogo-------------*/
 
 .add_game {
+    display: none;
     position: static;
     width: 17.125rem;
     height: 24.188rem;
@@ -790,7 +876,7 @@ fieldset>legend {
 
 .card:hover {
     cursor: pointer;
-    transform: rotateY(180deg);
+    /* transform: rotateY(180deg); */
 }
 
 .card_front {
@@ -805,21 +891,46 @@ fieldset>legend {
     color: #000;
 }
 
-.card_overlay {
+.settings {
+    display: none;
+    font-weight: bolder;
+    position: fixed;
+    top: 10px;
+    left: 130px;
     flex-direction: column;
-    gap: 30px;
-    z-index: 1;
-    border-radius: 0.625rem;
-    width: 100%;
-    height: 100%;
-    color: rgb(255, 255, 255);
-    background-color: rgba(0, 0, 0, 0.733);
-    opacity: 0;
+    text-align: center;
+    width: 100px;
+    gap: 5px;
 }
 
-.card_overlay:hover {
-    transition: 1s;
-    opacity: 1;
+.settingsButton {
+    font-size: 2em;
+    background-color: var(--red);
+    border-radius: 50px;
+    height: 20px;
+    display: flex;
+    align-items: end;
+}
+
+.settingsButton:hover{
+    transform: scale(1.1);
+}
+
+.settingsOptions {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.settingsOption{
+    background-color: var(--red);
+    border-radius: 10px;
+    width: 120px;
+    padding: 5px;
+}
+
+.settingsOption:hover{
+    transform: scale(1.1);
 }
 
 .delete_btn {
@@ -844,8 +955,6 @@ fieldset>legend {
     border-radius: 50%;
 }
 
-
-
 .card_back {
     z-index: 2;
     position: absolute;
@@ -865,6 +974,13 @@ fieldset>legend {
     flex-direction: column;
     overflow: scroll;
 
+}
+
+.card_back>hr {
+    height: 5px;
+    width: 85%;
+    background-color: green;
+    border: 1px solid var(--red);
 }
 
 .recommendedrequirements,
@@ -948,7 +1064,8 @@ p {
 
 /*-------------Botão de Download Principal-------------*/
 
-button {
+button,
+.extra {
     box-shadow: 0 15px 22px #0000002a;
     gap: 0.625rem;
     width: 12.5rem;
@@ -986,17 +1103,6 @@ button>img {
 
 /*-------------Botão Adicional-------------*/
 
-.extra {
-    font-size: 1rem;
-    background-color: var(--extra_btn);
-    color: var(--white);
-    height: 1.5rem;
-}
-
-.extra:hover {
-    background-color: var(--extra_btn_active);
-}
-
 div.extra_double {
     gap: 0.425rem;
 }
@@ -1004,5 +1110,3 @@ div.extra_double {
 .extra_double>a>.extra {
     width: 5.938rem;
 }
-
-/*=======================================*/
