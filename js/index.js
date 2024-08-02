@@ -538,25 +538,21 @@ const modalArr = [
     {
         modalIcon: '*',
         modalTitle: 'Aviso:',
-        modalCloseButton: 'X',
         modalMessage: 'Seu jogo foi excluído com sucesso.'
     },
     {
         modalIcon: '*',
         modalTitle: 'Aviso:',
-        modalCloseButton: 'X',
         modalMessage: 'Seu jogo foi adicionado com sucesso.'
     },
     {
         modalIcon: '*',
         modalTitle: 'Bem-vindo',
-        modalCloseButton: 'X',
         modalMessage: 'Seja muito bem-vindo!'
     },
     {
         modalIcon: '*',
         modalTitle: 'Aviso:',
-        modalCloseButton: 'X',
         modalMessage: 'Todos os dados existentes foram limpos.'
     }
 ]
@@ -586,7 +582,6 @@ function deleteGameModal() {
     deleteGameModalTitle.innerText = 'Deletar Jogo:';
     deleteGameModalTitle.className = 'deleteGameModalTitle';
     deleteGameModal.className = 'closeDeleteGameModal bi bi-x-circle';
-    deleteGameModal.innerText = 'X';
     deleteGameModalMessage.innerText = 'Você deseja realmente excluir esse jogo?';
     deleteGameModalMessage.className = 'deleteGameModalMessage light_font dark_font';
     deleteButtonsContainer.className = 'deleteButtonsContainer';
@@ -635,7 +630,6 @@ function gameModalClosure(
     {
         modalIcon,
         modalTitle,
-        modalCloseButton,
         modalMessage
     }
 ) {
@@ -665,8 +659,7 @@ function gameModalClosure(
     gameModalClosureIcon.innerText = modalIcon;
     gameModalClosureTitle.innerText = modalTitle;
     gameModalClosureTitle.className = 'gameModalClosureTitle';
-    gameModalClosure.className = 'gameModalClosure bi bi-x-circle';
-    gameModalClosure.innerText = modalCloseButton;
+    gameModalClosure.className = 'gameModalClosure bi bi-x-circle';
     gameModalClosureMessage.innerText = modalMessage;
     gameModalClosureMessage.className = 'gameModalClosureMessage light_font dark_font';
     modalClosureButton.id = 'modalClosureButton'
