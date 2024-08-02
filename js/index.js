@@ -723,6 +723,10 @@ const loginUsers = [
     {
         user: 'ninho',
         pass: 'ninho'
+    },
+{
+        user: 'txola',
+        pass: 'txola'
     }
 ]
 
