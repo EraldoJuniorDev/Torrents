@@ -3,20 +3,56 @@ const games = [];
 let gameId = 0;
 const form = document.getElementById('form');
 form.addEventListener('submit', handleSubmit);
+form.addEventListener('reset', loginHandleSubmit);
+const resetButton = document.getElementById('resetButton');
+resetButton.addEventListener('click', loginHandleReset)
 const gameMinimumRequirements = document.getElementById('gameminimumrequirements');
 gameMinimumRequirements.addEventListener('submit', handleSubmit);
 const gameRecommendedRequirements = document.getElementById('gamerecommendedrequirements');
 gameRecommendedRequirements.addEventListener('submit', handleSubmit);
+const loginForm = document.querySelector('.loginContent');
+loginForm.addEventListener('submit', loginHandleSubmit);
+
 listAllGames();
 openAddMenu();
 darkTheme();
 addExtraLink();
 slidesModal();
 slideOptions();
+closeModals();
+
+function loginHandleSubmit(ev) {
+    ev.preventDefault();
+}
+
+function loginHandleReset() {
+    const addGameModal = document.querySelector('.addGameModal');
+    const loginSubmited = document.querySelector('.gameModalContainer');
+
+    gameModalClosure(modalArr[3])
+
+    // if(loginSubmited == null){
+    //     addGameModal.close()
+    // }else{
+    //     addGameModal.show();
+    // }
+
+    while (loginSubmited !== null) {
+        addGameModal.show()
+    }
+}
 
 // Função de Adicionar um Jogo
 
 function handleSubmit(ev) {
+    gameModalClosure(modalArr[1]);
+    const addGameModal = document.querySelector('.addGameModal');
+    const loginSubmited = document.querySelector('.gameModalContainer');
+
+    if (loginSubmited !== null) {
+        addGameModal.close()
+    }
+
     ev.preventDefault();
     const frontImg = document.getElementById('frontimage').value;
     const title = document.getElementById('gametitle').value;
@@ -25,6 +61,7 @@ function handleSubmit(ev) {
     const genre = document.getElementById('gamegenre').value;
     const fileSize = document.getElementById('gamesize').value;
     const buttonTorrentLink = document.getElementById('gamelink').value;
+    const buttonExtraTitle = document.getElementById('linkextrabutton').value;
     const buttonExtraLink = document.getElementById('gamelinkextra').value;
 
     const typeRequiredRamMemory = document.getElementById('requiredram').value;
@@ -55,6 +92,7 @@ function handleSubmit(ev) {
         typeRequiredCPU,
         typeRequiredOS,
         buttonTorrentLink,
+        buttonExtraTitle,
         buttonExtraLink,
         isShowExtraLink: false,
         typeRecommendedRamMemory,
@@ -108,8 +146,9 @@ function addCard({
     typeRequiredCPU,
     typeRequiredOS,
     buttonTorrentLink,
+    buttonExtraTitle,
     buttonExtraLink,
-    isShowExtraLink = false,
+    isShowExtraLink,
     typeRecommendedRamMemory,
     typeRecommendedGraphicsCard,
     typeRecommendedCPU,
@@ -125,16 +164,26 @@ function addCard({
     const divCardFront = document.createElement('div');
     const divCardFrontImg = document.createElement('img');
 
+    const settings = document.createElement('div');
+    const settingsButtonFloat = document.createElement('abbr');
+    const settingsButton = document.createElement('span');
+    const settingsOptions = document.createElement('div');
+    const favorite = document.createElement('span');
+    const deleteGame = document.createElement('span');
+    const editGame = document.createElement('span');
+
     //Card Back
 
     const divCardBack = document.createElement('div');
+
+    const line = document.createElement('hr');
+    const lineplus = document.createElement('hr');
+
 
     //Card Back Descrição
 
     const divCardBackDescriptionContent = document.createElement('div');
 
-    const deleteIcon = document.createElement('i');
-    const deleteGame = document.createElement('button');
 
     const divCardBackDescriptionTitle = document.createElement('h1');
     const divCardBackDescriptionRelease = document.createElement('h3');
@@ -152,8 +201,8 @@ function addCard({
     const divCardBackButtonTorrentLink = document.createElement('a');
     const divCardBackButtonTorrent = document.createElement('button');
 
-    const divCardBackButtonExtra = document.createElement('a');
-    const divCardBackButtonExtraLink = document.createElement('button');
+    const divCardBackButtonExtraLink = document.createElement('a');
+    const divCardBackButtonExtra = document.createElement('button');
 
     //Card Back Requisítos Mínimos
 
@@ -195,27 +244,30 @@ function addCard({
     divCard.className = 'card';
     divCard.id = 'card';
     divCard.tagName = 'card';
-    divCard.addEventListener('click', (ev) => flipCard(ev.currentTarget));
 
     // Tudo da divCardFront
     divCardFront.className = 'card_front';
     divCardFrontImg.src = frontImg;
     divCardFrontImg.className = 'game_cover';
 
+    settings.className = 'settings';
+    settingsButtonFloat.title = 'Opções';
+    settingsButton.className = 'settingsButton white_font black_font';
+    settingsButton.innerText = '...';
+    settingsOptions.className = 'settingsOptions';
+    favorite.innerText = 'Favoritar';
+    favorite.className = 'settingsOption favorite white_font black_font';
+    deleteGame.innerHTML = 'Excluir Jogo';
+    deleteGame.className = 'settingsOption deleteGame white_font black_font';
+    deleteGame.onclick = deleteGameModal;
+    editGame.innerText = 'Editar Jogo';
+    editGame.className = 'settingsOption editGame white_font black_font';
+
     // Tudo da divCardBack
     divCardBack.className = 'card_back';
 
-
-
     // Tudo da divCardBackRequiredContent
 
-    
-    deleteIcon.onclick = function () {
-        deleteGameModal();
-    }
-    deleteIcon.className = 'bi bi-x-circle';
-    deleteGame.className = 'delete_btn';
-    deleteGame.id = 'deleteGameButton';
 
     divCardBackDescriptionContent.className = 'description';
 
@@ -242,8 +294,8 @@ function addCard({
     divCardBackButtonTorrentLink.href = buttonTorrentLink;
     divCardBackButtonTorrent.innerText = 'Download';
     divCardBackButtonExtraLink.href = buttonExtraLink;
-    divCardBackButtonExtraLink.innerText = 'Updater';
-    divCardBackButtonExtraLink.className = 'extra';
+    divCardBackButtonExtra.innerText = buttonExtraTitle;
+    divCardBackButtonExtra.className = 'extra';
 
     divCardBackRecommendedContent.className = 'recommendedrequirements';
     divCardBackRecommendedRequirements.innerText = 'Requisitos Recomendados:';
@@ -255,7 +307,7 @@ function addCard({
     divCardBackTypeRecommendedCPU.innerText = typeRecommendedCPU;
     divCardBackRecommendedOS.innerText = 'Sistema Operacional Recomendado:';
     divCardBackTypeRecommendedOS.innerText = typeRecommendedOS;
-    
+
     divCardBackDescriptionContent.appendChild(divCardBackDescriptionTitle);
     divCardBackDescriptionContent.appendChild(divCardBackDescriptionRelease);
     divCardBackDescriptionContent.appendChild(divCardBackDescriptionReleaseDate);
@@ -309,20 +361,28 @@ function addCard({
 
     divCard.appendChild(divCardFront);
     divCardFront.appendChild(divCardFrontImg);
+    divCardFront.appendChild(settings);
+    settings.appendChild(settingsButtonFloat);
+    settingsButtonFloat.appendChild(settingsButton);
+    settings.appendChild(settingsOptions)
+    settingsOptions.appendChild(favorite);
+    settingsOptions.appendChild(deleteGame);
+    settingsOptions.appendChild(editGame);
 
     divCard.appendChild(divCardBack);
-    divCardBack.appendChild(deleteGame);
-    deleteGame.appendChild(deleteIcon);
     divCardBack.appendChild(divCardBackDescriptionContent);
+    divCardBack.appendChild(line);
     divCardBack.appendChild(divCardBackRequiredContent);
+    divCardBack.appendChild(lineplus);
     divCardBack.appendChild(divCardBackRecommendedContent);
 
     divMain.appendChild(divCard);
     mainContent.appendChild(divMain);
 }
 
-const deleteButtons = document.querySelectorAll('.delete_btn');
-const modalK = document.querySelector('.deleteGameModalConfirmation');
+//Função de Exclusão de Jogos
+
+// const deleteButtons = document.querySelectorAll('.deleteGame');
 
 // deleteButtons.forEach(button => {
 //     button.addEventListener('click', ev => {
@@ -344,15 +404,10 @@ function handleDeleteGame(id) {
 
 function openAddMenu() {
     const modalOpenBtn = document.querySelector('#open_modal');
-    const modalCloseBtn = document.querySelector('.bi-x-circle-fill');
     const modal = document.querySelector('.addGameModal');
 
     modalOpenBtn.addEventListener('click', () => {
         modal.show();
-    });
-
-    modalCloseBtn.addEventListener('click', () => {
-        modal.close();
     });
 };
 
@@ -372,6 +427,8 @@ function darkTheme() {
     const checkbox = document.getElementById('checkbox');
     const dropDownMenuItem = document.querySelectorAll('.dropdown_item>a');
     const inputList = document.querySelectorAll('#form input[type=text]');
+    const settingsButton = document.querySelectorAll('.settingsButton');
+    const settingsOption = document.querySelectorAll('.settingsOption');
 
     checkbox.addEventListener('change', () => {
         document.querySelector('body').classList.toggle('dark');
@@ -388,8 +445,37 @@ function darkTheme() {
             menuItem.classList.toggle('white_font'));
         inputList.forEach(input =>
             input.classList.toggle('white_only_font'));
+        settingsButton.forEach(settingButton =>
+            settingButton.classList.toggle('white_font')
+        )
+        settingsOption.forEach(option =>
+            option.classList.toggle('white_font'));
     });
 };
+
+//Função de Confirugações de Cards
+
+function handleSettings() {
+
+    const settingsButton = document.querySelectorAll('.settingsButton');
+    const settingsOptions = document.querySelectorAll('.settingsOptions');
+    const modal = document.querySelector('.deleteGameModal');
+
+    settingsButton.forEach(button => {
+        button.addEventListener('click', () => {
+            settingsOptions.forEach(options => {
+                if (options.style.display == 'flex') {
+                    options.style.display = 'none'
+                } else {
+                    options.style.display = 'flex'
+                }
+            })
+        })
+    })
+
+};
+
+handleSettings();
 
 // Função de Adicionar Link/Botão de Download Extra
 
@@ -445,11 +531,41 @@ function slideOptions() {
     })
 };
 
+
+//Array de Objetos do Modal de Exclusão
+
+const modalArr = [
+    {
+        modalIcon: '*',
+        modalTitle: 'Aviso:',
+        modalCloseButton: 'X',
+        modalMessage: 'Seu jogo foi excluído com sucesso.'
+    },
+    {
+        modalIcon: '*',
+        modalTitle: 'Aviso:',
+        modalCloseButton: 'X',
+        modalMessage: 'Seu jogo foi adicionado com sucesso.'
+    },
+    {
+        modalIcon: '*',
+        modalTitle: 'Bem-vindo',
+        modalCloseButton: 'X',
+        modalMessage: 'Seja muito bem-vindo!'
+    },
+    {
+        modalIcon: '*',
+        modalTitle: 'Aviso:',
+        modalCloseButton: 'X',
+        modalMessage: 'Todos os dados existentes foram limpos.'
+    }
+]
+
 //Função do Modal de Confirmação dos Jogos
 
 function deleteGameModal() {
     const bodyContainer = document.querySelector('body');
-    const deleteButtons = document.querySelectorAll('.delete_btn');
+    const deleteButton = document.querySelectorAll('.deleteGame');
     const gameModalContainer = document.createElement('dialog');
     const deleteGameModalWindow = document.createElement('div');
     const deleteGameModalHeaderContainer = document.createElement('div');
@@ -495,11 +611,8 @@ function deleteGameModal() {
     gameModalContainer.appendChild(deleteGameModalWindow);
     bodyContainer.appendChild(gameModalContainer);
 
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', ev => {
-            gameModalContainer.show();
-        });
-    });
+    
+    gameModalContainer.show();
 
     deleteGameModal.addEventListener('click', () => {
         gameModalContainer.remove();
@@ -526,6 +639,12 @@ function gameModalClosure(
         modalMessage
     }
 ) {
+    // const addGameModal = document.querySelector('.addGameModal');
+
+    // if(gameModalContainer.style.display == 'flex'){
+    //     addGameModal.style.display = 'none'
+    // }
+
     const bodyContainer = document.querySelector('body');
     const gameModalContainer = document.createElement('dialog');
     const gameModalClosureWindow = document.createElement('div');
@@ -536,6 +655,7 @@ function gameModalClosure(
     const gameModalClosureMessage = document.createElement('p');
     // const deleteButtonsContainer = document.createElement('div');
     const modalClosureButton = document.createElement('button');
+    gameModalContainer.show();
 
     //Tudo do Modal de Exclusão de Jogos
 
@@ -575,37 +695,106 @@ function gameModalClosure(
     })
 };
 
-//Array de Objetos do Modal de Exclusão
+//Função de Fechamento dos Modais
 
-const modalArr = [
+function closeModals() {
+    const closeButton = document.querySelectorAll('.bi-x-circle-fill');
+    const modal = document.querySelectorAll('dialog');
+
+    closeButton.forEach(closeIcon => {
+        closeIcon.addEventListener('click', () => {
+            modal.forEach(modal => {
+                modal.close();
+            }
+            );
+        })
+    })
+}
+
+//Tudo da Função de Login
+
+function openLogin() {
+    const loginContainer = document.querySelector('.loginContainer');
+
+    loginContainer.show();
+
+}
+
+//Array dos Usuários
+
+const loginUsers = [
     {
-        modalIcon: '*',
-        modalTitle: 'Aviso:',
-        modalCloseButton: 'X',
-        modalMessage: 'Seu jogo foi excluído com sucesso.'
+        user: 'junin',
+        pass: 'junin'
     },
     {
-        modalIcon: '*',
-        modalTitle: 'Aviso:',
-        modalCloseButton: 'X',
-        modalMessage: 'Seu jogo foi adicionado com sucesso.'
+        user: 'ninho',
+        pass: 'ninho'
     }
 ]
 
-function teste() {
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', ev => {
-            const cardId = ev.currentTarget.closest('.gameContent').id;
-            handleDeleteGame(cardId);
-        });
-    });
+//Validação de Login
 
-    function handleDeleteGame(id) {
-        const card = document.getElementById(id);
-        card.remove();
-
-        let listGames = JSON.parse(localStorage.getItem(key));
-        listGames = listGames.filter(game => game.id !== parseInt(id));
-        localStorage.setItem(key, JSON.stringify(listGames));
+function handleLogin() {
+    const username = document.querySelector('#username').value;
+    const password = document.querySelector('#password').value;
+    const addGame = document.querySelector('.add_game');
+    const settingsOptions = document.querySelectorAll('.settings');
+    const loginContainer = document.querySelector('.loginContainer');
+    // const openLoginButton = document.querySelector('.openLoginButton');
+    // const loginSubmited = document.querySelector('.gameModalContainer');
+    const loginModal = function () {
+        gameModalClosure(modalArr[2]);
     }
+    const loginMessage = document.querySelector('.loginMessage');
+
+    for(let i in loginUsers){
+        if (username == loginUsers[i].user && password == loginUsers[i].pass) {
+            loginContainer.close();
+            loginModal();
+            addGame.style.display = 'flex';
+            settingsOptions.forEach(options =>
+                {options.style.display = 'flex'}
+            )
+    
+        } else if (username == '' || password == '') {
+            loginMessage.style.display = 'flex';
+            loginMessage.innerText = 'Nenhum campo pode estar vazio.';
+        }
+    
+        else {
+            loginMessage.style.display = 'flex';
+            loginMessage.innerText = 'Usuário ou senha incorretos.'
+        }
+    }
+
 }
+
+// function login(){
+//     const bodyContainer = document.querySelector('body');
+//     const loginModal = document.createElement('dialog');
+//     const loginForm = document.createElement('form');
+
+//     const loginHeader = document.createElement('div');
+//     const loginIcon = document.createElement('i');
+//     const loginTitle = document.createElement('p');
+//     const loginCloseButton = document.createElement('i');
+
+//     const loginFieldset = document.createElement('fieldset');
+//     const usernameLabel = document.createElement('label');
+//     const usernameInput = document.createElement('input');
+//     const passwordLabel = document.createElement('label');
+//     const passwordInput = document.createElement('input');
+
+//     const loginMessage = document.createElement('p');
+//     const submitInput = document.createElement('input');
+
+//     loginModal.className = 'LoginContainer';
+//     loginForm.className = 'loginContent';
+//     loginHeader.id = 'close_modal';
+//     loginIcon.innerText = '*';
+//     loginTitle.innerText = 'Login:';
+//     loginCloseButton.className = 'bi bi-x-circle-fill';
+//     loginFieldset.className = 'loginFieldset';
+//     usernameLabel
+// }
